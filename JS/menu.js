@@ -15,70 +15,28 @@ function myFunction() {
   }
 }
 
-// Function to update the banner with the last updated timestamp
-function updateBanner() {
-    const lastUpdated = new Date();
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit' 
-    };
-  
-    // Format the date
-    const formattedDate = lastUpdated.toLocaleDateString('en-US', options);
-  
-    // Update the banner timestamp
-    const timestampElement = document.getElementById('update-timestamp');
-    if (timestampElement) {
-        timestampElement.innerText = `${formattedDate}`;
-    } else {
-        timestampElement.innerText = `Last xxx : ${formattedDate}`;
-        console.error("Element with id 'update-timestamp' not found.");
-    }
+async function fetchLastCommit() {
+  const owner = "radhika-designs";
+  const repo = "portfolio";
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const commits = await response.json();
+    const lastCommitDate = new Date(commits[0].commit.committer.date).toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    document.getElementById("last-updated").textContent = `${lastCommitDate}`;
+  } catch (error) {
+    console.error("Error fetching commits:", error);
+    document.getElementById("last-updated").textContent = "Failed to fetch last update.";
   }
-  
-  // Call the function to update on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    updateBanner();
-  });
-
-
-/*
-function updateBanner() {
-  const timestampElement = document.getElementById('update-timestamp');
-  if (!timestampElement) {
-      console.error("Element with id 'update-timestamp' not found.");
-      return;
-  }
-
-  // Fetch the `Last-Modified` header for the current file
-  fetch(window.location.href, { method: 'HEAD' })
-      .then((response) => {
-          const lastModified = response.headers.get('Last-Modified');
-          if (lastModified) {
-              // Format the `Last-Modified` date
-              const formattedDate = new Date(lastModified).toLocaleString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-              });
-              timestampElement.innerText = ` ${formattedDate}`;
-          } else {
-              // Fallback if `Last-Modified` is not available
-              console.warn("`Last-Modified` header not found.");
-              timestampElement.innerText = "Failed to fetch, please check back again in few hours!";
-          }
-      })
-      .catch((error) => {
-          // Handle fetch errors
-          console.error("Error fetching Last-Modified header:", error);
-          timestampElement.innerText = " Error fetching date";
-      });
 }
 
-// Call the function to update the banner
-document.addEventListener('DOMContentLoaded', updateBanner); */
+document.addEventListener('DOMContentLoaded', fetchLastCommit);
