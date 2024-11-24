@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Radhika Thacker UX Design | Work
+    </title>
+
+    <!-- external JavaScript file for menu and post-it note -->
+    <script src="JS/menu.js"></script>
+
+    <!-- 1st external stylesheet for dropdown menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 2nd external stylesheet with my own styles -->
+    <link rel="stylesheet" href="CSS/portfolioStyleSheet.css">
+
+    <!-- embedded styles to override above styles go here -->
+    <style>
+
+        table {width: 100%;}
+        td {width: 0px;}
+        div#sectionA {display: block;
+                        box-sizing: border-box;
+                        background-color:rgb(240, 240, 240);
+                        padding: 20px;
+                        width: 100%;
+                        line-height: 2;
+                        border-radius: 10px;}
+
+        div#flowcontainer {display: block;
+                            box-sizing: border-box;
+                            height: auto;
+                            padding: 20px;}
+
+        header {position: static;
+                display: block;
+                box-sizing: border-box;
+                height: 340px;
+                background-color: rgb(245, 245, 245);
+                border-radius: 10px;
+                background-image: url(spendWorkHours.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;}
+
+        article {display: block;
+                box-sizing: border-box;
+                line-height: 1.5;
+                position: static;}
+
+        div#designcard1, 
+        div#designcard2, 
+        div#designcard3, 
+        div#designcard4, 
+        div#designcard5 {position: static;
+                        display: block;
+                        box-sizing: border-box;
+                        /* background-color: rgb(248, 248, 248); */
+                        background-color: rgb(229, 239, 243); 
+                        width: 100%;
+                        padding: 20px;
+                        margin-top: 20px;
+                        border-radius: 10px;
+                        height: auto;}
+
+        div#userflow {display: block;
+                        box-sizing: border-box;
+                        background-color: transparent;
+                        width: 100%;
+                        padding: 5px;
+                        line-height: 1.5;}
+
+        div#projectContent{padding-left: 20px;}
+
+        img.responsive {float: none;
+                        padding-left: 0px;
+                        width: 100%;}
+
+        /* medium - 501 to 660px */
+        @media (min-width: 501px) and (max-width: 660px) {
+            img.responsive {height: auto;
+                            padding: 0px;}
+        }
+        /* large - 661 to 999px */
+        @media (min-width: 661px) and (max-width: 999px) {
+                img.responsive {height: auto;
+                                padding: 0px;}
+        }
+        /* extra large - 1000px and up */
+        @media (min-width: 1000px) {
+                img.responsive {height: auto;
+                                padding: 0px;}
+
+                header {width: 80%;
+                        margin-left: auto;
+                        margin-right: auto;}
+        }
+
+        div#designcard1, 
+        div#designcard2, 
+        div#designcard3, 
+        div#designcard4, 
+        div#designcard5 {padding: 10px;
+                            margin-top: 10px;}
+
+        ul {padding-top: 0px;
+            padding-left: 15px;
+            list-style-position:outside;
+            line-height: 1.5;}
+        ul li {margin-bottom: 12px;}
+
+/*       div#sectionB {display: block;
+                        box-sizing: border-box;
+                        background-color:aqua;
+                        padding: 10px;
+                        width: 100%;
+                        height: auto;
+                        line-height: 2;
+                        border-radius: 10px;}
+        div#sectionB1 {display: block;
+                        box-sizing: border-box;
+                        background-color:rgb(64, 172, 172);
+                        padding: 0px;
+                        width: 50%;
+                        height: 100px;
+                        line-height: 2;
+                        border-radius: 10px;
+                        float: left;}
+        div#sectionB2 {display: block;
+                        box-sizing: border-box;
+                        background-color:rgb(109, 204, 125);
+                        padding: 0px;
+                        width: 30%;
+                        height: 100px;
+                        line-height: 2;
+                        border-radius: 10px;} */
+                        
+
+            
+    </style>
+
+</head>
+
+<body onresize="showBrowserSize();" onload="showBrowserSize();">
+    <div id="goweb"> 
+        <p>
+            <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
+
+            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of human behavior and digital products.
+        </p>
+    </div>
+    <div id="main">
+
+        <header> &nbsp; </header>
+
+        <nav> 
+            <div id="myTopnav" class="topnav">
+                <div id="navPart1" class="navpart1">
+                    <a href="home.html" > Radhika Thacker </a>
+                </div>
+                <div id="navPart2" class="navpart2">
+                    <a href="resume.html"> Resume </a>
+                    <a href="aboutme.html"> About </a>
+                    <a href="projects.html" class="active"> Work </a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+            </div>
+        </div> 
+    </nav>
+
+        <article> 
+                <div id="projectContent">
+                    <h1> 
+                    Mindful mint
+                </h1>
+                </div>
+                <div id="projectContent">
+                    <h2> 
+                        Planning
+                    </h2>
+                    <p>
+                        MindfulMint encourages user to reflect on an item and offers a chance to save an item for later instead of buying it impulsively. <br>
+                        Goal: 
+                            <ul>
+                                <li> Awareness </li>
+                                <li> Accountability </li>
+                                <li> Convenience </li>
+                                <li> Mindfulness </li>
+                            </ul>
+                    </p>
+                </div>
+                <div id="sectionA">
+                    <table>
+                        <tr>
+                            <td> Project: </td>
+                            <td> School CAPSTONE Project</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top"> Team: </td>
+                            <td> Team of 3 (Designer, Researcher, Manager)</td>
+                        </tr>
+                        <tr>
+                            <td> Timeline: </td>
+                            <td> 10 weeks </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top"> My Role: </td>
+                            <td style="width: 85%;"> Played roles in rotation with other teammates while mainly playing UX Designer </td>
+                        </tr>
+                        <tr >
+                            <td style="vertical-align:top"> Process: </td>
+                            <td> UX Research, Competitive Product Analysis, User Interviews, <br> Wireframing, Prototyping, Usability testing, Information Architecture, <br> Product Strategy, Visual Design </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <img src="impulseBuyingContextVenn.png" alt="contextVenn" class="responsive"> <br>
+               <!--  <div id="sectionB">
+                    <div id="sectionB1"> </div>
+                    <div id="sectionB1"> </div>
+                </div> -->
+                <img src="impulseBuyingContext.png" alt="context" class="responsive"> <br>
+                <img src="userflowComparision.png" alt="userflowComparision" class="responsive"> <br>
+                <img src="goals.png" alt="goals" class="responsive"> <br>
+                <img src="project plan.png" alt="projectPlan" class="responsive"> <br>
+
+                <!-- <a href="tools.png" target="_blank"> </a> -->
+                <img src="tools.png" alt="toolkit" class="responsive"> <br>
+
+                <div id="projectContent">
+                    <h2> 
+                       Discovering
+                    </h2>
+                    <p>
+                        <ul>
+                            <li>
+                                The user category and the primary user persona represent the broad spectrum of individuals: all the shoppers who shop online mostly and frequently <br>
+                            </li>
+                            <li>
+                                The primary user persona are individuals who may not be chronic impulse shoppers but tend to occasionally make impulsive purchases. <br>
+                            </li>
+                            <li>
+                                They are motivated by a desire to improve or stay consistent on their spend limit/ and make more mindful decisions. <br>
+                            </li>
+                            <li>
+                                They seek support and tools to help them maintain control over their spending habits and make more intentional decisions.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div id="projectContent">
+                    <h2> 
+                        Ideating
+                     </h2>
+                     <p>
+                        <img src="Mindful Mint User Journey.png" alt="toolkit" class="responsive"> <br>
+                     </p>
+                </div>
+                <div id="projectContent">
+                    <h2> 
+                        Crafting the story
+                     </h2>
+                     <p>
+                        
+                     </p>
+                </div>
+                <div id="flowcontainer">
+                    <h2> 
+                        Implementing
+                     </h2>
+                    <div id="userflow">
+                        <p>
+                            <ol>
+                                <li> Mindful Mint revolved around the idea of being able to add to wishlist and review/reflect the item before exercising the power of one click-purchase.</li>
+                                <br>
+                                <li> This flow starts at homepage > "My wishlist" page and allows to make the following changes and then return back to the "My wishlist" page.</li>
+                                <br>
+                                <li> My wishlist page shows the path to be able to change the saved items details, updating list information, updating list status, deleting item from list page and deleting item from list from item page.</li>
+                            </ol>
+                            <br>
+                            <img src="FlowsUpdatingItermStatus.png" alt="itemStatusflow" class="responsive"> <br>
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div id="designcontainer">
+                    <h2> 
+                        sub title: Final Designs
+                     </h2>
+                     <div id="designcard1">
+                        <p>
+                            <b> Landing Page: </b><br>
+                            Allows user to learn about the platform, offeres to explore further either via signing up, loggin in or simply as guest.
+                        <br>
+                        <br>
+                            <img src="landing page.png" alt="landingpg" class="responsive"> <br>
+                        </p>
+                     </div>
+                     <div id="designcard2">
+                        <p>
+                            <b> Home Page: </b><br>
+                            Allows quick access to eveything while keeping the dashboard simple.
+                        <br>
+                        <br>
+                            <img src="homepage.png" alt="homepage" class="responsive"> <br>
+                        </p>
+                     </div>
+                     <div id="designcard3">
+                        <p>
+                        <p>
+                            <b> Create List Page: </b><br>
+                            Showcases the contributing factors in definig and creating a profile.
+                        <br>
+                        <br>
+                            <img src="MM LM_ Create List frame 2.png" alt="createlist" class="responsive"> <br>
+                        </p>
+                     </div>
+                     <div id="designcard4">
+                        <p>
+                        <p>
+                            <b> Add to Review Basket Page: </b><br>
+                            Page exhibits the process from searching an item to adding it to a review basket serving as a space between selecting, reflecting and adding one thing at a time in against allowing user to run  ultiple searches, adding to a space (
+                                "Review Basket") to be able to review when convinient and allowing adding group of items to one list or each item sepeartely.
+                        <br>
+                        <br>
+                            <img src="MM LM_ Item Search + Review Basket Frame 2.png" alt="reviewbasket" class="responsive"> <br>
+                        </p>
+                     </div>
+                     <div id="designcard5">
+                        <p>
+                        <p>
+                            <b> Product Overview Page: </b><br>
+                            Allows user to reflect and make purchase if necessary.
+                        <br>
+                        <br>
+                            <img src="MM LM_ Item Details_ Product Overview page frame 1.png" alt="productpage" class="responsive"> <br>
+                        </p>
+                     </div>
+                </div>
+                <div id="projectContent">
+                    <h2> 
+                        sub title: Challenges & Learnings
+                    </h2>
+                    <p>
+                        <ul>
+                            <li> The biggest challeneg was to deciding on the approach for designing the app. Due to limited time the initial user interviews were not conducted and that's when I learnt to intiating parallel processes rather than applying linear method of ideating and design. </li>
+                            <li> Another challenge that I faced was about trying to achieve too many things in shorter duration and this continued until the first draft of mid-fi wireframes. And that is when I learnt the importance if priotizing and deprioritizing tasks. Which lead me to evaluate all  the tasks, streamline the MVP as per goals of this project and focus on three main task.</li>
+                            <li> The other challenge was about figuring out the balance amongst user input, information visibility and the frequency of notifications,nudges and pop ups. This whole exercise brought awarness as how mindful mint as a platform could contribute in helping the user channelise their instant shopping urges.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div id="projectContent">
+                    <h2> 
+                        sub title: Future Scope
+                    </h2>
+                    <p>
+                        <ul>
+                            <li> Conduct usability tests with the hi-fi prototype </li>
+                            <li> Diary study of built project to evaluate efficacy in reducing impulse purchase </li>
+                            <li> Explore the feasibility of expanding the scope to include outlier user groups</li>
+                        </ul>
+                    </p>
+                </div>
+            
+        </article>
+
+        <footer>
+            <p>
+                Connect:
+                <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
+                Linkedin
+                </a>
+            </p>
+            <small>
+                &copy; Designed and Coded by Radhika Thacker - 2024 <br>
+                Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
+                Jarvis College of Computing and Digital Media | DePaul University
+            </small>
+        </footer>
+
+    </div> <!-- end of main -->
+
+    <div id="sizeInfo"></div>
+</body>
+</html>

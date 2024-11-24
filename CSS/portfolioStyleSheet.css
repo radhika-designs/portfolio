@@ -1,0 +1,254 @@
+div#sizeInfo {position: fixed; /* CSS for the post-it note */
+                box-sizing: border-box;
+                padding: 5px;
+                border-radius: 10px;
+                text-align: center;
+                background-color: rgb(253, 253, 253, 0.8);
+                font-family: myfont;
+                font-size: small;
+                width: 100px;
+                top: 10px;
+                right: 10px;
+                z-index: 999;
+                display: block;}
+
+@font-face {font-family: myfont;
+                src: url(Satoshi-Variable.ttf);}
+/* 
+***************************************
+CSS for dropdown menu
+***************************************
+ */
+.topnav {overflow:hidden;
+        background-color: rgb(150, 149, 149); /*the background-color of the navigation bar */
+        font-family: myfont;
+        border-radius: 10px;
+
+        display: block;
+        position: static;
+        box-sizing: border-box;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 99;}
+.topnav a {float: left;
+                display: block;
+                text-align: center;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: none;
+                font-size: 18px;
+                cursor:grab;}
+.topnav a:link, .topnav a:visited {color: white; /*the color of the navigation text */
+                                  font-style: normal;}
+.topnav a:hover {background-color: rgba(39, 79, 95, 0.8); /*the color when you mouse over the buttons */
+                        color: rgb(245, 245, 245); /*the color when you mouse over the text */}
+.topnav a:active {background-color: rgba(255, 255, 0);
+                color: rgb(100, 100, 100);
+                font-weight: 600;}
+.topnav a.active {background-color: rgb(54, 57, 58); /* background-color for the active button */
+                        color: rgb(249, 249, 252); /* text color for the active button */
+                        text-decoration: underline rgb(156, 210, 231) 2px ;
+                        text-underline-offset: 6px;}
+.topnav .icon {display: none;}
+
+.navpart1 a {width: 25%;}
+.navpart2 a {float: right;}
+
+@media screen and (max-width: 660px) {
+    .navpart2 a {display: none;}
+    .navpart2 a.icon {
+      float: right;
+      display: block;
+    }
+}
+@media screen and (max-width: 660px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {position: absolute;
+                                right: 0;
+                                top: 0;}
+    .topnav.responsive a {float: none;
+                        display: block;
+                        text-align: left;}
+}
+/* 
+***************************************
+start our own CSS here 
+***************************************
+*/
+/* extra-small - default - less than 420px - no media query */
+        
+        body {display: inline-block;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;}
+
+        div#goweb {background-color: rgb(185, 185, 185,0.5);
+                        padding: 20px;
+                        border-radius: 20px;}
+
+        div#main {display: none;
+                position: relative;
+                box-sizing: border-box;
+                background-color: rgb(255, 255, 255);
+                width: 100%;
+                height: auto;
+                padding: 0px;
+                margin-left: auto;
+                margin-right: auto;}
+        
+        header {position: static;
+                box-sizing: border-box;
+                width: 100%;
+                height: 50px;}
+        
+        article {display: block;
+                position: static;
+                box-sizing: border-box;
+                width: 100%;
+                padding-left:20px;
+                padding-right: 20px;
+                padding-bottom: 20px;
+                font-family: myfont;
+                font-size: 36px;
+                line-height: 22px;
+                min-height: 1000px;}
+
+        h1 {font-family: myfont;
+                font-size: 32px;
+                letter-spacing: 4px;
+                margin-top: 50px;
+                margin-bottom: 0px;
+                color: rgb(31, 31, 31);
+                padding-bottom: 25px;}
+        
+        p, blockquote {font-family: myfont;
+                font-size: 16px;
+                line-height: 22px;}
+        
+        img.responsive {width: 50%;
+                        height: auto;
+                        float: right;
+                        padding-left: 20px;}
+        
+        footer {position: static;
+                box-sizing: border-box;
+                background-color: white;
+                width: 100%;
+                height: 350px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                border-top: 1px dashed rgba(197, 197, 197, 0.7);
+                padding: 30px;}
+        
+        small {font-size: 14px;
+                font-weight: 500;
+                font-family: myfont;
+                color: rgb(90, 90, 90);}
+        
+        nav {display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                position: sticky;
+                top:20px;
+                box-sizing: border-box;
+                border-radius: 10px;
+                box-shadow: 2px 2px 35px rgba(189, 189, 189, 0.692);
+                height: auto;
+                padding-top: 0px;
+                background-color: transparent;
+                text-align: center;}
+        a {}
+                a:link {color: maroon;}
+                a:visited {color: maroon;} 
+                a:hover {color: rgb(3, 111, 253);
+                        text-decoration: none;
+                        cursor: grab;}
+                a:active {color: maroon;
+                        font-style: italic;
+                        cursor: wait;}
+
+                .img-hover-zoom img {transition: transform 0.5s ease-in-out;}
+                .img-hover-zoom:hover img {transform: scale(1.05) translateY(-5px);}
+
+                .img-hover-zoom img {transition: transform 0.5s ease, filter 0.5s ease;
+                                        filter: grayscale(0%);}
+
+                .img-hover-zoom:hover img {transform: scale(1.05);
+                                        filter: grayscale(100%);}
+
+        .img-hover-zoom img {transition: transform .5s ease, opacity 0.5s ease;}
+        .img-hover-zoom:hover img {transform: scale(0.9); opacity: 0.6;}
+
+
+        /* Banner styling 
+        .banner {
+                background-color: #f4a261; /A warm, engaging color /
+                color: #fff;
+                text-align: center;
+                padding: 10px;
+                position: fixed; / Keep it at the top /
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                font-size: 16px;} */
+
+/* small - 420px- 500px */
+@media (min-width: 420px) and (max-width: 500px) {
+        body {background-color:transparent;
+                margin: 10px;}
+        div#goweb {display: none;}
+        div#main {display: block;}
+        div#sizeInfo {background-color: rgba(165, 253, 0, 0.5);}
+
+}
+
+/* medium - 501 to 660px */
+@media (min-width: 501px) and (max-width: 660px) {
+    header {height: 100px;}
+    div#goweb {display: none;}
+    div#main {display: block;}
+    div#sizeInfo {background-color: rgba(188, 231, 231, 0.5);}
+}
+
+/* large - 661 to 999px */
+@media (min-width: 661px) and (max-width: 999px) {
+        div#main {display: block;}
+        div#main {width: 90%;
+                        background-color: transparent;}
+        /* header {height: 50px;} */
+        img.responsive {width: 100%;
+                        height: auto;
+                        padding: 0px;}
+        div#goweb {display: none;}
+        div#sizeInfo {background-color: rgba(255, 240, 27, 0.5);}
+}
+
+/* extra large - 1000px and up */
+@media (min-width: 1000px) {
+        div#main {display: block;
+                width: 100%,}
+        div#goweb {display: none;}
+        nav {width: 80%;}
+        article {display: block;
+                position: static;
+                box-sizing: border-box;
+                width: 80%;
+                padding: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                min-height: 1000px;
+                background-color: rgb(255, 255, 255);}
+        footer {clear: both;}
+        img.responsive {float: left;
+                        margin-left: 0px;
+                        margin-right: 20px;
+                        margin-bottom: 40px;}
+        div#sizeInfo {background-color: rgba(255, 114, 21, 0.5);}
+}

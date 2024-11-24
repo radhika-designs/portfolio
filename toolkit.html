@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        406 Final Portfolio
+    </title>
+
+    <!-- external JavaScript file for menu and post-it note -->
+    <script src="JS/menu.js"></script>
+
+    <!-- 1st external stylesheet for dropdown menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 2nd external stylesheet with my own styles -->
+    <link rel="stylesheet" href="CSS/portfolioStyleSheet.css">
+
+    <!-- embedded styles to override above styles go here -->
+    <style>
+
+        div#toolkitcards {position: static;
+                        display: inline-block;
+                        box-sizing: border-box;
+                        background-color: rgb(247, 243, 197);
+                        width:100%;
+                        height: auto;
+                        padding: 0px;
+                        margin: 0;
+                        border-radius: 10px;}
+        div#toolkitcard1 {position: static;
+                        display: block;
+                        float: left;
+                        box-sizing: border-box;
+                        background-color: rgb(199, 227, 238);
+                        width: 35%;
+                        height: 100px;
+                        padding: 10px;
+                        margin: 10px;
+                        border-radius: 10px;}
+        div#toolkitcard2 {position: static;
+                        display: block;
+                        float: left;
+                        box-sizing: border-box;
+                        background-color: rgb(156, 216, 240);
+                        width: 25%;
+                        height: 200px;
+                        padding: 20px;
+                        margin: 10px;
+                        border-radius: 10px;}
+        div#toolkitcard3 {position: static;
+                        display: block;
+                        float: left;
+                        box-sizing: border-box;
+                        background-color: rgb(100, 198, 236);
+                        width: 20%;
+                        height: 500px;
+                        padding: 20px;
+                        margin: 10px;
+                        border-radius: 10px;}
+        div#toolkitcard4 {position: static;
+                        display: block;
+                        float: left;
+                        box-sizing: border-box;
+                        background-color: rgb(32, 177, 235);
+                        width: 10%;
+                        height: 80px;
+                        padding: 20px;
+                        margin: 10px;
+                        border-radius: 10px;}
+    </style>
+
+</head>
+
+<body onresize="showBrowserSize();" onload="showBrowserSize();">
+    <div id="goweb"> 
+        <p>
+            <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
+
+            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of human behavior and digital products.
+        </p>
+    </div>
+    <div id="main">
+
+        <header> &nbsp; </header>
+
+        <nav> 
+            <div id="myTopnav" class="topnav">
+                <div id="navPart1" class="navpart1">
+                    <a href="toolkit.html" class="active"> Toolkit </a>
+                </div>
+                <div id="navPart2" class="navpart2">
+                        <a href="home.html" > Radhika Thacker </a>
+                        <a href="aboutme.html"> About </a>
+                        <a href="projects.html"> Projects </a>
+                        <a href="resume.html"> Resume </a>
+                        <a href="contactme.html"> Contact </a>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                </div>
+            </div> 
+        </nav>
+
+        <article> 
+            
+                <h1> 
+                    Skills
+                </h1>
+                <div id="toolkitcards">
+                    <div id="toolkitcard1">
+
+                    </div>
+                    <div id="toolkitcard2">
+
+                    </div>
+                    <div id="toolkitcard3">
+
+                    </div>
+                    <div id="toolkitcard4">
+
+                    </div>
+
+
+                </div>
+        </article>
+
+        <footer>
+            <p>
+                Connect:
+                <a href="https://www.linkedin.com/in/radhikathacker?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                Linkedin
+                </a>
+            </p>
+            <small>
+                &copy; 2024 - Radhika Thacker <br>
+                Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
+                Jarvis College of Computing and Digital Media | DePaul University
+            </small>
+        </footer>
+
+    </div> <!-- end of main -->
+
+    <div id="sizeInfo"></div>
+</body>
+</html>

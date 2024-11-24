@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+       Radhika Thacker UX Design | About Me
+    </title>
+
+    <!-- external JavaScript file for menu and post-it note -->
+    <script src="JS/menu.js"></script>
+
+    <!-- 1st external stylesheet for dropdown menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- 2nd external stylesheet with my own styles -->
+    <link rel="stylesheet" href="CSS/portfolioStyleSheet.css">
+
+    <!-- embedded styles to override above styles go here -->
+    <style>
+        article { min-height: auto;}
+
+        img.responsive {width: 100%;
+                        float:none;
+                        padding-left: 0px;}
+    </style>
+
+</head>
+
+<body onresize="showBrowserSize();" onload="showBrowserSize();">
+    <div id="goweb"> 
+        <p>
+            <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
+
+            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of human behavior and digital products.
+        </p>
+    </div>
+    <div id="main">
+
+        <header> &nbsp; </header>
+
+        <nav> 
+            <div id="myTopnav" class="topnav">
+                <div id="navPart1" class="navpart1">
+                    <a href="home.html"> Radhika Thacker </a>
+
+                </div>
+                <div id="navPart2" class="navpart2">
+                        <a href="resume.html"> Resume </a>
+                        <a href="aboutme.html" class="active"> About </a>
+                        <a href="projects.html"> Work </a>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                </div>
+            </div> 
+        </nav>
+
+        <article> 
+            
+                <h1> 
+                About Me
+                </h1>
+                <p>
+                    <b> 
+                        Grad Student (MS in Human Computer Interaction) at DePual University, Chicago
+                    </b>
+                    <br>
+                    <p> 
+                        I believe the better we understand people and their contextual surroundings, the more meaningful and effective our solutions become. In the world of UX, I see people as subjects, with their relationships—to objects, others, and the universe—forming the context for any challenge. 
+                    </p>
+                    <p>
+                        My curiosity is driven by an innate desire to explore the "whys" and "hows" behind people's actions and behaviors. To me, learning—even when it seems unrelated—shapes a holistic foundation, nurturing intuitions and ultimately improving the ability to design for user needs and experiences.
+                    </p>
+                    <p>
+                        <img src="HomepageBezel.png" alt="landingpg" class="responsive"> <br>
+                    </p>
+                </p>
+            
+        </article>
+
+        <footer>
+            <p>
+                Connect:
+                <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
+                Linkedin
+                </a>
+            </p>
+            <small>
+                &copy; Designed and Coded by Radhika Thacker - 2024 <br>
+                Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
+                Jarvis College of Computing and Digital Media | DePaul University
+            </small>
+        </footer>
+
+    </div> <!-- end of main -->
+
+    <div id="sizeInfo"></div>
+</body>
+</html>
