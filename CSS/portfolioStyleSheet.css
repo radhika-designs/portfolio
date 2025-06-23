@@ -22,7 +22,14 @@ CSS for dropdown menu
 .topnav {overflow:hidden;
         background-color: rgb(150, 149, 149); /*the background-color of the navigation bar */
         font-family: myfont;
-        border-radius: 10px;
+        border-radius: 15px;
+
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba (0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+
 
         display: block;
         position: static;
@@ -30,7 +37,10 @@ CSS for dropdown menu
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        z-index: 99;}
+        z-index: 99;
+
+
+}
 .topnav a {float: left;
                 display: block;
                 text-align: center;
@@ -45,12 +55,12 @@ CSS for dropdown menu
                                   font-style: normal;}
 .topnav a:hover {background-color: rgba(39, 79, 95, 0.8); /*the color when you mouse over the buttons */
                         color: rgb(245, 245, 245); /*the color when you mouse over the text */}
-.topnav a:active {background-color: rgba(255, 255, 0);
+.topnav a:active {background-color: white;
                 color: rgb(100, 100, 100);
                 font-weight: 600;}
 .topnav a.active {background-color: rgb(54, 57, 58); /* background-color for the active button */
-                        color: rgb(249, 249, 252); /* text color for the active button */
-                        text-decoration: underline rgb(156, 210, 231) 2px ;
+                        color: rgb(245, 245, 245); /* text color for the active button */
+                        text-decoration: underline rgb(255, 255, 255, 0.5) 1.2px ;
                         text-underline-offset: 6px;}
 .topnav .icon {display: none;}
 
@@ -90,6 +100,7 @@ start our own CSS here
                         border-radius: 20px;}
 
         div#main {display: none;
+
                 position: relative;
                 box-sizing: border-box;
                 background-color: rgb(255, 255, 255);
@@ -97,12 +108,15 @@ start our own CSS here
                 height: auto;
                 padding: 0px;
                 margin-left: auto;
-                margin-right: auto;}
+                margin-right: auto;
+        
+                background-image: url(art.jpg);
+                background-size: cover;}
         
         header {position: static;
                 box-sizing: border-box;
                 width: 100%;
-                height: 50px;}
+                height: 500px;}
         
         article {display: block;
                 position: static;
@@ -114,7 +128,9 @@ start our own CSS here
                 font-family: myfont;
                 font-size: 16px;
                 line-height: 22px;
-                min-height: 1000px;}
+                min-height: 1000px;
+        
+                background-color: aqua;}
 
         h1 {font-family: myfont;
                 font-size: 32px;
