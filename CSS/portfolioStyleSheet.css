@@ -1,35 +1,40 @@
-div#sizeInfo {position: fixed; /* CSS for the post-it note */
-                box-sizing: border-box;
-                padding: 5px;
-                border-radius: 10px;
-                text-align: center;
-                background-color: rgb(253, 253, 253, 0.8);
-                font-family: myfont;
-                font-size: small;
-                width: 100px;
-                top: 10px;
-                right: 10px;
-                z-index: 999;
-                display: block;}
-
-@font-face {font-family: myfont;
-                src: url(Satoshi-Variable.ttf);}
-/* 
-***************************************
-CSS for dropdown menu
-***************************************
- */
-.topnav {overflow:hidden;
-        background-color: rgb(150, 149, 149); /*the background-color of the navigation bar */
+/* ========== window dimentions(optional on page) ========== */
+div#sizeInfo {
+        position: fixed;
+        /* CSS for the post-it note */
+        box-sizing: border-box;
+        padding: 5px;
+        border-radius: 10px;
+        text-align: center;
+        background-color: rgb(253, 253, 253, 0.8);
         font-family: myfont;
-        border-radius: 15px;
+        font-size: small;
+        width: 100px;
+        top: 10px;
+        right: 10px;
+        z-index: 999;
+        display: block;
+}
 
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 30px rgba (0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
+/* ========== declaring font once and then use "myfont" as the chosen family for this file ========== */
+@font-face {
+        font-family: myfont;
+        src: url(Satoshi-Variable.ttf);
+}
+
+/* ========== CSS for dropdown menu, Top Naviagtion============ */
+.topnav {
+        overflow: hidden;
+        background-color: rgb(250, 250, 242);
+        /*the background-color of the navigation bar */
+        /*adjust .topnav's border-radius when changing this */
+        box-shadow: 0px 2px 2px 0px rgb(69, 69, 70, .2);
+
+        font-family: myfont;
+        border-radius: 35px;
+
+        backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-
 
         display: block;
         position: static;
@@ -38,233 +43,532 @@ CSS for dropdown menu
         margin-left: auto;
         margin-right: auto;
         z-index: 99;
+}
 
+
+.topnav a {
+        float: left;
+        display: block;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        cursor: grab;
+}
+
+.topnav a:link,
+.topnav a:visited {
+        color: rgb(99, 99, 99);
+        /*the color of the navigation text */
+        font-style: normal;
+}
+
+.topnav a:hover {
+        background-color: rgba(39, 79, 95, 0.8);
+        /*the color when you mouse over the buttons */
+        color: rgb(245, 245, 245);
+        /*the color when you mouse over the text */
+}
+
+.topnav a:active {
+        background-color: white;
+        color: rgb(100, 100, 100);
+        font-weight: 600;
+}
+
+.topnav a.active {
+        background-color: rgb(54, 57, 58);
+        /* background-color for the active button */
+        color: rgb(245, 245, 245);
+        /* text color for the active button */
+        text-decoration: underline rgb(255, 255, 255, 0.5) 1.2px;
+        text-underline-offset: 6px;
+}
+
+.topnav .icon {
+        display: none;
+}
+
+.navpart1 a {
+        width: 25%;
+}
+
+.navpart2 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
 
 }
-.topnav a {float: left;
+
+.navpart2 a {
+        display: flex;
+        flex-direction: row;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+
+        border-color: #bddbbe;
+        border-style: dotted;
+        border-width: 1px;
+
+}
+
+
+@media screen and (max-width: 767px) {
+        .navpart2 a {
+                display: none;
+        }
+
+        .navpart2 a.icon {
+                float: right;
                 display: block;
-                text-align: center;
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                text-decoration: none;
-                font-size: 18px;
-                cursor:grab;}
-.topnav a:link, .topnav a:visited {color: white; /*the color of the navigation text */
-                                  font-style: normal;}
-.topnav a:hover {background-color: rgba(39, 79, 95, 0.8); /*the color when you mouse over the buttons */
-                        color: rgb(245, 245, 245); /*the color when you mouse over the text */}
-.topnav a:active {background-color: white;
-                color: rgb(100, 100, 100);
-                font-weight: 600;}
-.topnav a.active {background-color: rgb(54, 57, 58); /* background-color for the active button */
-                        color: rgb(245, 245, 245); /* text color for the active button */
-                        text-decoration: underline rgb(255, 255, 255, 0.5) 1.2px ;
-                        text-underline-offset: 6px;}
-.topnav .icon {display: none;}
-
-.navpart1 a {width: 25%;}
-.navpart2 a {float: right;}
-
-@media screen and (max-width: 660px) {
-    .navpart2 a {display: none;}
-    .navpart2 a.icon {
-      float: right;
-      display: block;
-    }
+        }
 }
-@media screen and (max-width: 660px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {position: absolute;
-                                right: 0;
-                                top: 0;}
-    .topnav.responsive a {float: none;
-                        display: block;
-                        text-align: left;}
-}
-/* 
-***************************************
-start our own CSS here 
-***************************************
-*/
-/* extra-small - default - less than 420px - no media query */
-        
-        body {display: inline-block;
-                width: 100%;
-                margin-left: auto;
-                margin-right: auto;}
 
-        div#goweb {background-color: rgb(185, 185, 185,0.5);
-                        padding: 20px;
-                        border-radius: 20px;}
-
-        div#main {display: none;
-
+@media screen and (max-width: 767px) {
+        .topnav.responsive {
                 position: relative;
-                box-sizing: border-box;
-                background-color: rgb(255, 255, 255);
-                width: 100%;
-                height: auto;
-                padding: 0px;
-                margin-left: auto;
-                margin-right: auto;
-        
-                background-image: url(art.jpg);
-                background-size: cover;}
-        
-        header {position: static;
-                box-sizing: border-box;
-                width: 100%;
-                height: 500px;}
-        
-        article {display: block;
-                position: static;
-                box-sizing: border-box;
-                width: 100%;
-                padding-left:20px;
-                padding-right: 20px;
-                padding-bottom: 20px;
-                font-family: myfont;
-                font-size: 16px;
-                line-height: 22px;
-                min-height: 1000px;
-        
-                background-color: aqua;}
+        }
 
-        h1 {font-family: myfont;
-                font-size: 32px;
-                letter-spacing: 4px;
-                margin-top: 50px;
-                margin-bottom: 0px;
-                color: rgb(31, 31, 31);
-                padding-bottom: 25px;}
-        
-        p, blockquote {font-family: myfont;
-                font-size: 16px;
-                line-height: 22px;}
-        
-        img.responsive {width: 50%;
-                        height: auto;
-                        float: right;
-                        padding-left: 20px;}
-        
-        footer {position: static;
-                box-sizing: border-box;
-                background-color: white;
-                width: 100%;
-                height: 350px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-bottom: 10px;
-                text-align: center;
-                border-top: 1px dashed rgba(197, 197, 197, 0.7);
-                padding: 30px;}
-        
-        small {font-size: 14px;
-                font-weight: 500;
-                font-family: myfont;
-                color: rgb(90, 90, 90);}
-        
-        nav {display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-                position: sticky;
-                top:20px;
-                box-sizing: border-box;
-                border-radius: 10px;
-                box-shadow: 2px 2px 35px rgba(189, 189, 189, 0.692);
-                height: auto;
-                padding-top: 0px;
-                background-color: transparent;
-                text-align: center;}
-        a {}
-                a:link {color: maroon;}
-                a:visited {color: maroon;} 
-                a:hover {color: rgb(3, 111, 253);
-                        text-decoration: none;
-                        cursor: grab;}
-                a:active {color: maroon;
-                        font-style: italic;
-                        cursor: wait;}
-
-                .img-hover-zoom img {transition: transform 0.5s ease-in-out;}
-                .img-hover-zoom:hover img {transform: scale(1.05) translateY(-5px);}
-
-                .img-hover-zoom img {transition: transform 0.5s ease, filter 0.5s ease;
-                                        filter: grayscale(0%);}
-
-                .img-hover-zoom:hover img {transform: scale(1.05);
-                                        filter: grayscale(100%);}
-
-        .img-hover-zoom img {transition: transform .5s ease, opacity 0.5s ease;}
-        .img-hover-zoom:hover img {transform: scale(0.9); opacity: 0.6;}
-
-
-        /* Banner styling 
-        .banner {
-                background-color: #f4a261; /A warm, engaging color /
-                color: #fff;
-                text-align: center;
-                padding: 10px;
-                position: fixed; / Keep it at the top /
+        .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
                 top: 0;
-                width: 100%;
-                z-index: 1000;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                font-size: 16px;} */
+        }
 
-/* small - 420px- 500px */
+        .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+        }
+}
+
+/* ============= start our own CSS here ============= */
+
+/* ============= /* Tablet - 0 to 767px NO MEDIA QUERY | Stacked layout, redabale text, fill-width buttons =============== */
+
+html,
+body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+}
+
+/* display: flex;
+                flex-direction: row; */
+
+div#onWeb {
+        display: none;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+}
+
+aside#left {
+        flex-shrink: 0;
+        background-color: rgb(250, 250, 242);
+        width: 106px;
+        border-radius: 25px;
+}
+
+#leftNav {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 10px;
+        font-family: myfont;
+        font-size: 16px;
+        line-height: 22px;
+}
+
+.button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 25px;
+        /* Optional: rounded corners */
+}
+
+.button:hover {
+        background-color: #869b86;
+        /* Green */
+}
+
+.button2 {
+        background-color: transparent;
+        border: none;
+
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 25px;
+        /* Optional: rounded corners */
+}
+
+.button2:hover {
+        color: #869b86;
+        border: #869b86;
+        border-style: solid;
+        border-width: 1px;
+        background-color: transparent;
+}
+
+div#content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        margin-right: 12px;
+}
+
+div#right {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+
+}
+
+div#left {
+        display: flex;
+        border-width: 1px;
+        border-color: rgb(155, 164, 167);
+        background-color: rgb(250, 250, 242);
+        position: static;
+        min-height: 350px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 38px;
+}
+
+header {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        box-sizing: border-box;
+        max-width: 978px;
+        width: 100%;
+        background-color: rgb(190, 226, 193);
+        min-height: 350px;
+        margin: 0 auto;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding: 40px;
+        border-radius: 38px;
+}
+
+nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        flex-grow: 1;
+        justify-content: center;
+        width: 100%;
+        max-width: 978px;
+        min-width: 0;
+
+        position: sticky;
+        top: 20px;
+        box-sizing: border-box;
+        border-radius: 35px;
+
+        height: auto;
+
+        background-color: rgb(250, 250, 242);
+        text-align: center;
+        margin: 0 auto;
+        z-index: 2;
+}
+
+div#centerNav {
+        width: 100%;
+        max-width: 978px;
+        min-width: 0;
+
+        position: sticky;
+        top: 20px;
+        box-sizing: border-box;
+        border-radius: 0px;
+        /*adjust .topnav's border-radius when changing this */
+
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        z-index: 2;
+        padding-bottom: 12px;
+        padding-top: 12px;
+}
+
+
+div#main {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+
+        justify-content: center;
+        background-color: rgb(250, 250, 242);
+        width: 100%;
+        max-width: 978px;
+        min-width: 0;
+        box-sizing: border-box;
+        height: 100%;
+        font-family: myfont;
+        font-size: 16px;
+        line-height: 22px;
+        background-size: cover;
+        margin: 0 auto;
+
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        border-radius: 38px;
+}
+
+div#footer {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        /*maybe not that useful */
+        background-color: rgb(250, 250, 242);
+        width: 100%;
+        max-width: 978px;
+        box-sizing: border-box;
+        font-family: myfont;
+        height: auto;
+        text-align: center;
+        border-top: 1px dashed rgba(197, 197, 197, 0.7);
+        margin: 0 auto;
+
+        position: static;
+        min-height: 350px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding: 40px;
+        border-radius: 38px;
+}
+
+
+div#goweb {
+        background-color: rgb(185, 185, 185, 0.5);
+        padding: 20px;
+        border-radius: 20px;
+}
+
+h1 {
+        font-family: myfont;
+        font-size: 32px;
+        letter-spacing: 4px;
+        margin-top: 50px;
+        margin-bottom: 0px;
+        color: rgb(31, 31, 31);
+        padding-bottom: 25px;
+}
+
+p,
+blockquote {
+        font-family: myfont;
+        font-size: 16px;
+        line-height: 22px;
+}
+
+small {
+        font-size: 14px;
+        font-weight: 500;
+        font-family: myfont;
+        color: rgb(90, 90, 90);
+}
+
+a:link {
+        color: rgb(128, 0, 111);
+        text-decoration: none;
+        font-weight: 600;
+}
+
+a:visited {
+        color: rgb(53, 83, 68);
+}
+
+a:hover {
+        color: rgb(179, 253, 172);
+        text-decoration: none;
+        cursor: grab;
+}
+
+a:active {
+        color: maroon;
+        font-style: italic;
+        cursor: wait;
+}
+
+.img-hover-zoom img {
+        transition: transform 0.5s ease-in-out;
+}
+
+.img-hover-zoom:hover img {
+        transform: scale(1.05) translateY(-5px);
+}
+
+.img-hover-zoom img {
+        transition: transform 0.5s ease, filter 0.5s ease;
+        filter: grayscale(0%);
+}
+
+.img-hover-zoom:hover img {
+        transform: scale(1.05);
+        filter: grayscale(100%);
+}
+
+.img-hover-zoom img {
+        transition: transform .5s ease, opacity 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+        transform: scale(0.9);
+        opacity: 0.6;
+}
+
+/* ======== Tablet - 768 to 1023px | Grid layout, cleaner spacing ======= */
+@media (min-width: 768px) and (max-width: 1023px) {
+        div#onWeb {
+                display: flex;
+        }
+
+        div#goweb {
+                display: none;
+        }
+
+        div#sizeInfo {
+                background-color: rgba(255, 240, 27, 0.5);
+        }
+}
+
+/* ==== Desktop - 1024px and up | Max width, spacing and navigation layout ==== */
+@media (min-width: 1024px) {
+        div#onWeb {
+                display: flex;
+        }
+
+        div#goweb {
+                display: none;
+        }
+
+        div#sizeInfo {
+                background-color: rgba(255, 114, 21, 0.5);
+        }
+}
+
+/* ============ index page specific css ============ */
+
+.letter>p:first-of-type::first-letter {
+        float: none;
+        font-size: 110%;
+        line-height: 1;
+        font-weight: bold;
+        color: black;
+}
+
+div#workTile {
+        display: flex;
+        align-self: start;
+        width: 40%;
+        padding: 100px;
+}
+
+.designer {
+        font-size: 30px;
+}
+
+/*Dropdown Work Tile*/
+.dropdown-submenu {
+        position: relative;
+        display: block;
+}
+
+.dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: 0;
+        display: none;
+        position: absolute;
+        margin: 0;
+        padding: 24px;
+        background-color: rgb(250, 250, 242);
+        border: 1px solid #ccc;
+        z-index: 100;
+        width: 150px;
+        border-radius: 25px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+        display: block;
+}
+
+.dropdown-menu li {
+        padding: 10px 10px;
+}
+
+ul.dropdown-menu {
+        list-style-type: none;
+}
+
+/*Cards CSS */
+
+/* ================================== To Discard eventually =============================== */
+/* Banner styling 
+.banner {
+        background-color: #f4a261; /A warm, engaging color /
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed; / Keep it at the top /
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 16px;} */
+/* small - 420px- 500px 
 @media (min-width: 420px) and (max-width: 500px) {
         body {background-color:transparent;
-                margin: 10px;}
+                margin: 0%;}
         div#goweb {display: none;}
         div#main {display: block;}
-        div#sizeInfo {background-color: rgba(165, 253, 0, 0.5);}
+        div#sizeInfo {background-color: rgba(165, 253, 0, 0.5);} 
 
-}
+} */
 
-/* medium - 501 to 660px */
+/* medium - 501 to 660px 
 @media (min-width: 501px) and (max-width: 660px) {
     header {height: 100px;}
     div#goweb {display: none;}
     div#main {display: block;}
     div#sizeInfo {background-color: rgba(188, 231, 231, 0.5);}
-}
+} 
+    
+and (max-width: 1920px)
+    
+img.responsive {width: 10px;
+        height: 50px;
+        float: left;}
 
-/* large - 661 to 999px */
-@media (min-width: 661px) and (max-width: 999px) {
-        div#main {display: block;}
-        div#main {width: 90%;
-                        background-color: transparent;}
-        /* header {height: 50px;} */
-        img.responsive {width: 100%;
-                        height: auto;
-                        padding: 0px;}
-        div#goweb {display: none;}
-        div#sizeInfo {background-color: rgba(255, 240, 27, 0.5);}
-}
+footer {clear: both;}
 
-/* extra large - 1000px and up */
-@media (min-width: 1000px) {
-        div#main {display: block;
-                width: 100%,}
-        div#goweb {display: none;}
-        nav {width: 80%;}
-        article {display: block;
-                position: static;
-                box-sizing: border-box;
-                width: 80%;
-                padding: 20px;
-                margin-left: auto;
-                margin-right: auto;
-                min-height: 1000px;
-                background-color: rgb(255, 255, 255);}
-        footer {clear: both;}
-        img.responsive {float: left;
-                        margin-left: 0px;
-                        margin-right: 20px;
-                        margin-bottom: 40px;}
-        div#sizeInfo {background-color: rgba(255, 114, 21, 0.5);}
-}
+
+        border: 1px solid rgba(71, 69, 69, 0.3);
+
+        
+        background-image: linear-gradient(45deg, rgb(125, 90, 207), rgb(171, 247, 237), rgb(125, 90, 207), rgb(171, 247, 237), rgb(125, 90, 207), rgb(171, 247, 237), rgb(125, 90, 207), rgb(171, 247, 237), rgb(125, 90, 207), rgb(171, 247, 237), rgb(125, 90, 207), rgb(171, 247, 237));
+        border-style: solid;
+
+*/
