@@ -9,6 +9,18 @@
 
     <!-- external JavaScript file for menu and post-it note -->
     <script src="JS/menu.js"></script>
+    
+    <!-- JavaScript for sticky navigation glass effect -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const myTopnav = document.getElementById('myTopnav');
+            if (window.scrollY > 100) {
+                myTopnav.classList.add('sticky');
+            } else {
+                myTopnav.classList.remove('sticky');
+            }
+        });
+    </script>
 
     <!-- 1st external stylesheet for dropdown menu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,10 +38,15 @@
             color: gray;
             font-weight: 400;}
 
-        article {height: 1600px;
+        article {
+                min-height: auto;
+                height: auto;
                 font-size: 14px;
                 color: rgb(31, 31, 31);
-                font-weight: 600;}
+                font-weight: 600;
+                margin-top: 40px;
+                margin-bottom: 40px;
+        }
 
         div#skills2 {font-weight: 400;}
         div#label {font-weight: 600;}
@@ -98,6 +115,53 @@
 
         div#bullets {width: 100%;}
 
+        /* Glass morphic effect for myTopnav on resume page - only when sticky */
+        div#myTopnav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            transform: translateY(0) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        /* Override default topnav background on resume page */
+        div#myTopnav.topnav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Override nav tag background to let glass effect show through */
+        div#centerNav nav {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Ensure centerNav is transparent to let glass effect show through */
+        div#centerNav {
+            background: transparent !important;
+        }
+
+        /* Reduce header height to half on resume page */
+        header {
+            min-height: 175px !important;
+            padding: 20px !important;
+        }
+
+        /* Apply glass morphic effect only when sticky */
+        div#myTopnav.sticky {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-2px) !important;
+            border-radius: 35px !important;
+        }
+
     </style>
 
 </head>
@@ -110,25 +174,46 @@
             UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of human behavior and digital products.
         </p>
     </div>
-    <div id="main">
+    <div id="onWeb">
+        <div id="left">
+            <aside id="left">
+                <nav id="leftNav">
+                    <a href="index.html" class="button"> Home</a>
+                    <br>
+                    <a href="aboutme.html" class="button"> About</a>
+                    <br>
+                    <div class="dropdown-submenu">
+                        <a href="#" class="button2"> Work</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item button" href="project1.html">Project 1</a></li>
+                            <li><a class="dropdown-item button" href="project2.html">Project 2</a></li>
+                            <li><a class="dropdown-item button" href="projects.html">Project 3</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <a href="resume.html" class="button active"> Resume </a>
+                    <br>
+                    <a href="contact.html" class="button"> Contact Her </a>
+                </nav>
+            </aside>
+        </div>
+        <div id="content">
+            <header> &nbsp; </header>
 
-        <header> &nbsp; </header>
-
-        <nav> 
-            <div id="myTopnav" class="topnav">
-                <div id="navPart1" class="navpart1">
-                    <a href="index.html"> Radhika Thacker </a>
+            <div id="right">
+                <div id="centerNav">
+                    <nav>
+                        <div id="myTopnav" class="topnav">
+                            <div id="navPart2" class="navpart2">
+                                <a href="radhikaResume.pdf" target="_blank"> Download </a>
+                                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-                <div id="navPart2" class="navpart2">
-                    <a href="resume.html" class="active"> Resume </a>
-                    <a href="aboutme.html"> About </a>
-                    <a href="projects.html"> Work </a>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-            </div>
-        </div> 
-    </nav>
+                <div id="main">
 
         <article> 
                 <p>
@@ -246,28 +331,38 @@
                     <h4> 
                         Resume updated in Nov 2024
                     </h4>
-
-                    <div id="resumePdf"> 
-                        <a href= "radhikaResume.pdf" target="_blank"> Download </a>
-                    </div>
         </article>
 
-        <footer>
-            <p>
-                Connect:
-                <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
-                Linkedin
-                </a>
-            </p>
+                </div> <!-- end of main -->
 
-            <small>
-                &copy; Designed and Coded by Radhika Thacker - 2024 <br>
-                Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
-                Jarvis College of Computing and Digital Media | DePaul University
-            </small>
-        </footer>
-
-    </div> <!-- end of main -->
+                <div id="footer">
+                    <div class="banner" id="dynamic-banner">
+                        <p>Hi there! Thanks for visiting! I'm actively working on my portfolio site. <br>
+                            Keep an eye out for exciting updates! <br> <br>
+                            Last Updated: <span id="last-updated"></span></p>
+                    </div>
+                    <div>
+                        <p>
+                            I am excited to collaborate, contribute & grow.
+                            Let's device beautiful and meaningful experiences together.
+                        </p>
+                    </div>
+                    <br>
+                    <p>
+                        Connect:
+                        <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
+                            Linkedin
+                        </a>
+                    </p>
+                    <small>
+                        &copy; Designed and Coded by Radhika Thacker - 2024 <br>
+                        Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
+                        Jarvis College of Computing and Digital Media | DePaul University
+                    </small>
+                </div>
+            </div> <!-- end of right -->
+        </div> <!-- end of content -->
+    </div> <!-- end of onWeb -->
 
     <div id="sizeInfo"></div>
 </body>

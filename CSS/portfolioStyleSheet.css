@@ -150,127 +150,237 @@ div#sizeInfo {
 /* ============= start our own CSS here ============= */
 
 /* ============= Featured Cards Styles ============= */
+body {
+    background: #f8fafc;
+}
+
 #featured-cards {
-    margin: 40px 0;
-    padding: 20px;
+    margin: 48px 0 32px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .card {
-    background: rgb(250, 250, 242);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(39, 79, 95, 0.1);
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(60, 72, 88, 0.08);
+    border: 1px solid #e6e8ec;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 320px;
+    margin: 10px;
+    transition: box-shadow 0.2s;
 }
-
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 24px rgba(60, 72, 88, 0.13);
 }
-
+.card-main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-height: 240;
+}
 .card-image {
-    width: 100%;
-    height: 250px;
+    flex: 0 0 200px;
+    height: 240px;
     overflow: hidden;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px 24px;
 }
-
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    display: block;
 }
-
 .card:hover .card-image img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
-
 .card-content {
-    padding: 25px;
+    flex: 1 1 0;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow: hidden;
 }
-
+.card-title {
+    color: #2d5a47;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    font-family: myfont;
+}
 .card-content h3 {
     font-family: myfont;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
-    color: rgb(54, 57, 58);
-    margin: 0 0 15px 0;
-    line-height: 1.3;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
 }
-
 .card-content p {
     font-family: myfont;
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgb(99, 99, 99);
-    margin: 0 0 20px 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #4a4a4a;
+    margin: 0 0 16px 0;
+    word-break: break-word;
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
-
-.card-cta {
-    display: inline-block;
-    background: linear-gradient(135deg, rgb(39, 79, 95) 0%, rgb(54, 57, 58) 100%);
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-family: myfont;
+.card-hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    margin-top: auto;
+}
+.hashtag {
+    background: #f0f7f4;
+    color: #2d5a47;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
     font-weight: 500;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    font-family: myfont;
+    border: 1px solid #e0e0e0;
 }
-
-.card-cta:hover {
-    background: linear-gradient(135deg, rgb(54, 57, 58) 0%, rgb(39, 79, 95) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(39, 79, 95, 0.3);
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid #f0f0f0;
+    background: #f8fafc;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    font-family: myfont;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
 }
-
-.card-cta:active {
+.card-footer:hover, .card-footer:focus {
+    background: #f1f5f9;
+    border-color: #9ca3af;
+    color: #1f2937;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.10);
+    transform: translateY(-1px);
+}
+.card-footer:active {
+    background: #e5e7eb;
     transform: translateY(0);
 }
-
-/* Responsive design for cards */
-@media (min-width: 768px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+@media (max-width: 900px) {
+    .card {
+        min-height: 280px;
+        margin: 8px;
     }
-    
+    .card-main {
+        min-height: 200px;
+    }
     .card-image {
-        height: 280px;
+        flex-basis: 150px;
+        max-width: 150px;
+        height: 200px;
+        padding: 16px 20px;
+    }
+    .card-content {
+        padding: 16px 20px;
+    }
+    .card-content h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .card-content p {
+        font-size: 14px;
+        margin-bottom: 12px;
+        -webkit-line-clamp: 3;
+    }
+    .card-hashtags {
+        margin-bottom: 0;
+        gap: 4px;
+    }
+    .hashtag {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+    .card-footer {
+        padding: 12px 16px;
     }
 }
-
-@media (min-width: 1024px) {
-    .card-container {
-        gap: 50px;
+@media (max-width: 600px) {
+    .card {
+        min-height: 380px;
+        margin: 6px;
     }
-    
+    .card-main {
+        flex-direction: column;
+        min-height: 300px;
+    }
     .card-image {
-        height: 300px;
+        width: 100%;
+        height: 160px;
+        flex-basis: unset;
+        max-width: unset;
+        border-radius: 12px 12px 0 0;
+        padding: 12px 16px;
     }
-    
+    .card-image img {
+        max-height: 160px;
+        border-radius: 12px 12px 0 0;
+    }
     .card-content {
-        padding: 30px;
+        padding: 16px 20px;
     }
-    
     .card-content h3 {
-        font-size: 26px;
+        font-size: 20px;
+        margin-bottom: 8px;
     }
-    
     .card-content p {
-        font-size: 17px;
+        font-size: 15px;
+        margin-bottom: 12px;
+        -webkit-line-clamp: 4;
+    }
+    .card-hashtags {
+        margin-bottom: 0;
+        gap: 6px;
+    }
+    .hashtag {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    .card-footer {
+        padding: 14px 20px;
+        font-size: 15px;
     }
 }
 
@@ -295,15 +405,16 @@ div#onWeb {
 aside#left {
         flex-shrink: 0;
         background-color: rgb(250, 250, 242);
-        width: 106px;
+        width: 140px;
         border-radius: 25px;
+        z-index: 999999;
 }
 
 #leftNav {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 12px;
         font-family: myfont;
         font-size: 16px;
         line-height: 22px;
@@ -313,9 +424,12 @@ aside#left {
         background-color: transparent;
         border: none;
         color: white;
-        padding: 12px;
+        padding: 12px 8px;
         cursor: pointer;
         border-radius: 25px;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
         /* Optional: rounded corners */
 }
 
@@ -327,10 +441,12 @@ aside#left {
 .button2 {
         background-color: transparent;
         border: none;
-
-        padding: 12px;
+        padding: 12px 8px;
         cursor: pointer;
         border-radius: 25px;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
         /* Optional: rounded corners */
 }
 
@@ -340,6 +456,21 @@ aside#left {
         border-style: solid;
         border-width: 1px;
         background-color: transparent;
+}
+
+/* Active page indicators for left navigation */
+.button.active {
+        text-decoration: underline !important;
+        text-decoration-color: #869b86 !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 4px !important;
+}
+
+.button2.active {
+        text-decoration: underline !important;
+        text-decoration-color: #869b86 !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 4px !important;
 }
 
 div#content {
@@ -360,7 +491,10 @@ div#right {
         align-items: center;
         height: 100%;
         margin: 0 auto;
-
+        width: 100%;
+        max-width: 978px;
+        min-width: 0;
+        box-sizing: border-box;
 }
 
 div#left {
@@ -436,28 +570,26 @@ div#centerNav {
 
 
 div#main {
-        display: flex;
-        flex-direction: row;
-        flex-grow: 1;
-
-        justify-content: center;
-        background-color: rgb(250, 250, 242);
-        width: 100%;
-        max-width: 978px;
-        min-width: 0;
-        box-sizing: border-box;
-        height: 100%;
-        font-family: myfont;
-        font-size: 16px;
-        line-height: 22px;
-        background-size: cover;
-        margin: 0 auto;
-
-        padding-left: 100px;
-        padding-right: 100px;
-        padding-top: 24px;
-        padding-bottom: 24px;
-        border-radius: 38px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    background-color: rgb(250, 250, 242);
+    width: 100%;
+    max-width: 978px;
+    min-width: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: myfont;
+    font-size: 16px;
+    line-height: 22px;
+    background-size: cover;
+    margin: 0 auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-radius: 38px;
 }
 
 div#footer {
@@ -579,6 +711,16 @@ a:active {
         }
 }
 
+/* ======== Mobile - 767px and below | Show main content, hide mobile message ======= */
+@media (max-width: 767px) {
+    div#onWeb {
+        display: flex !important;
+    }
+    div#goweb {
+        display: none !important;
+    }
+}
+
 /* ==== Desktop - 1024px and up | Max width, spacing and navigation layout ==== */
 @media (min-width: 1024px) {
         div#onWeb {
@@ -619,29 +761,70 @@ div#workTile {
 .dropdown-submenu {
         position: relative;
         display: block;
+        z-index: 999999;
 }
 
 .dropdown-submenu .dropdown-menu {
         top: 0;
         left: 100%;
         margin-top: 0;
-        display: none;
+        visibility: hidden;
         position: absolute;
         margin: 0;
         padding: 24px;
         background-color: rgb(250, 250, 242);
         border: 1px solid #ccc;
-        z-index: 100;
+        z-index: 999999;
         width: 150px;
         border-radius: 25px;
+        /* Add padding to create hover area */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /* Add transition for smooth appearance */
+        transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+        /* No delay when appearing */
+        transition-delay: 0s;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+/* Show dropdown when active class is added (via JavaScript) */
+.dropdown-submenu.active .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 0s;
+}
+
+/* Keep dropdown visible when hovering over it */
+.dropdown-menu:hover {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 0s;
+}
+
+/* Hide dropdown when not active and not hovering */
+.dropdown-submenu .dropdown-menu {
+        transition-delay: 1s;
+}
+
+/* Create a larger hover area by extending the dropdown submenu */
+.dropdown-submenu {
+        position: relative;
         display: block;
+        /* Add padding to create a larger hover area */
+        padding-right: 10px;
 }
 
 .dropdown-menu li {
         padding: 10px 10px;
+        transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-menu li:hover {
+        background-color: rgba(39, 79, 95, 0.1);
+        border-radius: 8px;
 }
 
 ul.dropdown-menu {
@@ -697,3 +880,154 @@ footer {clear: both;}
         border-style: solid;
 
 */
+
+/* Improve main content area for tablets */
+div#main {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Adjust left navigation for tablets */
+aside#left {
+    width: 110px;
+}
+
+#leftNav {
+    padding: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    /* Improve main content area for tablets */
+    div#main {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Adjust left navigation for tablets */
+    aside#left {
+        width: 110px;
+    }
+
+    #leftNav {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Improve main content area for tablets */
+    div#main {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-radius: 20px;
+    }
+
+    /* Mobile navigation adjustments */
+    aside#left {
+        width: 85px;
+        border-radius: 15px;
+    }
+
+    #leftNav {
+        padding: 8px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .button, .button2 {
+        padding: 8px 6px;
+        font-size: 12px;
+        border-radius: 15px;
+    }
+
+    /* Improve header for mobile */
+    header {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    header p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    /* Adjust top navigation for mobile */
+    .topnav {
+        border-radius: 20px;
+        margin-bottom: 16px;
+    }
+
+    .topnav a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Improve card container spacing for mobile */
+    .card-container {
+        gap: 16px;
+        padding: 0 10px;
+    }
+
+    /* Better text readability on mobile */
+    .card-title {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+        line-height: 10.3;
+    }
+
+    .card-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    /* Improve main content area for tablets */
+    div#main {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    /* Improve card container spacing for mobile */
+    .card-container {
+        gap: 12px;
+        padding: 0px;
+    }
+
+    .card {
+        margin: 4px;
+        min-height: 360px;
+    }
+
+    .card-content {
+        padding: 14px 16px;
+    }
+
+    .card-footer {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    aside#left {
+        width: 70px;
+    }
+
+    #leftNav {
+        padding: 6px;
+        font-size: 11px;
+    }
+}
