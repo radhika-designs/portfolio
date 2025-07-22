@@ -2,10 +2,193 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
         Radhika Thacker UX Design | Work
     </title>
+    
+    <style>
+        /* Sticky Breadcrumb Strip */
+        .breadcrumb-strip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #869b86 0%, #a8c3a8 50%, #869b86 100%);
+            color: white;
+            padding: 4px 0;
+            z-index: 1000000;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.5px;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+
+        
+        .breadcrumb-content {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80%;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Adjust body padding to account for sticky strip */
+        body {
+            padding-top: 24px;
+        }
+        
+        /* Cursor improvements for breadcrumb */
+        .breadcrumb-strip {
+            cursor: default;
+        }
+        
+        .breadcrumb-content {
+            cursor: default;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .breadcrumb-strip {
+                font-size: 11px;
+                padding: 3px 0;
+            }
+            
+            body {
+                padding-top: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .breadcrumb-strip {
+                font-size: 10px;
+                padding: 2px 0;
+            }
+            
+            body {
+                padding-top: 16px;
+            }
+        }
+        
+        /* Circular Navigation Styles */
+        .circular-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: visible;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-icon {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            fill: #869b86;
+            stroke: #869b86;
+            stroke-width: 1.5;
+        }
+        
+        /* Enhanced cursor interactions for navigation */
+        .nav-item {
+            cursor: pointer;
+        }
+        
+        .nav-item:hover {
+            cursor: pointer;
+        }
+        
+        .nav-item:active {
+            cursor: pointer;
+        }
+        
+        .nav-label {
+            font-size: 11px;
+            color: #333;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            line-height: 1.2;
+        }
+        
+        .nav-icon:hover {
+            fill: #a8c3a8;
+            stroke: #a8c3a8;
+            transform: scale(1.2);
+        }
+        
+        .nav-icon.active {
+            fill: #a8c3a8;
+            stroke: #a8c3a8;
+            filter: drop-shadow(0 0 8px rgba(168, 195, 168, 0.6));
+        }
+        
+        .nav-item:hover .nav-label {
+            opacity: 1;
+            color: #869b86;
+            font-weight: 600;
+        }
+        
+        .nav-item.active .nav-label {
+            opacity: 1;
+            color: #a8c3a8;
+            font-weight: 600;
+        }
+        
+
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Ensure tooltips are not clipped by parent containers */
+        #centerNav, #myTopnav, .topnav, nav {
+            overflow: visible !important;
+        }
+    </style>
 
     <!-- external JavaScript file for menu and post-it note -->
     <script src="JS/menu.js"></script>
@@ -144,6 +327,12 @@
 </head>
 
 <body onresize="showBrowserSize();" onload="showBrowserSize();">
+    <!-- Sticky Breadcrumb Strip -->
+    <div class="breadcrumb-strip">
+        <div class="breadcrumb-content">
+            Home > Work
+        </div>
+    </div>
     <div id="goweb"> 
         <p>
             <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
@@ -181,13 +370,66 @@
                 <div id="centerNav">
                     <nav>
                         <div id="myTopnav" class="topnav">
-                            <div id="navPart2" class="navpart2">
-                                <a href="aboutme.html"> Problem: Impact - Goal: Process </a>
-                                <a href="projects.html"> Documentation & Participant-Data </a>
-                                <a href="#"> Deceisin Trail/Process Rationale </a>
-                                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                                    <i class="fa fa-bars"></i>
-                                </a>
+                            <div class="circular-nav">
+                                <div class="nav-item" onclick="scrollToSection('planning')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                    </svg>
+                                    <div class="nav-label">Planning</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('discovering')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <circle cx="11" cy="11" r="8"/>
+                                        <path d="m21 21-4.35-4.35"/>
+                                    </svg>
+                                    <div class="nav-label">Discovering</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('ideating')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4"/>
+                                        <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+                                        <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"/>
+                                        <path d="M12 3c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z"/>
+                                        <path d="M12 21c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"/>
+                                    </svg>
+                                    <div class="nav-label">Ideating</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('crafting')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                    </svg>
+                                    <div class="nav-label">Crafting</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('implementing')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                    <div class="nav-label">Implementing</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('final-designs')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                        <circle cx="9" cy="9" r="2"/>
+                                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                                    </svg>
+                                    <div class="nav-label">Final Designs</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('challenges')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                    <div class="nav-label">Challenges</div>
+                                </div>
+                                <div class="nav-item" onclick="scrollToSection('future-scope')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <div class="nav-label">Future Scope</div>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -199,7 +441,7 @@
                     Mindful mint
                 </h1>
                 </div>
-                <div id="projectContent">
+                <div id="planning" class="projectContent">
                     <h2> 
                         Planning
                     </h2>
@@ -252,7 +494,7 @@
                 <!-- <a href="tools.png" target="_blank"> </a> -->
                 <img src="tools.png" alt="toolkit" class="responsive"> <br>
 
-                <div id="projectContent">
+                <div id="discovering" class="projectContent">
                     <h2> 
                        Discovering
                     </h2>
@@ -273,7 +515,7 @@
                         </ul>
                     </p>
                 </div>
-                <div id="projectContent">
+                <div id="ideating" class="projectContent">
                     <h2> 
                         Ideating
                      </h2>
@@ -281,7 +523,7 @@
                         <img src="Mindful Mint User Journey.png" alt="toolkit" class="responsive"> <br>
                      </p>
                 </div>
-                <div id="projectContent">
+                <div id="crafting" class="projectContent">
                     <h2> 
                         Crafting the story
                      </h2>
@@ -289,7 +531,7 @@
                         
                      </p>
                 </div>
-                <div id="flowcontainer">
+                <div id="implementing" class="flowcontainer">
                     <h2> 
                         Implementing
                      </h2>
@@ -313,7 +555,7 @@
 
 
 
-                <div id="designcontainer">
+                <div id="final-designs" class="designcontainer">
                     <h2> 
                         sub title: Final Designs
                      </h2>
@@ -367,7 +609,7 @@
                         </p>
                      </div>
                 </div>
-                <div id="projectContent">
+                <div id="challenges" class="projectContent">
                     <h2> 
                         sub title: Challenges & Learnings
                     </h2>
@@ -379,7 +621,7 @@
                         </ul>
                     </p>
                 </div>
-                <div id="projectContent">
+                <div id="future-scope" class="projectContent">
                     <h2> 
                         sub title: Future Scope
                     </h2>
@@ -438,5 +680,98 @@
     </div> <!-- end of onWeb -->
 
     <div id="sizeInfo"></div>
+    
+    <script>
+        // Function for smooth scrolling to sections
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                // Calculate offset for sticky navigation (breadcrumb strip + circular nav)
+                const breadcrumbHeight = 40; // Height of breadcrumb strip
+                const circularNavHeight = 45; // Height of circular navigation (reduced)
+                const totalOffset = breadcrumbHeight + circularNavHeight + 20; // Extra padding
+                
+                const elementPosition = element.offsetTop - totalOffset;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active circle
+                updateActiveCircle(sectionId);
+            }
+        }
+        
+        // Function to update active circle based on scroll position
+        function updateActiveCircle() {
+            const sections = ['planning', 'discovering', 'ideating', 'crafting', 'implementing', 'final-designs', 'challenges', 'future-scope'];
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let currentSection = '';
+            // Calculate offset for sticky navigation
+            const breadcrumbHeight = 40;
+            const circularNavHeight = 45; // Height of circular navigation (reduced)
+            const totalOffset = breadcrumbHeight + circularNavHeight + 50; // Extra offset for better detection
+            const scrollPosition = window.scrollY + totalOffset;
+            
+            sections.forEach(sectionId => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const elementTop = element.offsetTop;
+                    const elementBottom = elementTop + element.offsetHeight;
+                    
+                    if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+                        currentSection = sectionId;
+                    }
+                }
+            });
+            
+            // Remove active class from all nav items
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to current section nav item
+            if (currentSection) {
+                const activeItem = document.querySelector(`[onclick="scrollToSection('${currentSection}')"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            }
+        }
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', updateActiveCircle);
+        
+        // Initialize active circle on page load
+        window.addEventListener('load', updateActiveCircle);
+        
+        // Function to handle tooltip positioning
+        function handleTooltipPosition() {
+            const circles = document.querySelectorAll('.nav-circle');
+            
+            circles.forEach(circle => {
+                circle.addEventListener('mouseenter', function() {
+                    const tooltip = this.querySelector('::after');
+                    const rect = this.getBoundingClientRect();
+                    const tooltipWidth = 100; // Approximate tooltip width
+                    
+                    // Check if tooltip would go off screen
+                    if (rect.left + (tooltipWidth / 2) < 0) {
+                        this.style.setProperty('--tooltip-left', '0px');
+                        this.style.setProperty('--tooltip-transform', 'translateX(0)');
+                    } else if (rect.right - (tooltipWidth / 2) > window.innerWidth) {
+                        this.style.setProperty('--tooltip-left', '100%');
+                        this.style.setProperty('--tooltip-transform', 'translateX(-100%)');
+                    } else {
+                        this.style.setProperty('--tooltip-left', '50%');
+                        this.style.setProperty('--tooltip-transform', 'translateX(-50%)');
+                    }
+                });
+            });
+        }
+        
+        // Initialize tooltip positioning
+        handleTooltipPosition();
+    </script>
 </body>
 </html>
