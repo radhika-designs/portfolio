@@ -1,9 +1,4 @@
-// script for post-it note - do not edit
-function showBrowserSize() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    document.getElementById("sizeInfo").innerHTML = "Width: " + w + "<br>Height: " + h;
-}
+
 
 // script for repsonsive menu - do not edit 
 function myFunction() {

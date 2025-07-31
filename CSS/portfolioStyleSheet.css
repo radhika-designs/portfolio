@@ -1,20 +1,4 @@
-/* ========== window dimentions(optional on page) ========== */
-div#sizeInfo {
-        position: fixed;
-        /* CSS for the post-it note */
-        box-sizing: border-box;
-        padding: 5px;
-        border-radius: 12px;
-        text-align: center;
-        background-color: rgb(253, 253, 253, 0.8);
-        font-family: myfont;
-        font-size: small;
-        width: 100px;
-        top: 10px;
-        right: 10px;
-        z-index: 999;
-        display: block;
-}
+
 
 /* ========== declaring font once and then use "myfont" as the chosen family for this file ========== */
 @font-face {
@@ -467,73 +451,96 @@ div#onWeb {
 
 aside#left {
         flex-shrink: 0;
-        background-color: rgb(250, 250, 242);
+        background: rgba(255, 255, 255, 0.95);
         width: 140px;
         border-radius: 12px;
+        transition: all 0.2s ease;
         z-index: 999999;
+}
+
+aside#left:hover {
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
 }
 
 #leftNav {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        padding: 12px;
+        padding: 14px 8px;
         font-family: myfont;
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 13px;
+        line-height: 1.4;
+        gap: 6px;
 }
 
 .button {
-        background-color: transparent;
+        background: rgba(255, 255, 255, 0.4);
         border: none;
-        color: white;
-        padding: 12px 8px;
+        color: #555;
+        padding: 8px 6px;
         cursor: pointer;
         border-radius: 12px;
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
-        /* Optional: rounded corners */
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 3px;
+        transition: all 0.15s ease-out;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
 }
 
 .button:hover {
-        background-color: #869b86;
-        /* Green */
+        background: rgba(134, 155, 134, 0.18);
+        color: #2d5a2d;
+        transform: translateY(-0.5px);
+        box-shadow: 0 1px 4px rgba(134, 155, 134, 0.15);
+        border: none;
+        text-decoration: none;
+        transition: all 0.15s ease-out;
 }
 
 .button2 {
-        background-color: transparent;
+        background: rgba(255, 255, 255, 0.4);
         border: none;
-        padding: 12px 8px;
+        color: #555;
+        padding: 8px 6px;
         cursor: pointer;
         border-radius: 12px;
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
-        /* Optional: rounded corners */
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 3px;
+        transition: all 0.15s ease-out;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
 }
 
 .button2:hover {
-        color: #869b86;
-        border: #869b86;
-        border-style: solid;
-        border-width: 1px;
-        background-color: transparent;
+        background: rgba(134, 155, 134, 0.18);
+        color: #2d5a2d;
+        transform: translateY(-0.5px);
+        box-shadow: 0 1px 4px rgba(134, 155, 134, 0.15);
+        border: none;
+        text-decoration: none;
+        transition: all 0.15s ease-out;
 }
 
 /* Active page indicators for left navigation */
-.button.active {
-        text-decoration: underline !important;
-        text-decoration-color: #869b86 !important;
-        text-decoration-thickness: 2px !important;
-        text-underline-offset: 4px !important;
-}
-
-.button2.active {
-        text-decoration: underline !important;
-        text-decoration-color: #869b86 !important;
-        text-decoration-thickness: 2px !important;
-        text-underline-offset: 4px !important;
+.button.active, .button2.active {
+        background: rgba(134, 155, 134, 0.25);
+        color: #1a3d1a;
+        font-weight: 600;
+        border: none;
+        box-shadow: 0 1px 3px rgba(134, 155, 134, 0.2);
+        text-decoration: none;
+        transition: all 0.15s ease-out;
 }
 
 div#content {
@@ -562,14 +569,11 @@ div#right {
 
 div#left {
         display: flex;
-        border-width: 1px;
-        border-color: rgb(155, 164, 167);
-        background-color: rgb(250, 250, 242);
+        background: transparent;
         position: static;
         min-height: 350px;
         margin: 10px;
         padding: 10px;
-        border-radius: 16px;
 }
 
 header {
@@ -769,9 +773,7 @@ a:active {
                 display: none;
         }
 
-        div#sizeInfo {
-                background-color: rgba(255, 240, 27, 0.5);
-        }
+
 }
 
 /* ======== Mobile - 767px and below | Show main content, hide mobile message ======= */
@@ -794,9 +796,7 @@ a:active {
                 display: none;
         }
 
-        div#sizeInfo {
-                background-color: rgba(255, 114, 21, 0.5);
-        }
+
 }
 
 /* ============ index page specific css ============ */
@@ -1093,4 +1093,36 @@ aside#left {
         padding: 6px;
         font-size: 11px;
     }
+}
+
+/* Enhanced Dropdown Menu Styling - Matching Projects Page */
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(134, 155, 134, 0.12) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.dropdown-menu li {
+    margin: 0 !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 6px 10px !important;
+    border-radius: 12px !important;
+    margin: 1px 3px !important;
+    transition: all 0.15s ease-out !important;
+    color: #555 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: rgba(134, 155, 134, 0.18) !important;
+    color: #2d5a2d !important;
+    transform: translateX(1px) !important;
+    text-decoration: none !important;
 }

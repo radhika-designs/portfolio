@@ -10,14 +10,11 @@
     <style>
         /* Sticky Breadcrumb Strip */
         .breadcrumb-strip {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
             background: linear-gradient(90deg, #869b86 0%, #a8c3a8 50%, #869b86 100%);
             color: white;
-            padding: 4px 0;
-            z-index: 1000000;
+            padding: 4px 12px;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
             font-family: 'Satoshi', sans-serif;
             font-size: 12px;
@@ -25,9 +22,8 @@
             text-align: center;
             letter-spacing: 0.5px;
             animation: slideIn 0.5s ease-out;
+            box-sizing: border-box;
         }
-        
-
         
         .breadcrumb-content {
             display: inline-block;
@@ -53,14 +49,48 @@
             50% { opacity: 0.7; }
         }
         
-        /* Adjust body padding to account for sticky strip */
+        /* Body styling */
         body {
-            padding-top: 24px;
+            margin: 0;
+            padding: 0;
         }
         
         /* Cursor improvements for breadcrumb */
         .breadcrumb-strip {
             cursor: default;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .breadcrumb-left {
+            flex: 1;
+            text-align: left;
+            min-width: 0;
+            cursor: default;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .breadcrumb-center {
+            flex: 2;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: default;
+            margin: 0 8px;
+        }
+        
+        .breadcrumb-right {
+            flex: 1;
+            text-align: right;
+            min-width: 0;
+            cursor: default;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         
         .breadcrumb-content {
@@ -71,22 +101,14 @@
         @media (max-width: 768px) {
             .breadcrumb-strip {
                 font-size: 11px;
-                padding: 3px 0;
-            }
-            
-            body {
-                padding-top: 20px;
+                padding: 3px 12px;
             }
         }
         
         @media (max-width: 480px) {
             .breadcrumb-strip {
                 font-size: 10px;
-                padding: 2px 0;
-            }
-            
-            body {
-                padding-top: 16px;
+                padding: 2px 12px;
             }
         }
     </style>
@@ -102,11 +124,17 @@
 
 </head>
 
-<body onresize="showBrowserSize();" onload="showBrowserSize();">
+<body>
     <!-- Sticky Breadcrumb Strip -->
     <div class="breadcrumb-strip">
-        <div class="breadcrumb-content">
-            Home > Work > Project 2: Flows - Task Management App
+        <div class="breadcrumb-left">
+            <span id="datetime"></span>
+        </div>
+        <div class="breadcrumb-center">
+            Home > Work > Project 2
+        </div>
+        <div class="breadcrumb-right">
+            <span id="viewport-size"></span>
         </div>
     </div>
     <div id="goweb">
@@ -132,7 +160,6 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item button" href="project1.html">Project 1</a></li>
                             <li><a class="dropdown-item button" href="project2.html">Project 2</a></li>
-                            <li><a class="dropdown-item button" href="projects.html">Project 3</a></li>
                         </ul>
                     </div>
                     <br>
@@ -151,7 +178,7 @@
                         <div id="myTopnav" class="topnav">
                             <div id="navPart2" class="navpart2">
                                 <a href="aboutme.html"> Problem: Impact - Goal: Process </a>
-                                <a href="projects.html"> Documentation & Participant-Data </a>
+                                <a href="project1.html"> Documentation & Participant-Data </a>
                                 <a href="#"> Deceisin Trail/Process Rationale </a>
                                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                                     <i class="fa fa-bars"></i>
@@ -200,7 +227,30 @@
             </div> <!-- end of right -->
         </div> <!-- end of content -->
     </div> <!-- end of onWeb -->
-
-    <div id="sizeInfo"></div>
+    
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString();
+            const timeStr = now.toLocaleTimeString();
+            document.getElementById('datetime').textContent = `${dateStr} | ${timeStr}`;
+        }
+        
+        function updateViewportSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('viewport-size').textContent = `${width}×${height}`;
+        }
+        
+        // Initialize on load
+        updateDateTime();
+        updateViewportSize();
+        
+        // Update datetime every second
+        setInterval(updateDateTime, 1000);
+        
+        // Update viewport size on resize
+        window.addEventListener('resize', updateViewportSize);
+    </script>
 </body>
 </html> 
