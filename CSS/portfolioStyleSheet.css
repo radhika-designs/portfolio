@@ -4,7 +4,7 @@ div#sizeInfo {
         /* CSS for the post-it note */
         box-sizing: border-box;
         padding: 5px;
-        border-radius: 10px;
+        border-radius: 12px;
         text-align: center;
         background-color: rgb(253, 253, 253, 0.8);
         font-family: myfont;
@@ -22,6 +22,69 @@ div#sizeInfo {
         src: url(Satoshi-Variable.ttf);
 }
 
+/* ========== Cursor Rules for Better UX ========== */
+/* Interactive elements */
+button, 
+.button, 
+.button2,
+.nav-circle,
+.nav-icon,
+.nav-item,
+.card,
+.card-footer,
+.dropdown-item,
+.topnav a,
+.navpart2 a {
+        cursor: pointer !important;
+}
+
+/* Text selection */
+p, h1, h2, h3, h4, h5, h6, span, div {
+        cursor: text;
+}
+
+/* Images and media */
+img, video, audio {
+        cursor: default;
+}
+
+/* Links */
+a {
+        cursor: pointer;
+}
+
+/* Form elements */
+input, textarea, select {
+        cursor: text;
+}
+
+/* Disabled elements */
+button:disabled, 
+input:disabled, 
+textarea:disabled {
+        cursor: not-allowed;
+}
+
+/* Loading states */
+.loading, 
+.processing {
+        cursor: wait;
+}
+
+/* Resizable elements */
+textarea {
+        cursor: text;
+}
+
+/* Drag and drop areas */
+.draggable {
+        cursor: grab;
+}
+
+.draggable:active {
+        cursor: grabbing;
+}
+
 /* ========== CSS for dropdown menu, Top Naviagtion============ */
 .topnav {
         overflow: hidden;
@@ -31,7 +94,7 @@ div#sizeInfo {
         box-shadow: 0px 2px 2px 0px rgb(69, 69, 70, .2);
 
         font-family: myfont;
-        border-radius: 35px;
+        border-radius: 12px;
 
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(10px);
@@ -56,7 +119,7 @@ div#sizeInfo {
         padding-bottom: 10px;
         text-decoration: none;
         font-size: 18px;
-        cursor: grab;
+        cursor: pointer;
 }
 
 .topnav a:link,
@@ -406,7 +469,7 @@ aside#left {
         flex-shrink: 0;
         background-color: rgb(250, 250, 242);
         width: 140px;
-        border-radius: 25px;
+        border-radius: 12px;
         z-index: 999999;
 }
 
@@ -426,7 +489,7 @@ aside#left {
         color: white;
         padding: 12px 8px;
         cursor: pointer;
-        border-radius: 25px;
+        border-radius: 12px;
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
@@ -443,7 +506,7 @@ aside#left {
         border: none;
         padding: 12px 8px;
         cursor: pointer;
-        border-radius: 25px;
+        border-radius: 12px;
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
@@ -506,7 +569,7 @@ div#left {
         min-height: 350px;
         margin: 10px;
         padding: 10px;
-        border-radius: 38px;
+        border-radius: 16px;
 }
 
 header {
@@ -522,7 +585,7 @@ header {
         margin-top: 12px;
         margin-bottom: 12px;
         padding: 40px;
-        border-radius: 38px;
+        border-radius: 16px;
 }
 
 nav {
@@ -539,7 +602,7 @@ nav {
         position: sticky;
         top: 20px;
         box-sizing: border-box;
-        border-radius: 35px;
+        border-radius: 16px;
 
         height: auto;
 
@@ -587,9 +650,9 @@ div#main {
     margin: 0 auto;
     padding-left: 100px;
     padding-right: 100px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 38px;
+            padding-top: 24px;
+        padding-bottom: 24px;
+        border-radius: 16px;
 }
 
 div#footer {
@@ -613,7 +676,7 @@ div#footer {
         margin-top: 12px;
         margin-bottom: 12px;
         padding: 40px;
-        border-radius: 38px;
+        border-radius: 16px;
 }
 
 
@@ -660,13 +723,13 @@ a:visited {
 a:hover {
         color: rgb(179, 253, 172);
         text-decoration: none;
-        cursor: grab;
+        cursor: pointer;
 }
 
 a:active {
         color: maroon;
         font-style: italic;
-        cursor: wait;
+        cursor: pointer;
 }
 
 .img-hover-zoom img {
@@ -824,7 +887,7 @@ div#workTile {
 
 .dropdown-menu li:hover {
         background-color: rgba(39, 79, 95, 0.1);
-        border-radius: 8px;
+        border-radius: 12px;
 }
 
 ul.dropdown-menu {

@@ -61,6 +61,41 @@
         /* Cursor improvements for breadcrumb */
         .breadcrumb-strip {
             cursor: default;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        
+        .breadcrumb-left {
+            flex: 1;
+            text-align: left;
+            min-width: 0;
+            cursor: default;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .breadcrumb-center {
+            flex: 2;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: default;
+            margin: 0 8px;
+        }
+        
+        .breadcrumb-right {
+            flex: 1;
+            text-align: right;
+            min-width: 0;
+            cursor: default;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         
         .breadcrumb-content {
@@ -98,7 +133,9 @@
             gap: 20px;
             padding: 8px 15px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: visible;
@@ -112,6 +149,16 @@
             gap: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
+            padding: 8px 4px;
+            border-radius: 12px;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active {
+            transform: translateY(-3px);
         }
         
         .nav-icon {
@@ -143,50 +190,212 @@
         }
         
         .nav-label {
-            font-size: 11px;
-            color: #333;
+            font-size: 12px;
+            color: #555;
             font-weight: 500;
             text-align: center;
             white-space: nowrap;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: all 0.3s ease;
-            line-height: 1.2;
+            line-height: 1.3;
         }
         
         .nav-icon:hover {
-            fill: #a8c3a8;
-            stroke: #a8c3a8;
-            transform: scale(1.2);
+            fill: #869b86;
+            stroke: #869b86;
+            transform: scale(1.3);
+            filter: drop-shadow(0 2px 6px rgba(134, 155, 134, 0.4));
         }
         
         .nav-icon.active {
-            fill: #a8c3a8;
-            stroke: #a8c3a8;
-            filter: drop-shadow(0 0 8px rgba(168, 195, 168, 0.6));
+            fill: #2d5a2d;
+            stroke: #2d5a2d;
+            transform: scale(1.4);
+            filter: drop-shadow(0 0 12px rgba(45, 90, 45, 0.8));
         }
         
         .nav-item:hover .nav-label {
             opacity: 1;
             color: #869b86;
             font-weight: 600;
+            transform: scale(1.1);
+            text-shadow: 0 1px 3px rgba(134, 155, 134, 0.3);
         }
         
         .nav-item.active .nav-label {
             opacity: 1;
-            color: #a8c3a8;
-            font-weight: 600;
+            color: #2d5a2d;
+            font-weight: 700;
+            transform: scale(1.15);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #2d5a2d;
         }
         
 
         
-        /* Smooth scrolling */
+
+        
+        /* Smooth scrolling with padding to prevent sticky nav overlap */
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 130px; /* Desktop: works fine for larger screens */
+        }
+        
+        /* Only increase padding for smaller screens that need it */
+        @media (max-width: 1002px) {
+            html {
+                scroll-padding-top: 200px; /* Increased only for screens that need it */
+            }
         }
         
         /* Ensure tooltips are not clipped by parent containers */
         #centerNav, #myTopnav, .topnav, nav {
             overflow: visible !important;
+        }
+        
+        /* Sticky Navigation Visual Relief */
+        #centerNav {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(134, 155, 134, 0.1);
+            padding: 8px 0;
+        }
+        
+        /* Add subtle shadow to main content to create depth */
+        
+
+        #main {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Ensure content doesn't overlap with sticky nav */
+        #main::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* H2 Section Card Containers */
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(134, 155, 134, 0.2);
+            border-radius: 12px;
+            margin: 24px 0;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 978px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-card-header {
+            background: rgba(134, 155, 134, 0.1);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(134, 155, 134, 0.15);
+        }
+        
+        .section-card-header h4 {
+            margin: 0;
+            color: #2d5a2d;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.3px;
+        }
+        
+        .section-card-content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* H2 Headers outside cards - no space after */
+        .projectContent h2 {
+            margin: 32px 0 0 0; /* Removed bottom margin */
+            color: #2d5a2d;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: left;
+        }
+        
+        /* Temporary height divs for scroll detection */
+        .temp-height {
+            background: transparent;
+            border: none;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+        }
+        
+        /* Ensure minimum section heights for better scroll detection */
+        .projectContent {
+            min-height: 60vh; /* Increased to 60% of viewport height for better detection */
+            position: relative;
+        }
+        
+        /* Responsive minimum heights for smaller screens */
+        @media (max-width: 768px) {
+            .projectContent {
+                min-height: 70vh; /* Higher minimum for smaller screens */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .projectContent {
+                min-height: 80vh; /* Even higher for mobile to ensure proper detection */
+            }
+        }
+        
+        /* Add clear section boundaries */
+        .projectContent:not(:last-child) {
+            margin-bottom: 40px;
+        }
+        
+        /* Ensure H2 headers are visible when scrolled to */
+        .projectContent h2 {
+            scroll-margin-top: 130px; /* Matches scroll-padding-top */
+        }
+        
+        /* Only increase margin for smaller screens that need it */
+        @media (max-width: 1002px) {
+            .projectContent h2 {
+                scroll-margin-top: 200px; /* Increased only for screens that need it */
+            }
+        }
+        
+        .section-card-content h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #2d5a2d;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .section-card-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .section-card-content ul {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        
+        .section-card-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
     </style>
 
@@ -210,7 +419,7 @@
                         padding: 20px;
                         width: 100%;
                         line-height: 2;
-                        border-radius: 10px;}
+                        border-radius: 12px;}
 
         div#flowcontainer {display: block;
                             box-sizing: border-box;
@@ -222,7 +431,7 @@
                 box-sizing: border-box;
                 height: 340px;
                 background-color: rgb(245, 245, 245);
-                border-radius: 10px;
+                border-radius: 12px;
                 background-image: url(spendWorkHours.jpg);
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -245,7 +454,7 @@
                         width: 100%;
                         padding: 20px;
                         margin-top: 20px;
-                        border-radius: 10px;
+                        border-radius: 12px;
                         height: auto;}
 
         div#userflow {display: block;
@@ -293,6 +502,101 @@
             list-style-position:outside;
             line-height: 1.5;}
         ul li {margin-bottom: 12px;}
+        
+        /* Enhanced Left Navigation for Projects Page - Subtle Version */
+        div#left {
+            background: transparent !important;
+        }
+        
+        aside#left {
+            background: rgba(250, 250, 242, 0.95) !important;
+            border: 1px solid rgba(134, 155, 134, 0.15) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+            transition: all 0.2s ease !important;
+        }
+        
+        aside#left:hover {
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        #leftNav {
+            padding: 14px 8px !important;
+            gap: 6px !important;
+            font-size: 13px !important;
+            line-height: 1.4 !important;
+        }
+        
+        .button, .button2 {
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            padding: 8px 6px !important;
+            margin-bottom: 3px !important;
+            border-radius: 12px !important;
+            transition: all 0.15s ease-out !important;
+            position: relative !important;
+            overflow: hidden !important;
+            color: #555 !important;
+            background: rgba(255, 255, 255, 0.4) !important;
+            border: none !important;
+            text-decoration: none !important;
+        }
+        
+        .button:hover, .button2:hover {
+            background: rgba(134, 155, 134, 0.18) !important;
+            color: #2d5a2d !important;
+            transform: translateY(-0.5px) !important;
+            box-shadow: 0 1px 4px rgba(134, 155, 134, 0.15) !important;
+            border: none !important;
+            text-decoration: none !important;
+            transition: all 0.15s ease-out !important;
+        }
+        
+        .button.active, .button2.active {
+            background: rgba(134, 155, 134, 0.25) !important;
+            color: #1a3d1a !important;
+            font-weight: 600 !important;
+            border: none !important;
+            box-shadow: 0 1px 3px rgba(134, 155, 134, 0.2) !important;
+            text-decoration: none !important;
+            transition: all 0.15s ease-out !important;
+        }
+        
+        /* Work dropdown styling - Subtle Version */
+        .dropdown-submenu {
+            margin-bottom: 3px !important;
+        }
+        
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(134, 155, 134, 0.12) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+            backdrop-filter: blur(8px) !important;
+        }
+        
+        .dropdown-menu li {
+            margin: 0 !important;
+        }
+        
+        .dropdown-menu .dropdown-item {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            padding: 6px 10px !important;
+            border-radius: 12px !important;
+            margin: 1px 3px !important;
+            transition: all 0.15s ease-out !important;
+            color: #555 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        .dropdown-menu .dropdown-item:hover {
+            background: rgba(134, 155, 134, 0.18) !important;
+            color: #2d5a2d !important;
+            transform: translateX(1px) !important;
+            text-decoration: none !important;
+        }
 
 /*       div#sectionB {display: block;
                         box-sizing: border-box;
@@ -329,8 +633,14 @@
 <body onresize="showBrowserSize();" onload="showBrowserSize();">
     <!-- Sticky Breadcrumb Strip -->
     <div class="breadcrumb-strip">
-        <div class="breadcrumb-content">
+        <div class="breadcrumb-left">
+            <span id="datetime"></span>
+        </div>
+        <div class="breadcrumb-center">
             Home > Work
+        </div>
+        <div class="breadcrumb-right">
+            <span id="viewport-size"></span>
         </div>
     </div>
     <div id="goweb"> 
@@ -364,13 +674,22 @@
             </aside>
         </div>
         <div id="content">
-            <header> &nbsp; </header>
+            <header id="header">
+                <h1>Mindful mint</h1>
+            </header>
 
             <div id="right">
                 <div id="centerNav">
-                    <nav>
-                        <div id="myTopnav" class="topnav">
+        <nav> 
+            <div id="myTopnav" class="topnav">
                             <div class="circular-nav">
+                                <div class="nav-item" onclick="scrollToSection('header')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M12 19V5"/>
+                                        <path d="M5 12l7-7 7 7"/>
+                                    </svg>
+                                    <div class="nav-label">To Top</div>
+                                </div>
                                 <div class="nav-item" onclick="scrollToSection('planning')">
                                     <svg class="nav-icon" viewBox="0 0 24 24">
                                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -430,213 +749,348 @@
                                     </svg>
                                     <div class="nav-label">Future Scope</div>
                                 </div>
-                            </div>
-                        </div>
-                    </nav>
+                                <div class="nav-item" onclick="scrollToSection('footer')">
+                                    <svg class="nav-icon" viewBox="0 0 24 24">
+                                        <path d="M12 5v14"/>
+                                        <path d="M19 12l-7 7-7-7"/>
+                                    </svg>
+                                    <div class="nav-label">To Bottom</div>
+                </div>
+            </div>
+        </div> 
+    </nav>
                 </div>
                 <div id="main">
-                    <article> 
+        <article> 
                 <div id="projectContent">
-                    <h1> 
-                    Mindful mint
-                </h1>
                 </div>
+                <!-- Planning Section Pocket -->
                 <div id="planning" class="projectContent">
-                    <h2> 
-                        Planning
-                    </h2>
-                    <p>
-                        MindfulMint encourages user to reflect on an item and offers a chance to save an item for later instead of buying it impulsively. <br>
-                        Goal: 
+                    <h2>Planning</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                MindfulMint encourages user to reflect on an item and offers a chance to save an item for later instead of buying it impulsively.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p><strong>Goal:</strong></p>
                             <ul>
-                                <li> Awareness </li>
-                                <li> Accountability </li>
-                                <li> Convenience </li>
-                                <li> Mindfulness </li>
+                                <li>Awareness</li>
+                                <li>Accountability</li>
+                                <li>Convenience</li>
+                                <li>Mindfulness</li>
                             </ul>
-                    </p>
+                            
+                            <div id="sectionA">
+                                <table>
+                                    <tr>
+                                        <td> Project: </td>
+                                        <td> School CAPSTONE Project</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:top"> Team: </td>
+                                        <td> Team of 3 (Designer, Researcher, Manager)</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Timeline: </td>
+                                        <td> 10 weeks </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:top"> My Role: </td>
+                                        <td style="width: 85%;"> Played roles in rotation with other teammates while mainly playing UX Designer </td>
+                                    </tr>
+                                    <tr >
+                                        <td style="vertical-align:top"> Process: </td>
+                                        <td> UX Research, Competitive Product Analysis, User Interviews, <br> Wireframing, Prototyping, Usability testing, Information Architecture, <br> Product Strategy, Visual Design </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <img src="impulseBuyingContextVenn.png" alt="contextVenn" class="responsive"> <br>
+                            <img src="impulseBuyingContext.png" alt="context" class="responsive"> <br>
+                            <img src="userflowComparision.png" alt="userflowComparision" class="responsive"> <br>
+                            <img src="goals.png" alt="goals" class="responsive"> <br>
+                            <img src="project plan.png" alt="projectPlan" class="responsive"> <br>
+                            <img src="tools.png" alt="toolkit" class="responsive"> <br>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                 </div>
-                <div id="sectionA">
-                    <table>
-                        <tr>
-                            <td> Project: </td>
-                            <td> School CAPSTONE Project</td>
-                        </tr>
-                        <tr>
-                            <td style="vertical-align:top"> Team: </td>
-                            <td> Team of 3 (Designer, Researcher, Manager)</td>
-                        </tr>
-                        <tr>
-                            <td> Timeline: </td>
-                            <td> 10 weeks </td>
-                        </tr>
-                        <tr>
-                            <td style="vertical-align:top"> My Role: </td>
-                            <td style="width: 85%;"> Played roles in rotation with other teammates while mainly playing UX Designer </td>
-                        </tr>
-                        <tr >
-                            <td style="vertical-align:top"> Process: </td>
-                            <td> UX Research, Competitive Product Analysis, User Interviews, <br> Wireframing, Prototyping, Usability testing, Information Architecture, <br> Product Strategy, Visual Design </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <img src="impulseBuyingContextVenn.png" alt="contextVenn" class="responsive"> <br>
-               <!--  <div id="sectionB">
-                    <div id="sectionB1"> </div>
-                    <div id="sectionB1"> </div>
-                </div> -->
-                <img src="impulseBuyingContext.png" alt="context" class="responsive"> <br>
-                <img src="userflowComparision.png" alt="userflowComparision" class="responsive"> <br>
-                <img src="goals.png" alt="goals" class="responsive"> <br>
-                <img src="project plan.png" alt="projectPlan" class="responsive"> <br>
-
-                <!-- <a href="tools.png" target="_blank"> </a> -->
-                <img src="tools.png" alt="toolkit" class="responsive"> <br>
-
+                
+                <!-- Discovering Section Pocket -->
                 <div id="discovering" class="projectContent">
-                    <h2> 
-                       Discovering
-                    </h2>
-                    <p>
-                        <ul>
-                            <li>
-                                The user category and the primary user persona represent the broad spectrum of individuals: all the shoppers who shop online mostly and frequently <br>
-                            </li>
-                            <li>
-                                The primary user persona are individuals who may not be chronic impulse shoppers but tend to occasionally make impulsive purchases. <br>
-                            </li>
-                            <li>
-                                They are motivated by a desire to improve or stay consistent on their spend limit/ and make more mindful decisions. <br>
-                            </li>
+                    <h2>Discovering</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                User research focused on understanding online shoppers who occasionally make impulsive purchases and seek tools for mindful spending.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <ul>
+                                <li>
+                                    The user category and the primary user persona represent the broad spectrum of individuals: all the shoppers who shop online mostly and frequently
+                                </li>
+                                <li>
+                                    The primary user persona are individuals who may not be chronic impulse shoppers but tend to occasionally make impulsive purchases.
+                                </li>
+                                <li>
+                                    They are motivated by a desire to improve or stay consistent on their spend limit and make more mindful decisions.
+                                </li>
                             <li>
                                 They seek support and tools to help them maintain control over their spending habits and make more intentional decisions.
                             </li>
                         </ul>
-                    </p>
-                </div>
-                <div id="ideating" class="projectContent">
-                    <h2> 
-                        Ideating
-                     </h2>
-                     <p>
-                        <img src="Mindful Mint User Journey.png" alt="toolkit" class="responsive"> <br>
-                     </p>
-                </div>
-                <div id="crafting" class="projectContent">
-                    <h2> 
-                        Crafting the story
-                     </h2>
-                     <p>
-                        
-                     </p>
-                </div>
-                <div id="implementing" class="flowcontainer">
-                    <h2> 
-                        Implementing
-                     </h2>
-                    <div id="userflow">
-                        <p>
-                            <ol>
-                                <li> Mindful Mint revolved around the idea of being able to add to wishlist and review/reflect the item before exercising the power of one click-purchase.</li>
-                                <br>
-                                <li> This flow starts at homepage > "My wishlist" page and allows to make the following changes and then return back to the "My wishlist" page.</li>
-                                <br>
-                                <li> My wishlist page shows the path to be able to change the saved items details, updating list information, updating list status, deleting item from list page and deleting item from list from item page.</li>
-                            </ol>
-                            <br>
-                            <img src="FlowsUpdatingItermStatus.png" alt="itemStatusflow" class="responsive"> <br>
-                        </p>
                     </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                 </div>
-
-
-
-
-
-
-                <div id="final-designs" class="designcontainer">
-                    <h2> 
-                        sub title: Final Designs
-                     </h2>
-                     <div id="designcard1">
-                        <p>
-                            <b> Landing Page: </b><br>
-                            Allows user to learn about the platform, offeres to explore further either via signing up, loggin in or simply as guest.
-                        <br>
-                        <br>
-                            <img src="landing page.png" alt="landingpg" class="responsive"> <br>
-                        </p>
-                     </div>
-                     <div id="designcard2">
-                        <p>
-                            <b> Home Page: </b><br>
-                            Allows quick access to eveything while keeping the dashboard simple.
-                        <br>
-                        <br>
-                            <img src="homepage.png" alt="homepage" class="responsive"> <br>
-                        </p>
-                     </div>
-                     <div id="designcard3">
-                        <p>
-                        <p>
-                            <b> Create List Page: </b><br>
-                            Showcases the contributing factors in definig and creating a profile.
-                        <br>
-                        <br>
-                            <img src="MM LM_ Create List frame 2.png" alt="createlist" class="responsive"> <br>
-                        </p>
-                     </div>
-                     <div id="designcard4">
-                        <p>
-                        <p>
-                            <b> Add to Review Basket Page: </b><br>
-                            Page exhibits the process from searching an item to adding it to a review basket serving as a space between selecting, reflecting and adding one thing at a time in against allowing user to run  ultiple searches, adding to a space (
-                                "Review Basket") to be able to review when convinient and allowing adding group of items to one list or each item sepeartely.
-                        <br>
-                        <br>
-                            <img src="MM LM_ Item Search + Review Basket Frame 2.png" alt="reviewbasket" class="responsive"> <br>
-                        </p>
-                     </div>
-                     <div id="designcard5">
-                        <p>
-                        <p>
-                            <b> Product Overview Page: </b><br>
-                            Allows user to reflect and make purchase if necessary.
-                        <br>
-                        <br>
-                            <img src="MM LM_ Item Details_ Product Overview page frame 1.png" alt="productpage" class="responsive"> <br>
-                        </p>
-                     </div>
+                            
+        </div>
+                <!-- Ideating Section Pocket -->
+                <div id="ideating" class="projectContent">
+                    <h2>Ideating</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Design ideation process focused on creating user journey maps and conceptualizing the MindfulMint application flow.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                <img src="Mindful Mint User Journey.png" alt="User Journey Map" class="responsive">
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                 </div>
+                
+                <!-- Crafting Section Pocket -->
+                <div id="crafting" class="projectContent">
+                    <h2>Crafting the Story</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Story development and narrative crafting for the MindfulMint application user experience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                [Content placeholder - Add your story crafting details here. This section will contain information about how the narrative and user story were developed for the MindfulMint application.]
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
+                </div>
+                
+                <!-- Implementing Section Pocket -->
+                <div id="implementing" class="projectContent">
+                    <h2>Implementing</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Implementation phase including user flow development, wireframing, and prototyping of the MindfulMint application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <div id="userflow">
+                                <p>
+                                    </p><ol>
+                                        <li> Mindful Mint revolved around the idea of being able to add to wishlist and review/reflect the item before exercising the power of one click-purchase.</li>
+                                        <br>
+                                        <li> This flow starts at homepage &gt; "My wishlist" page and allows to make the following changes and then return back to the "My wishlist" page.</li>
+                                        <br>
+                                        <li> My wishlist page shows the path to be able to change the saved items details, updating list information, updating list status, deleting item from list page and deleting item from list from item page.</li>
+                                    </ol>
+                                    <br>
+                                    <img src="FlowsUpdatingItermStatus.png" alt="itemStatusflow" class="responsive"> <br>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
+                </div>
+                
+                <!-- Final Designs Section Pocket -->
+                <div id="final-designs" class="projectContent">
+                    <h2>Final Designs</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Final design deliverables including high-fidelity prototypes, visual designs, and user interface components for the MindfulMint application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <div id="designcard1">
+                                <p>
+                                    <b> Landing Page: </b><br>
+                                    Allows user to learn about the platform, offeres to explore further either via signing up, loggin in or simply as guest.
+                                    <br>
+                                    <br>
+                                    <img src="landing page.png" alt="landingpg" class="responsive"> <br>
+                                </p>
+                            </div>
+                            <div id="designcard2">
+                                <p>
+                                    <b> Home Page: </b><br>
+                                    Allows quick access to eveything while keeping the dashboard simple.
+                                    <br>
+                                    <br>
+                                    <img src="homepage.png" alt="homepage" class="responsive"> <br>
+                                </p>
+                            </div>
+                            <div id="designcard3">
+                                <p>
+                                    <b> Create List Page: </b><br>
+                                    Showcases the contributing factors in definig and creating a profile.
+                                    <br>
+                                    <br>
+                                    <img src="MM LM_ Create List frame 2.png" alt="createlist" class="responsive"> <br>
+                                </p>
+                            </div>
+                            <div id="designcard4">
+                                <p>
+                                    <b> Add to Review Basket Page: </b><br>
+                                    Page exhibits the process from searching an item to adding it to a review basket serving as a space between selecting, reflecting and adding one thing at a time in against allowing user to run ultiple searches, adding to a space (
+                                        "Review Basket") to be able to review when convinient and allowing adding group of items to one list or each item sepeartely.
+                                    <br>
+                                    <br>
+                                    <img src="MM LM_ Item Search + Review Basket Frame 2.png" alt="reviewbasket" class="responsive"> <br>
+                                </p>
+                            </div>
+                            <div id="designcard5">
+                                <p>
+                                    <b> Product Overview Page: </b><br>
+                                    Allows user to reflect and make purchase if necessary.
+                                    <br>
+                                    <br>
+                                    <img src="MM LM_ Item Details_ Product Overview page frame 1.png" alt="productpage" class="responsive"> <br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
+                </div>
+                
+                <!-- Challenges Section Pocket -->
                 <div id="challenges" class="projectContent">
-                    <h2> 
-                        sub title: Challenges & Learnings
-                    </h2>
-                    <p>
-                        <ul>
-                            <li> The biggest challeneg was to deciding on the approach for designing the app. Due to limited time the initial user interviews were not conducted and that's when I learnt to intiating parallel processes rather than applying linear method of ideating and design. </li>
-                            <li> Another challenge that I faced was about trying to achieve too many things in shorter duration and this continued until the first draft of mid-fi wireframes. And that is when I learnt the importance if priotizing and deprioritizing tasks. Which lead me to evaluate all  the tasks, streamline the MVP as per goals of this project and focus on three main task.</li>
-                            <li> The other challenge was about figuring out the balance amongst user input, information visibility and the frequency of notifications,nudges and pop ups. This whole exercise brought awarness as how mindful mint as a platform could contribute in helping the user channelise their instant shopping urges.</li>
-                        </ul>
-                    </p>
+                    <h2>Challenges &amp; Learnings</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Key challenges encountered during the project and valuable learnings gained throughout the design process.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                </p><ul>
+                                    <li> The biggest challeneg was to deciding on the approach for designing the app. Due to limited time the initial user interviews were not conducted and that's when I learnt to intiating parallel processes rather than applying linear method of ideating and design. </li>
+                                    <li> Another challenge that I faced was about trying to achieve too many things in shorter duration and this continued until the first draft of mid-fi wireframes. And that is when I learnt the importance if priotizing and deprioritizing tasks. Which lead me to evaluate all the tasks, streamline the MVP as per goals of this project and focus on three main task.</li>
+                                    <li> The other challenge was about figuring out the balance amongst user input, information visibility and the frequency of notifications,nudges and pop ups. This whole exercise brought awarness as how mindful mint as a platform could contribute in helping the user channelise their instant shopping urges.</li>
+                                </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                 </div>
+                
+                <!-- Future Scope Section Pocket -->
                 <div id="future-scope" class="projectContent">
-                    <h2> 
-                        sub title: Future Scope
-                    </h2>
-                    <p>
-                        <ul>
-                            <li> Conduct usability tests with the hi-fi prototype </li>
-                            <li> Diary study of built project to evaluate efficacy in reducing impulse purchase </li>
-                            <li> Explore the feasibility of expanding the scope to include outlier user groups</li>
-                        </ul>
-                    </p>
+                    <h2>Future Scope</h2>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Brief</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                Future opportunities and potential scope for expanding and enhancing the MindfulMint application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-card-header">
+                            <h4>Details</h4>
+                        </div>
+                        <div class="section-card-content">
+                            <p>
+                                </p><ul>
+                                    <li> Conduct usability tests with the hi-fi prototype </li>
+                                    <li> Diary study of built project to evaluate efficacy in reducing impulse purchase </li>
+                                    <li> Explore the feasibility of expanding the scope to include outlier user groups</li>
+                                </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                    <!-- Temporary height div for scroll detection -->
+                    <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                 </div>
             
         </article>
 
-        <footer>
+        <footer id="footer">
             <p>
                 Connect:
                 <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
@@ -648,7 +1102,7 @@
                 Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
                 Jarvis College of Computing and Digital Media | DePaul University
             </small>
-                </div> <!-- end of main -->
+    </div> <!-- end of main -->
 
                 <div id="footer">
                     <div class="banner" id="dynamic-banner">
@@ -682,65 +1136,212 @@
     <div id="sizeInfo"></div>
     
     <script>
+        // Function to update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateString = now.toLocaleDateString();
+            const timeString = now.toLocaleTimeString();
+            const dateTimeString = dateString + '  |  ' + timeString;
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+        
+        // Function to update viewport size
+        function updateViewportSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('viewport-size').textContent = width + '×' + height;
+        }
+        
+        // Update date/time and viewport size on load and resize
+        window.addEventListener('load', function() {
+            updateDateTime();
+            updateViewportSize();
+            // Update date/time every second
+            setInterval(updateDateTime, 1000);
+        });
+        
+        window.addEventListener('resize', updateViewportSize);
+        
         // Function for smooth scrolling to sections
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
+            
             if (element) {
-                // Calculate offset for sticky navigation (breadcrumb strip + circular nav)
-                const breadcrumbHeight = 40; // Height of breadcrumb strip
-                const circularNavHeight = 45; // Height of circular navigation (reduced)
-                const totalOffset = breadcrumbHeight + circularNavHeight + 20; // Extra padding
-                
-                const elementPosition = element.offsetTop - totalOffset;
-                
-                window.scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
                 
-                // Update active circle
-                updateActiveCircle(sectionId);
+                // Update active circle after a short delay to ensure scroll completes
+                setTimeout(() => {
+                    updateActiveCircle();
+                }, 100);
             }
         }
         
+        // Variable to track last logged section
+        let lastLoggedSection = '';
+        
         // Function to update active circle based on scroll position
         function updateActiveCircle() {
-            const sections = ['planning', 'discovering', 'ideating', 'crafting', 'implementing', 'final-designs', 'challenges', 'future-scope'];
+            const sections = ['header', 'planning', 'discovering', 'ideating', 'crafting', 'implementing', 'final-designs', 'challenges', 'future-scope', 'footer'];
             const navItems = document.querySelectorAll('.nav-item');
             
             let currentSection = '';
-            // Calculate offset for sticky navigation
-            const breadcrumbHeight = 40;
-            const circularNavHeight = 45; // Height of circular navigation (reduced)
-            const totalOffset = breadcrumbHeight + circularNavHeight + 50; // Extra offset for better detection
-            const scrollPosition = window.scrollY + totalOffset;
             
-            sections.forEach(sectionId => {
+            // Get actual sticky nav dimensions from viewport
+            const breadcrumbStrip = document.querySelector('.breadcrumb-strip');
+            const centerNav = document.querySelector('#centerNav');
+            
+            // Calculate sticky nav height
+            const breadcrumbHeight = breadcrumbStrip ? breadcrumbStrip.offsetHeight : 24;
+            const circularNavHeight = centerNav ? centerNav.offsetHeight : 60;
+            const stickyNavHeight = breadcrumbHeight + circularNavHeight;
+            
+            // Wikipedia-style detection: section is active when its H2 reaches the bottom of sticky nav
+            const scrollPosition = window.scrollY + stickyNavHeight;
+            
+            // Find which section is currently active using clear boundaries
+            for (let i = 0; i < sections.length; i++) {
+                const sectionId = sections[i];
                 const element = document.getElementById(sectionId);
+                
                 if (element) {
                     const elementTop = element.offsetTop;
                     const elementBottom = elementTop + element.offsetHeight;
                     
-                    if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-                        currentSection = sectionId;
+                    // Section is active when scroll position is at or past its start
+                    // but before the next section starts
+                    if (scrollPosition >= elementTop) {
+                        // Check if we've reached the next section
+                        if (i === sections.length - 1 || scrollPosition < (document.getElementById(sections[i + 1])?.offsetTop || Infinity)) {
+                            currentSection = sectionId;
+                            break; // Found the active section, stop searching
+                        }
                     }
                 }
-            });
+            }
             
-            // Remove active class from all nav items
-            navItems.forEach(item => item.classList.remove('active'));
+
+            
+            // Remove active class from all nav items and reset ALL styles
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                
+                // Reset styles for this specific nav item
+                const navLabel = item.querySelector('.nav-label');
+                const navIcon = item.querySelector('.nav-icon');
+                
+                if (navLabel) {
+                    // Clear all possible inline styles
+                    navLabel.style.removeProperty('font-weight');
+                    navLabel.style.removeProperty('color');
+                    navLabel.style.removeProperty('transform');
+                    navLabel.style.removeProperty('text-decoration');
+                    navLabel.style.removeProperty('text-underline-offset');
+                    navLabel.style.removeProperty('text-decoration-color');
+                    navLabel.style.removeProperty('opacity');
+                    navLabel.style.removeProperty('text-shadow');
+                    
+                    // Reset to default values
+                    navLabel.style.fontWeight = '500';
+                    navLabel.style.color = '#555';
+                    navLabel.style.transform = 'scale(1)';
+                    navLabel.style.textDecoration = 'none';
+                    navLabel.style.opacity = '0.9';
+                }
+                
+                if (navIcon) {
+                    // Clear all possible inline styles
+                    navIcon.style.removeProperty('fill');
+                    navIcon.style.removeProperty('stroke');
+                    navIcon.style.removeProperty('transform');
+                    navIcon.style.removeProperty('filter');
+                    
+                    // Reset to default values
+                    navIcon.style.fill = '#869b86';
+                    navIcon.style.stroke = '#869b86';
+                    navIcon.style.transform = 'scale(1)';
+                    navIcon.style.filter = 'none';
+                }
+            });
             
             // Add active class to current section nav item
             if (currentSection) {
                 const activeItem = document.querySelector(`[onclick="scrollToSection('${currentSection}')"]`);
                 if (activeItem) {
                     activeItem.classList.add('active');
+                    
+                    // Apply active styles consistently to ALL nav items
+                    const navLabel = activeItem.querySelector('.nav-label');
+                    const navIcon = activeItem.querySelector('.nav-icon');
+                    
+                    if (navLabel) {
+                        // Apply active styles directly (no setProperty with important)
+                        navLabel.style.fontWeight = '700';
+                        navLabel.style.color = '#2d5a2d';
+                        navLabel.style.transform = 'scale(1.15)';
+                        navLabel.style.textDecoration = 'underline';
+                        navLabel.style.textUnderlineOffset = '3px';
+                        navLabel.style.textDecorationColor = '#2d5a2d';
+                        navLabel.style.opacity = '1';
+                    }
+                    
+                    if (navIcon) {
+                        // Apply active styles directly
+                        navIcon.style.fill = '#2d5a2d';
+                        navIcon.style.stroke = '#2d5a2d';
+                        navIcon.style.transform = 'scale(1.4)';
+                        navIcon.style.filter = 'drop-shadow(0 0 12px rgba(45, 90, 45, 0.8))';
+                    }
                 }
+            }
+            
+
+            
+            // Log current section for debugging (optional - can be removed)
+            if (currentSection && currentSection !== lastLoggedSection) {
+                console.log(`Currently viewing: ${currentSection}`);
+                console.log(`Active nav item: ${currentSection}`);
+                lastLoggedSection = currentSection;
             }
         }
         
-        // Add scroll event listener
-        window.addEventListener('scroll', updateActiveCircle);
+        // Function to reset nav item styles
+        function resetNavItemStyles(navItem) {
+            const navLabel = navItem.querySelector('.nav-label');
+            const navIcon = navItem.querySelector('.nav-icon');
+            
+            if (navLabel) {
+                navLabel.style.removeProperty('font-weight');
+                navLabel.style.removeProperty('color');
+                navLabel.style.removeProperty('transform');
+                navLabel.style.removeProperty('text-decoration');
+                navLabel.style.removeProperty('text-underline-offset');
+                navLabel.style.removeProperty('text-decoration-color');
+            }
+            
+            if (navIcon) {
+                navIcon.style.removeProperty('fill');
+                navIcon.style.removeProperty('stroke');
+                navIcon.style.removeProperty('transform');
+                navIcon.style.removeProperty('filter');
+            }
+        }
+        
+        // Add scroll event listener with better throttling
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(updateActiveCircle, 5); // Faster response
+        });
+        
+        // Also update on window resize to recalculate positions
+        window.addEventListener('resize', function() {
+            setTimeout(updateActiveCircle, 100);
+        });
         
         // Initialize active circle on page load
         window.addEventListener('load', updateActiveCircle);
