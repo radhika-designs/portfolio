@@ -244,6 +244,412 @@
 
 
 
+        /* Goals Table Styles */
+        .goals-table {
+            display: table;
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background: rgb(253, 253, 251);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .goals-header {
+            display: table-row;
+            background: rgba(248, 250, 252, 0.8);
+        }
+
+        .goals-row {
+            display: table-row;
+            border-bottom: 1px solid rgba(134, 155, 134, 0.08);
+        }
+
+        .goals-row:last-child {
+            border-bottom: none;
+        }
+
+        .goal-col {
+            display: table-cell;
+            padding: 16px 12px;
+            vertical-align: top;
+            text-align: left;
+            line-height: 1.6;
+            border-right: 1px solid rgba(134, 155, 134, 0.08);
+        }
+
+        .goal-col:last-child {
+            border-right: none;
+        }
+
+        .goals-header .goal-col {
+            font-size: 15px;
+            color: #555;
+            font-weight: 300;
+            text-align: center;
+            padding: 10px 8px;
+            background: rgba(248, 250, 252, 0.8);
+            border-bottom: 2px solid rgba(134, 155, 134, 0.2);
+        }
+
+        .goals-row .goal-col {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .goal-description {
+            color: #555;
+            font-weight: 600;
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .goals-row .goal-col strong {
+            color: #2d5a2d;
+            font-weight: 600;
+        }
+
+        /* Timeline Content Styling */
+        .timeline-content {
+            background: rgb(253, 253, 251);
+            border-left: 3px solid rgba(134, 155, 134, 0.3);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .timeline-content p {
+            margin: 0;
+            line-height: 1.8;
+            color: #444;
+            font-size: 15px;
+        }
+
+        /* Magnifying Glass Styles */
+        .magnifier-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .magnifier-outer {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border: 3px solid #2d5a2d;
+            border-radius: 8px;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: grab;
+        }
+
+        .magnifier-outer:active {
+            cursor: grabbing;
+        }
+
+        .magnifier-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.1s ease;
+            user-select: none;
+            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .magnifier-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.1s ease;
+            user-select: none;
+            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .magnifier-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 0;
+        }
+
+        .magnifier-inner {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            height: 90px;
+            border: 2px solid white;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #f8f8f8;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .magnifier-view {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .magnifier-view::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .zoom-indicator {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff4444;
+            border: 1px solid #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 20;
+            box-shadow: 0 0 0 1px #ffd700, 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .magnifier-label {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 6px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+
+        .magnifier-controls {
+            margin-top: 20px;
+            padding: 12px;
+            background: rgb(253, 253, 251);
+            border-radius: 8px;
+        }
+
+        .zoom-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+            outline: none;
+            margin: 12px 0;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            /* Touch-friendly sizing */
+            min-height: 20px;
+            padding: 6px 0;
+        }
+
+        .zoom-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2d5a2d;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Touch-friendly thumb */
+        }
+
+        .zoom-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2d5a2d;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Touch-friendly thumb */
+        }
+
+        .drop-indicator {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: rgba(45, 90, 45, 0.1);
+            border-radius: 4px;
+            font-size: 14px;
+            color: #2d5a2d;
+            text-align: center;
+        }
+
+        /* Dropdown functionality */
+        .dropdown-section {
+            margin: 20px 0;
+            border: 1px solid rgba(45, 90, 45, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .dropdown-header {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(45, 90, 45, 0.05);
+            border-bottom: 1px solid rgba(45, 90, 45, 0.1);
+        }
+
+        .dropdown-header:hover {
+            background: rgba(45, 90, 45, 0.08);
+        }
+
+        .dropdown-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d5a2d;
+            margin: 0;
+        }
+
+        .dropdown-arrow {
+            font-size: 12px;
+            color: #2d5a2d;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-label {
+            font-size: 12px;
+            color: #2d5a2d;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-left: auto;
+            margin-right: 8px;
+        }
+
+        .wireframe-nav-area:hover {
+            opacity: 0.1;
+        }
+
+        .dropdown-header.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .dropdown-content.show {
+            display: block;
+            max-height: 2000px;
+            padding: 20px 20px 12px 20px;
+            border-top: 1px solid rgba(134, 155, 134, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content {
+            display: none;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+        }
+
+        .dropdown-toggle:hover {
+            background: rgba(45, 90, 45, 0.08);
+        }
+
+        .dropdown-toggle h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d5a2d;
+        }
+
+        .dropdown-toggle .toggle-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #2d5a2d;
+            font-weight: 500;
+        }
+
+        .dropdown-toggle .toggle-icon::before {
+            content: 'Click to expand';
+            opacity: 1;
+            white-space: nowrap;
+        }
+
+        .dropdown-toggle .toggle-icon::after {
+            content: '▼';
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .dropdown-toggle.active .toggle-icon::before {
+            content: 'Click to close';
+        }
+
+        .dropdown-toggle.active .toggle-icon::after {
+            transform: rotate(180deg);
+        }
+
         /* Smooth scrolling with padding to prevent sticky nav overlap */
         html {
             scroll-behavior: smooth;
@@ -702,7 +1108,8 @@
         <p>
             <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
 
-            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and
+            UX Researcher & Designer with a passion for customer-centered design. Skilled in data collection, testing,
+            and
             analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of
             human behavior and digital products.
         </p>
@@ -837,52 +1244,39 @@
                             <h2>Project Overview</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p> <b>
-                                            I made an app so you can make online purchases more intentional &
-                                            meaningful.
+                                            I made an app (Mindful Mint), so one can make online purchases more
+                                            intentional &
+                                            meaningful potentially without giving in to the urge to buy immidiately as
+                                            one discovers new things online.
                                         </b>
+                                    </p>
+                                    <p>
+                                        This 6-week academic project focused on designing a tool that help customers
+                                        pause
+                                        and reflect before making online purchases. I worked with a team of three. Each
+                                        of us was responsible for designing one platform; mobile, browser extension, or
+                                        website while regularly sharing feedback to strengthen the overall experience.
+                                        <br><br>
+                                        I contributed to the overall customer research and led the ideation and
+                                        usability
+                                        testing for the website experience, which I also owned. Our solution is
+                                        designed to help customers analyse and evaluate their shopping needs, aiming to
+                                        support mindful decision-making without inviting Buyer's remorse.
                                     </p>
                                 </div>
                             </div>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Details</h4>
+                                    <h4></h4>
                                 </div>
                                 <div class="section-card-content">
-                                    <p><strong>Problem Statement:</strong></p>
-                                    <p>
-                                        Online shopping is designed for speed, not reflection. This leads users to make
-                                        impulsive purchases they later regret, causing overspending and product clutter.
-                                        Shoppers need support to pause and reflect before buying, without restricting
-                                        their freedom or joy in shopping.
-                                    </p>
-
-                                    <p><strong>Solution Concept:</strong></p>
-                                    <p>
-                                        MindfulMint intervenes at the critical moment of purchase by introducing a brief
-                                        pause for reflection. It asks users to consider their purchase through guided
-                                        questions, offers alternatives like saving for later, and provides gentle
-                                        reminders about their shopping goals and budget.
-                                    </p>
-
-                                    <p><strong>Key Features:</strong></p>
-                                    <ul>
-                                        <li>Smart detection of shopping cart additions</li>
-                                        <li>Reflection prompts and guided questions</li>
-                                        <li>Save-for-later functionality</li>
-                                        <li>Budget and goal tracking</li>
-                                        <li>Non-intrusive, respectful intervention</li>
-                                    </ul>
-
-                                    <p><strong>Target Users:</strong></p>
-                                    <p>
-                                        Online shoppers who want to make more conscious purchasing decisions, reduce
-                                        impulse buying, and develop healthier shopping habits while still enjoying the
-                                        convenience of online shopping.
-                                    </p>
+                                    <i><a href="#planning"
+                                            style="color: inherit; text-decoration: none; cursor: pointer;">Read more in
+                                            Detail</a></i>
                                 </div>
                             </div>
                             <!-- Temporary height div for scroll detection -->
@@ -894,20 +1288,16 @@
                             <h2>Context & Problem</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
+                                    <p><strong>Problem Statement: Its location is questionable!!!!</strong></p>
                                     <p>
-                                        E-commerce platforms prioritize convenience and instant gratification, making it
-                                        easy for users to buy impulsively. Shoppers often make emotionally driven,
-                                        one-click purchases without considering need, affordability, or long-term value,
-                                        resulting in regret, wasted money, and clutter. Despite wanting to shop more
-                                        mindfully, users often avoid rigid budgeting tools or solutions that feel
-                                        restrictive.
-                                        <br>
-                                        <br>
-                                        There is a clear gap: users need subtle support that enables
-                                        reflection during purchasing, without compromising their autonomy.
+                                        Online shopping is designed for speed, not reflection. This leads customers to
+                                        make
+                                        impulsive purchases they later regret, causing overspending and product clutter.
+                                        Shoppers need support before they happen to buy, without restricting
+                                        their freedom or joy in shopping.
                                     </p>
                                 </div>
                             </div>
@@ -917,40 +1307,17 @@
                                 </div>
                                 <div class="section-card-content">
                                     <p>
-                                    <blockquote>
-                                        Design Decision: Create wireframes in the vision phase
+                                        E-commerce platforms prioritize convenience and instant gratification, making it
+                                        easy for customers to buy impulsively. Shoppers often make emotionally driven,
+                                        one-click purchases without considering need, affordability, or long-term value,
+                                        resulting in regret, wasted money, and clutter. Despite wanting to shop more
+                                        mindfully, customers often avoid rigid budgeting tools or solutions that feel
+                                        restrictive.
                                         <br>
-                                        <i> Why?</i>
-                                        To communicate a comoletely new product idea and collect early feedback
-                                        from users to shape the vision.
-
-                                    </blockquote>
+                                        <br>
+                                        There is a clear gap: customers need subtle support that enables
+                                        reflection during purchasing, without compromising their autonomy.
                                     </p>
-                                    <P>
-                                        Impulse buying is a widespread issue that impacts both mental and financial
-                                        well-being.
-                                        <li>
-                                            89% of U.S. shoppers admit to making unplanned purchases. </li>
-                                        <li>
-                                            On average, individuals spend $281 per month on impulse buys.
-                                        </li>
-                                        <li>
-                                            Users report guilt, financial stress, and a lack of control following these
-                                            purchases.
-                                        </li>
-                                    </P>
-                                    <P>
-                                        The wireframes were pivotal in helping us align because we could discuss
-                                        different features as they came up. Furthermore, any point of uncertainty was a
-                                        great opportunity to reframe it into a user interview question
-                                    </P>
-                                    <p><strong>Goal:</strong></p>
-                                    <ul>
-                                        <li>Discovering</li>
-                                        <li>Planning</li>
-                                        <li>Discovering</li>
-                                    </ul>
-
                                     <div id="sectionA">
                                         <table>
                                             <tr>
@@ -959,33 +1326,55 @@
                                             </tr>
                                             <tr>
                                                 <td style="vertical-align:top"> Team: </td>
-                                                <td> Team of 3 (Designer, Researcher, Manager)</td>
+                                                <td> 3 </td>
                                             </tr>
                                             <tr>
                                                 <td> Timeline: </td>
                                                 <td> 10 weeks </td>
                                             </tr>
                                             <tr>
+                                                <td style="vertical-align:top"> Shared roles: </td>
+                                                <td style="width: 85%;">
+                                                    <ul>
+                                                        <li>We agreed to work on the research and testing
+                                                            scripts together to make sure everyone gets a chance to
+                                                            input on
+                                                            research and it doesn't just fall on one person. </li>
+                                                        <li>We were all
+                                                            dedicated to making decisions
+                                                            together in meetings to properly align ourselves.</li>
+                                                        <li>We shared feedback to each other during weekly meetings for
+                                                            the progress we made or aimed to make in coming week.
+                                                        </li>
+                                                        <li>We also clearly defined project scope responsibilities to
+                                                            ensure that everyone knows exactly what they are in charge
+                                                            of.</li>
+                                                        <li>Each of us took ownership of a distinct customer flow,
+                                                            covering
+                                                            one
+                                                            of the platforms:Each of us took ownership of a distinct
+                                                            customer flow, covering one
+                                                            of the platforms: mobile, web, or browser extension. Mobile,
+                                                            Web, Browser extension.</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td style="vertical-align:top"> My Role: </td>
-                                                <td style="width: 85%;"> Played roles in rotation with other teammates
-                                                    while mainly playing UX Designer </td>
+                                                <td style="width: 85%;"> I was in-charge for the Website of this
+                                                    project.
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="vertical-align:top"> Process: </td>
-                                                <td> UX Research, Competitive Product Analysis, User Interviews, <br>
+                                                <td> UX Research, Competitive Product Analysis, Customer Interviews,
+                                                    <br>
                                                     Wireframing, Prototyping, Usability testing, Information
-                                                    Architecture, <br> Product Strategy, Visual Design </td>
+                                                    Architecture, <br> Product Strategy, Visual Design
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>
-
-                                    <img src="impulseBuyingContextVenn.png" alt="contextVenn" class="responsive"> <br>
-                                    <img src="impulseBuyingContext.png" alt="context" class="responsive"> <br>
-                                    <img src="userflowComparision.png" alt="userflowComparision" class="responsive">
-                                    <br>
-                                    <img src="goals.png" alt="goals" class="responsive"> <br>
-                                    <img src="project plan.png" alt="projectPlan" class="responsive"> <br>
-                                    <img src="tools.png" alt="toolkit" class="responsive"> <br>
                                 </div>
                             </div>
                             <!-- Temporary height div for scroll detection -->
@@ -997,11 +1386,11 @@
                             <h2>Vision & Goals </h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
-                                        User research focused on understanding online shoppers who occasionally make
+                                        Customer research focused on understanding online shoppers who occasionally make
                                         impulsive purchases and seek tools for mindful spending.
                                     </p>
                                 </div>
@@ -1011,25 +1400,934 @@
                                     <h4>Details</h4>
                                 </div>
                                 <div class="section-card-content">
-                                    <h5> Project timeline</h5>
-                                    <h6>
-                                        Week 1-2 → Discovery Interviews & Research <br>
-                                        Week 3 → Competitive Analysis + User Personas <br>
-                                        Week 4 → Initial Wireframes + IA<br>
-                                        Week 5 → Mid-fi Prototype<br>
-                                        Week 6 → IA Testing<br>
-                                        Week 7 → Mid-fi Edits + Usability Test 1<br>
-                                        Week 8 → Hi-fi Prototype<br>
-                                        Week 9 → Usability Test 2<br>
-                                        Week 10 → Final Design Edits & Wrap-up<br>
-                                    </h6>
+
+                                    <div>
+                                        <p><strong>Vision:</strong></p>
+                                        <i>For Customers: </i><br>
+                                        To enable customers to make more thoughtful choices by shaping space within
+                                        everyday digital
+                                        buying experiences and help build lasting habits.
+                                        <br><br>
+                                        <i>For Designers:</i> <br>
+                                        We aimed to design intentional pauses in the online shopping flow to help people
+                                        think before they buy.
+                                        <br><br>
+                                        This project explores the creation of an interventional tool for online impulse
+                                        shopping, through a mobile app, website, and browser extension.
+                                    </div>
+                                    <br>
+                                    <!-- Customer Types Context -->
+                                    <div
+                                        style="margin-bottom: 20px; padding: 8px; border: 1px solid #e0e0e0; border-radius: 4px;">
+                                        <h6 style="margin: 0 0 6px 0; color: #333; font-size: 14px;">Customer
+                                            Overview:</h6>
+                                        <ul style="margin: 0; padding-left: 16px; font-size: 14px; line-height: 1.3;">
+                                            <li><strong><i>Primary customers:</i></strong> Frequent impulse shoppers who
+                                                need
+                                                support</li>
+                                            <li><strong><i>Secondary customers:</i></strong> Occasional impulse
+                                                shoppers
+                                                looking to improve habits</li>
+                                            <li><strong><i>Tertiary customers:</i></strong> Cautious shoppers who
+                                                wnat to avoid
+                                                impulse buying</li>
+                                        </ul>
+                                        <br>
+                                        <div>
+                                            <p><strong>Target customer:</strong> <br>
+                                            <div class="timeline-content">
+                                                People who shop online and want to make more intentional purchase
+                                                decisions
+                                                aiming to reduce impulsive habits while still enjoying the convenience
+                                                of
+                                                online shopping.
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <p>
+                                                <strong> Recruting specs:</strong> <br>
+                                                Given the early stage of the project, we kept the target audience broad
+                                                to explore a range of behaviors. Defining narrow customer segments would
+                                                have required deeper research, which was outside our scope at the time.
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <p><strong>Goals:</strong></p>
+                                    <div
+                                        style="margin: 20px 0; border: 1px solid #d0d0d0; border-radius: 2px; overflow: hidden;">
+                                        <table
+                                            style="width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.3;">
+                                            <thead>
+                                                <tr style="background: #f8f8f8;">
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #d0d0d0; font-weight: 600; color: #555; width: 33%; font-size: 15px;">
+                                                        Goal 01</th>
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #d0d0d0; font-weight: 600; color: #555; width: 33%; font-size: 15px;">
+                                                        Goal 02</th>
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #d0d0d0; font-weight: 600; color: #555; width: 34%; font-size: 15px;">
+                                                        Goal 03</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Customers should feel like they can easily integrate this
+                                                        application into their lives</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Customers should feel like using the app will help them curb
+                                                        spending</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Customers should find the app easy to use and want to come back
+                                                        to it</td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Anchor Question:</strong><br>Will they get on the app?
+                                                    </td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Anchor Question:</strong><br>Will they use the app?
+                                                    </td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Anchor Question:</strong><br>Will they find the app
+                                                        helpful overall?
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Measure:</strong><br>Ease of use and satisfaction
+                                                    </td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Measure:</strong><br>Customer retention and customer
+                                                        feedback on effectiveness
+                                                    </td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; color: #555; font-size: 15px;">
+                                                        <strong>Measure:</strong><br>Approachability, customer feedback
+                                                        on efficiency, and IA testing
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p>
+                                        # <br> At the heart of this project was a deeply iterative process, starting
+                                        with broad exploration of potential fetaures helping to achieve the goals. These
+                                        early ideas acted as catalysts rather than final decisions, and many were
+                                        refined or reshaped entirely after customer feedback and exploratory wireframing
+                                        testing. This section outlines how our understanding evolved.
+                                    </p>
+
+                                    <!-- Feature Analysis Table -->
+                                    <div
+                                        style="margin: 20px 0; border: 1px solid #e8e8e8; border-radius: 2px; overflow: hidden;">
+                                        <table
+                                            style="width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.3;">
+                                            <thead>
+                                                <tr style="background: #fafafa;">
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #e8e8e8; font-weight: 600; color: #555; width: 20%; font-size: 15px;">
+                                                        Feature</th>
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #e8e8e8; font-weight: 600; color: #555; width: 25%; font-size: 15px;">
+                                                        Goal</th>
+                                                    <th
+                                                        style="padding: 6px 10px; text-align: left; border-bottom: 1px solid #e8e8e8; font-weight: 600; color: #555; width: 55%; font-size: 15px;">
+                                                        Questions Raised/Concerns</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #333; font-size: 15px;">
+                                                        Item Pages with Price History</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Item pages display details like price changes and reminder
+                                                        notifications for when users should rethink an item.</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #555; font-size: 15px;">
+                                                        By suggesting a Price Change, what is MM trying to accomplish?
+                                                        Is it intended to signal that a price increase means it's not
+                                                        the right time to buy, or that a price decrease means it's a
+                                                        good time to make the purchase? Or is there more to this feature
+                                                        that hasn't been fully described?<br><br>If the focus is
+                                                        primarily on price fluctuations, it seems that the "Price Change
+                                                        and related stats" may not fully align with MM's core goals of
+                                                        promoting mindful shopping. Because when MM sends the
+                                                        notification of price drop, won't it suggest opportunity to buy?
+                                                        when probably user might have forgotten about that wish-listed
+                                                        product.<br><br>Clarification on this would be helpful.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #333; font-size: 15px;">
+                                                        Reflection Prompts on Home Screen</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Users receive prompts on their home screen to revisit and
+                                                        rethink purchases when reminders trigger.</td>
+                                                    <td
+                                                        style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; color: #555; font-size: 15px;">
+                                                        Goal 1-3<br><br>This is based on the purchase made from
+                                                        MM-redirected link. correct? (external purchase link) If not,
+                                                        which purchase history is being referred here?</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <P>
+                                        # <br>
+                                        The full evaluation table included 9+ features and 20+ concerns/questions. A
+                                        sample snapshot is shown here for reference.
+                                    </P>
+
+                                    <!-- Full Breakdown Magnifying Tool -->
+                                    <div class="dropdown-section">
+                                        <div class="dropdown-header" onclick="toggleDropdown('breakdown-dropdown')">
+                                            <span class="dropdown-title">See Full Breakdown</span>
+                                            <span class="dropdown-label" id="breakdown-label">Click to expand</span>
+                                            <span class="dropdown-arrow" id="breakdown-arrow">▼</span>
+                                        </div>
+                                        <div class="dropdown-content" id="breakdown-dropdown">
+                                            <p
+                                                style="margin: 0 0 16px 0; color: #666; font-size: 14px; text-align: center;">
+                                                <strong>Interactive Tool:</strong> Use the outer rectangle to zoom and
+                                                explore the detailed breakdown.
+                                                The inner rectangle shows your current view position. Scroll to zoom •
+                                                Drag to move • Use slider for precise control.
+                                            </p>
+                                            <div class="magnifier-container">
+                                                <div class="magnifier-outer" id="breakdown-magnifier-outer">
+                                                    <div class="magnifier-image" id="breakdown-magnifier-image">
+                                                        <div class="magnifier-placeholder">
+                                                            <p>Loading features and goals breakdown...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="magnifier-inner" id="breakdown-magnifier-inner">
+                                                        <div class="magnifier-label">Reference View</div>
+                                                        <div class="magnifier-view" id="breakdown-magnifier-view"></div>
+                                                        <div class="zoom-indicator" id="breakdown-zoom-indicator"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="magnifier-controls">
+                                                    <div class="zoom-slider-container">
+                                                        <label for="breakdown-zoom-slider">Zoom: <span
+                                                                id="breakdown-zoom-value">100%</span></label>
+                                                        <input type="range" id="breakdown-zoom-slider" min="50"
+                                                            max="500" value="100" class="zoom-slider">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mindful Mint (MM): Strategic Exploration of Idea Integration -->
+                                    <div class="projectContent">
+                                        <h2>Mindful Mint (MM): Strategic Exploration of Idea Integration</h2>
+                                        <div class="section-card">
+                                            <div class="section-card-header">
+                                                <h4>Essence</h4>
+                                            </div>
+                                            <div class="section-card-content">
+                                                <p style="font-size: 14px;"> Key Decison Point#0 <br><i> We brainstormed
+                                                        three
+                                                        different approaches that
+                                                        integrate
+                                                        the MM idea into the current digital shopping experince space:
+                                                    </i></p>
+                                                <p>
+                                                    Explore the detailed customer flows and design decisions through
+                                                    this
+                                                    interactive
+                                                    magnifying tool.
+                                                    Click and drag the image to move it around, and use the zoom slider
+                                                    to adjust
+                                                    magnification.
+                                                </p>
+                                                <p
+                                                    style="margin-top: 16px; font-size: 14px; color: #666; font-style: italic; border-left: 3px solid rgba(134, 155, 134, 0.3); padding-left: 12px;">
+                                                    <strong>Credits:</strong> While the brainstorming for the flows was
+                                                    a
+                                                    collaborative effort, I independently developed the graphic
+                                                    elements, organized
+                                                    the information, and crafted the following flow to help visualize
+                                                    and support
+                                                    the team in making an informed final decision about the approach we
+                                                    took.
+                                                </p>
+
+                                                <div
+                                                    style="margin-top: 20px; padding: 16px; background: rgb(253, 253, 251); border-radius: 8px;">
+                                                    <h5 style="margin: 0 0 12px 0; color: #2d5a2d; font-size: 14px;">
+                                                        Approach
+                                                        Comparison & Trade-off Analysis</h5>
+
+                                                    <!-- Approach Clarification - Clean Carousel -->
+                                                    <!-- Navigation Dots - Above Carousel -->
+                                                    <div class="carousel-dots"
+                                                        style="display: flex; gap: 16px; align-items: center; justify-content: center; margin: 24px 0 32px 0; padding: 12px;">
+                                                        <div class="dot active" data-index="0" onclick="goToCard(0)"
+                                                            style="width: 8px; height: 8px; border-radius: 50%; background: #2d5a2d; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; outline: 2px solid rgba(45, 90, 45, 0.2); outline-offset: 2px;">
+                                                        </div>
+                                                        <div class="dot" data-index="1" onclick="goToCard(1)"
+                                                            style="width: 8px; height: 8px; border-radius: 50%; background: rgba(45, 90, 45, 0.3); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; outline: 1px solid rgba(45, 90, 45, 0.1); outline-offset: 1px;">
+                                                        </div>
+                                                        <div class="dot" data-index="2" onclick="goToCard(2)"
+                                                            style="width: 8px; height: 8px; border-radius: 50%; background: rgba(45, 90, 45, 0.3); cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; outline: 1px solid rgba(45, 90, 45, 0.1); outline-offset: 1px;">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="carousel-container" id="approach-carousel"
+                                                        style="position: relative; height: 220px; margin: 0 0 40px 0; overflow: hidden;">
+                                                        <!-- Carousel Track -->
+                                                        <div class="carousel-track" id="carousel-track"
+                                                            style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; transition: transform 0.3s ease;">
+                                                            <!-- Card 1: Third-Party App Support -->
+                                                            <div class="carousel-card" id="card-1" data-index="0"
+                                                                style="width: 320px; height: 180px; padding: 20px; margin-right: 5px; border: 1px solid #e0e0e0; border-radius: 8px; background: white; cursor: pointer; flex-shrink: 0;">
+                                                                <div class="card-header">
+                                                                    <strong
+                                                                        style="font-size: 16px; color: #2d5a2d; font-weight: 600;">#1
+                                                                        Third-Party App Support</strong>
+                                                                </div>
+                                                                <div class="card-content"
+                                                                    style="margin-top: 12px; font-size: 15px; line-height: 1.6; color: #444;">
+                                                                    This idea helps customers directly on shopping apps
+                                                                    like Amazon
+                                                                    or Instagram. It would work by creating a tool like
+                                                                    plugin, or
+                                                                    feature that shows up while customers are shopping,
+                                                                    helping them
+                                                                    make more thoughtful decisions in the moment.
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card 2: Approach 01 -->
+                                                            <div class="carousel-card" id="card-2" data-index="1"
+                                                                style="width: 320px; height: 180px; padding: 20px; margin-right: 5px; border: 1px solid #e0e0e0; border-radius: 8px; background: white; cursor: pointer; flex-shrink: 0;">
+                                                                <div class="card-header">
+                                                                    <strong
+                                                                        style="font-size: 16px; color: #2d5a2d; font-weight: 600;">#2
+                                                                        Approach 01 – Standalone App for Intentional
+                                                                        Search</strong>
+                                                                </div>
+                                                                <div class="card-content"
+                                                                    style="margin-top: 12px; font-size: 15px; line-height: 1.6; color: #444;">
+                                                                    This is a separate app made to help customers shop
+                                                                    more
+                                                                    mindfully. Instead of scrolling randomly, customers
+                                                                    search for
+                                                                    what they actually need. The app helps them stay
+                                                                    focused and
+                                                                    avoid impulse buying.
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card 3: Approach 02 -->
+                                                            <div class="carousel-card" id="card-3" data-index="2"
+                                                                style="width: 320px; height: 180px; padding: 20px; margin-right: 5px; border: 1px solid #e0e0e0; border-radius: 8px; background: white; cursor: pointer; flex-shrink: 0;">
+                                                                <div class="card-header">
+                                                                    <strong
+                                                                        style="font-size: 16px; color: #2d5a2d; font-weight: 600;">#3
+                                                                        Approach 02 – Standalone App with Third-Party
+                                                                        Integration</strong>
+                                                                </div>
+                                                                <div class="card-content"
+                                                                    style="margin-top: 12px; font-size: 15px; line-height: 1.6; color: #444;">
+                                                                    This is also a separate app, but it lets customers
+                                                                    browse other
+                                                                    shopping apps inside it. So customers can still
+                                                                    scroll and
+                                                                    explore, but the app adds gentle reminders or pauses
+                                                                    when
+                                                                    they're about to buy something impulsively.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Comparison Table -->
+                                                    <div style="margin-bottom: 16px;">
+                                                        <div style="padding: 8px 12px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 14px; display: flex; justify-content: space-between; align-items: center;"
+                                                            onclick="toggleTable()">
+                                                            <span>Approach Comparison & Trade-off Analysis</span>
+                                                            <span style="font-size: 12px; color: #666; margin-left: 8px;">Click to expand</span>
+                                                            <span>▼</span>
+                                                        </div>
+                                                        <div id="comparison-table"
+                                                            style="overflow-x: auto; margin-top: 8px;">
+                                                            <table
+                                                                style="width: 100%; border-collapse: collapse; background: white; border: 1px solid #ddd; font-size: 12px;">
+                                                                <thead>
+                                                                    <tr style="background: #f8f8f8;">
+                                                                        <th
+                                                                            style="padding: 8px 6px; text-align: left; font-weight: 600; border-right: 1px solid #ddd;">
+                                                                            Category</th>
+                                                                        <th
+                                                                            style="padding: 8px 6px; text-align: left; font-weight: 600; border-right: 1px solid #ddd;">
+                                                                            Third Party App</th>
+                                                                        <th
+                                                                            style="padding: 8px 6px; text-align: left; font-weight: 600; border-right: 1px solid #ddd;">
+                                                                            Approach 01 </th>
+                                                                        <th
+                                                                            style="padding: 8px 6px; text-align: left; font-weight: 600;">
+                                                                            Approach 02</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <!-- Core Message -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Core Message</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            No specific message</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span> "Search
+                                                                            with
+                                                                            purpose"<br><span
+                                                                                style="color: #666;">✓</span> Focused
+                                                                            on intentional
+                                                                            shopping<br><span
+                                                                                style="color: #666;">✓</span> Clear
+                                                                            mindful shopping approach
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            "Shop mindfully within limits"<br>May send
+                                                                            mixed signals
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- Shopping Experience -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Shopping Experience</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✓</span> Full
+                                                                            shopping
+                                                                            experience<br><span
+                                                                                style="color: #666;">✓</span> Direct
+                                                                            purchase
+                                                                            capability<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Natural browsing flow
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span>
+                                                                            Intentional search
+                                                                            only<br><span style="color: #666;">✓</span>
+                                                                            No random
+                                                                            browsing<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Purpose-driven shopping
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Enables
+                                                                            browsing
+                                                                            behavior<br><span
+                                                                                style="color: #666;">✗</span> May
+                                                                            trigger impulse
+                                                                            shopping<br><span
+                                                                                style="color: #666;">✗</span> Complex
+                                                                            multi-app interface
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- Data Collection -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Data Collection</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Limited
+                                                                            access to
+                                                                            customer data
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span> Clean
+                                                                            search intent
+                                                                            data<br><span style="color: #666;">✓</span>
+                                                                            Focused
+                                                                            behavior
+                                                                            tracking<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Privacy-respecting approach
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Complex
+                                                                            cross-platform data<br><span
+                                                                                style="color: #666;">✗</span> Privacy
+                                                                            concerns with
+                                                                            integration<br><span
+                                                                                style="color: #666;">✗</span> Data
+                                                                            synchronization issues
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- User Engagement -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Customer Engagement</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> No
+                                                                            mindful shopping
+                                                                            features
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span>
+                                                                            Single-purpose
+                                                                            engagement<br><span
+                                                                                style="color: #666;">✓</span> Clear
+                                                                            value
+                                                                            proposition<br><span
+                                                                                style="color: #666;">✓</span> Low
+                                                                            cognitive load
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span>
+                                                                            Multi-app
+                                                                            complexity<br><span
+                                                                                style="color: #666;">✗</span>
+                                                                            Feature overload<br><span
+                                                                                style="color: #666;">✗</span>
+                                                                            High
+                                                                            switching costs
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- Effectiveness -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Impulse Prevention</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> No
+                                                                            prevention
+                                                                            mechanisms
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span> Built-in
+                                                                            browsing
+                                                                            barriers<br><span
+                                                                                style="color: #666;">✓</span> Forced
+                                                                            intentional
+                                                                            search<br><span
+                                                                                style="color: #666;">✓</span> No impulse
+                                                                            shopping triggers
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Enables
+                                                                            browsing
+                                                                            behavior<br><span
+                                                                                style="color: #666;">✗</span> May
+                                                                            trigger impulse
+                                                                            buying<br><span
+                                                                                style="color: #666;">✗</span> Complex
+                                                                            prevention system
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- Technical Implementation -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Technical Approach</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> No MM
+                                                                            integration
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span>
+                                                                            Standalone app
+                                                                            development<br><span
+                                                                                style="color: #666;">✓</span> Lower
+                                                                            development
+                                                                            complexity<br><span
+                                                                                style="color: #666;">✓</span> Faster
+                                                                            MVP delivery
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Complex
+                                                                            third-party
+                                                                            integration<br><span
+                                                                                style="color: #666;">✗</span> High
+                                                                            development
+                                                                            costs<br><span style="color: #666;">✗</span>
+                                                                            Longer
+                                                                            development timeline
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- User Psychology -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Customer Psychology</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> No
+                                                                            behavioral
+                                                                            intervention
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span>
+                                                                            Intentional shopping
+                                                                            behavior<br><span
+                                                                                style="color: #666;">✓</span> Mindful
+                                                                            decision-making<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Reduced impulse triggers
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> May
+                                                                            enable shopping
+                                                                            habits<br><span
+                                                                                style="color: #666;">✗</span> Complex
+                                                                            decision-making process<br><span
+                                                                                style="color: #666;">✗</span> Potential
+                                                                            impulse
+                                                                            triggers
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <!-- Integration Complexity -->
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 6px; font-weight: 600; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            Integration Complexity</td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> No MM
+                                                                            integration
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; font-weight: 500;">
+                                                                            <span style="color: #666;">✓</span> No
+                                                                            integration
+                                                                            needed<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Independent operation<br><span
+                                                                                style="color: #666;">✓</span>
+                                                                            Full control over experience
+                                                                        </td>
+                                                                        <td
+                                                                            style="padding: 6px; text-align: left; border-bottom: 1px solid #ddd;">
+                                                                            <span style="color: #666;">✗</span> Complex
+                                                                            third-party
+                                                                            integrations<br><span
+                                                                                style="color: #666;">✗</span>
+                                                                            Dependency on
+                                                                            external platforms<br><span
+                                                                                style="color: #666;">✗</span> Limited
+                                                                            control over
+                                                                            experience
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Key Trade-offs Summary -->
+                                                    <div
+                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 16px;">
+                                                        <h6 style="margin: 0 0 8px 0; font-size: 14px;">⚖️ Key
+                                                            Trade-offs Analysis:
+                                                        </h6>
+                                                        <ul
+                                                            style="margin: 0; padding-left: 16px; font-size: 14px; line-height: 1.4;">
+                                                            <li><strong>Approach 01 Trade-off:</strong> Simplicity but
+                                                                Limited
+                                                                features - While offering fewer features, it provides
+                                                                focused,
+                                                                effective impulse prevention through intentional
+                                                                barriers and
+                                                                reflection.</li>
+                                                            <li><strong>Approach 02 Trade-off:</strong> Complexity but
+                                                                Full
+                                                                functionality - While offering complete shopping
+                                                                experience, it may
+                                                                actually accidentally trigger/enable impulse buying and
+                                                                create
+                                                                cognitive overload.</li>
+                                                            <li><strong>Third Party Trade-off:</strong> Independence but
+                                                                minimal MM
+                                                                value
+                                                                - Customers maintain independence but receive mininal
+                                                                mindful
+                                                                shopping
+                                                                support or behavioral intervention.</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <!-- Winner Declaration -->
+                                                    <div
+                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; text-align: center; margin-bottom: 16px;">
+                                                        <h6 style="margin: 0 0 6px 0; font-size: 14px;">🏆 Approach 01
+                                                            Declared
+                                                            Winner</h6>
+                                                        <p style="margin: 0; font-size: 14px;">Based on focused approach
+                                                            to impulse
+                                                            prevention, simplicity, customer psychology, and practical
+                                                            implementation considerations</p>
+                                                    </div>
+
+                                                    <!-- Why Approach 01 Wins -->
+                                                    <div
+                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; margin-top: 12px;">
+                                                        <h6 style="margin: 0 0 8px 0; font-size: 14px;">🎯 Why Approach
+                                                            01 is the
+                                                            Winner:</h6>
+                                                        <ul
+                                                            style="margin: 0; padding-left: 16px; font-size: 14px; line-height: 1.4;">
+                                                            <li><strong>Focused Purpose:</strong> Single-minded approach
+                                                                to impulse
+                                                                prevention without enabling shopping behaviors</li>
+                                                            <li><strong>Customer Psychology:</strong> Leverages
+                                                                intentional search
+                                                                and forced reflection to change shopping habits</li>
+                                                            <li><strong>Simplicity:</strong> Lower cognitive load,
+                                                                easier to
+                                                                understand and use effectively</li>
+                                                            <li><strong>Implementation:</strong> Faster development,
+                                                                lower cost,
+                                                                easier to iterate and improve</li>
+                                                            <li><strong>Behavioral Science:</strong> Aligns with
+                                                                habit-breaking
+                                                                principles by removing triggers and adding barriers</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <!-- Interactive Magnifying Tool -->
+                                                    <div class="dropdown-section" style="margin-top: 20px;">
+                                                        <div class="dropdown-header"
+                                                            onclick="toggleDropdown('magnifier-dropdown')">
+                                                            <span class="dropdown-title">Interactive Magnifying
+                                                                Tool</span>
+                                                            <span class="dropdown-label" id="magnifier-label">Click to expand</span>
+                                                            <span class="dropdown-arrow" id="magnifier-arrow">▼</span>
+                                                        </div>
+                                                        <div class="dropdown-content" id="magnifier-dropdown">
+                                                            <p
+                                                                style="margin: 0 0 16px 0; color: #666; font-size: 14px; text-align: center;">
+                                                                <strong>Interactive Tool:</strong> Use the outer
+                                                                rectangle to zoom
+                                                                and
+                                                                explore the detailed breakdown.
+                                                                The inner rectangle shows your current view position.
+                                                                Scroll to zoom
+                                                                •
+                                                                Drag to move • Use slider for precise control.
+                                                            </p>
+                                                            <div class="magnifier-container">
+                                                                <div class="magnifier-outer" id="magnifier-outer">
+                                                                    <div id="magnifier-image"
+                                                                        class="magnifier-bg-image"></div>
+                                                                    <div class="magnifier-placeholder"
+                                                                        style="display: none; align-items: center; justify-content: center; height: 100%; color: #666; font-size: 16px; text-align: center; padding: 20px;">
+                                                                        <div>
+                                                                            <p><strong>Image Placeholder</strong></p>
+                                                                            <p>Please add your "MM Envisioning
+                                                                                Brainstorming" image
+                                                                                file as
+                                                                                "flows.png" in the project directory.
+                                                                            </p>
+                                                                            <p
+                                                                                style="font-size: 14px; margin-top: 10px;">
+                                                                                The
+                                                                                magnifying
+                                                                                glass
+                                                                                feature will work once the image is
+                                                                                added.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="magnifier-inner" id="magnifier-lens">
+                                                                        <div class="magnifier-label">Reference View
+                                                                        </div>
+                                                                        <div class="magnifier-view" id="magnifier-view">
+                                                                            <div class="zoom-indicator"
+                                                                                id="zoom-indicator"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="magnifier-controls">
+                                                                    <div class="zoom-slider-container">
+                                                                        <label for="zoom-slider">Zoom Level: <span
+                                                                                id="zoom-value">200%</span></label>
+                                                                        <input type="range" id="zoom-slider" min="50"
+                                                                            max="500" value="200" class="zoom-slider">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <img src="userflowComparision.png" alt="userflowComparision" class="responsive">
+                                    <br>
+                                    <p> <strong> Exploratory Wireframes</strong>
+                                    <blockquote>
+                                        Key Decison Point#00 Create wireframes in the vision phase
+                                        <br>
+                                        <i> Why?</i>
+                                        To communicate a comoletely new product idea and collect early feedback
+                                        from customers to help advance the vision.
+
+                                    </blockquote>
+                                    </p>
+
+                                    <p>
+                                        # <br>
+                                        After building our exploratory wireframes based on intial feature-goal map, we
+                                        re-evaluated each feature against actual user feedback. This led to important
+                                        shifts such as some features were simplified, merged, postponed or even dropped.
+                                    </p>
+                                    <P>
+                                        # <br>
+                                        The wireframes were pivotal in helping us align because we could discuss
+                                        different features as they came up. Furthermore, any point of uncertainty was a
+                                        great opportunity to reframe it into a customer interview question.
+                                    </P>
+
+                                    <!-- Wireframe Carousel -->
+                                    <div class="dropdown-section" style="margin: 32px 0;">
+                                        <div class="dropdown-header" onclick="toggleDropdown('wireframe-dropdown')">
+                                            <span class="dropdown-title">Exploratory Wireframes Gallery</span>
+                                            <span class="dropdown-label" id="wireframe-label">Click to expand</span>
+                                            <span class="dropdown-arrow" id="wireframe-arrow">▼</span>
+                                        </div>
+                                        <div class="dropdown-content" id="wireframe-dropdown">
+
+                                            <!-- Carousel Container -->
+                                            <div class="wireframe-carousel-container"
+                                                style="position: relative; overflow: hidden; width: 100%; margin: 0;">
+                                                <!-- Navigation Dots -->
+                                                                                                                                                 <div class="wireframe-carousel-dots"
+                                                    style="display: flex; justify-content: center; gap: 8px; margin-bottom: 6px; cursor: pointer; user-select: none;">
+                                                    <div class="wireframe-dot active" onclick="goToWireframe(0)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #333; color: #ccc; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        A</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(1)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        B</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(2)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        C</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(3)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        D</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(4)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        E</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(5)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        F</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(6)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        G</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(7)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        H</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(8)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        I</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(9)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        J</div>
+                                                    <div class="wireframe-dot" onclick="goToWireframe(10)"
+                                                        style="width: 24px; height: 24px; border-radius: 50%; background: #ccc; color: #333; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500;">
+                                                        K</div>
+                                                </div>
+                                                                                                                                                 <div class="wireframe-carousel-track" id="wireframe-carousel-track"
+                                                    style="display: flex; justify-content: center; align-items: center; width: 100%; cursor: grab; position: relative;">
+                                                    <!-- Left navigation area -->
+                                                    <div class="wireframe-nav-area wireframe-nav-left" id="wireframe-nav-left"
+                                                        style="position: absolute; left: 0; top: 0; width: 10%; height: 100%; cursor: pointer; z-index: 10; opacity: 0; transition: opacity 0.3s ease;">
+                                                    </div>
+                                                    
+                                                    <!-- Single card container that will show one card at a time -->
+                                                    <div class="wireframe-card" id="wireframe-card-display"
+                                                        style="width: 80%; padding: 12px; background: white; border-radius: 8px; cursor: pointer; margin-bottom: 6px;">
+                                                        <!-- Content will be dynamically updated by JavaScript -->
+                                                    </div>
+                                                    
+                                                    <!-- Right navigation area -->
+                                                    <div class="wireframe-nav-area wireframe-nav-right" id="wireframe-nav-right"
+                                                        style="position: absolute; right: 0; top: 0; width: 10%; height: 100%; cursor: pointer; z-index: 10; opacity: 0; transition: opacity 0.3s ease;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <P>
+                                        # <br>
+                                        Of the 9 initial features, we moved forward with 3 core ones, refined 2, and set
+                                        aside the rest. Each decision was grounded in either user input, technical
+                                        feasibility or alignment with our MVP Goals.</i>
+                                    </P>
+                                    <p><strong>Project Timeline</strong></p>
+                                    <div class="timeline-content">
+                                        <p>
+                                            Week 1-2 → Discovery Interviews & Research <br>
+                                            Week 3 → Competitive Analysis + Customer Personas <br>
+                                            Week 4 → Initial Wireframes + IA<br>
+                                            Week 5 → Mid-fi Prototype<br>
+                                            Week 6 → IA Testing<br>
+                                            Week 7 → Mid-fi Edits + Usability Test 1<br>
+                                            Week 8 → Hi-fi Prototype<br>
+                                            Week 9 → Usability Test 2<br>
+                                            Week 10 → Final Design Edits & Wrap-up
+                                        </p>
+                                    </div>
+                                    <br>
+                                    <img src="tools.png" alt="toolkit" class="responsive"> <br>
                                     <ul>
                                         <li>
-                                            The user category and the primary user persona represent the broad spectrum
+                                            The customer category and the primary customer persona represent the broad
+                                            spectrum
                                             of individuals: all the shoppers who shop online mostly and frequently
                                         </li>
                                         <li>
-                                            The primary user persona are individuals who may not be chronic impulse
+                                            The primary customer persona are individuals who may not be chronic impulse
                                             shoppers but tend to occasionally make impulsive purchases.
                                         </li>
                                         <li>
@@ -1052,11 +2350,11 @@
                             <h2>Discovery & Research </h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
-                                        Design ideation process focused on creating user journey maps and
+                                        Design ideation process focused on creating customer journey maps and
                                         conceptualizing the MindfulMint application flow.
                                     </p>
                                 </div>
@@ -1066,8 +2364,24 @@
                                     <h4>Details</h4>
                                 </div>
                                 <div class="section-card-content">
+                                    <p><strong>Literature Review</strong></p>
+                                    <P>
+                                        Based on literature review we found that impulse buying is a widespread issue
+                                        that impacts both mental and financial
+                                        well-being.
+                                        <li>
+                                            89% of U.S. shoppers admit to making unplanned purchases. </li>
+                                        <li>
+                                            On average, individuals spend $281 per month on impulse buys.
+                                        </li>
+                                        <li>
+                                            Customers report guilt, financial stress, and a lack of control following
+                                            these
+                                            purchases.
+                                        </li>
+                                    </P>
                                     <p>
-                                        <img src="Mindful Mint User Journey.png" alt="User Journey Map"
+                                        <img src="Mindful Mint User Journey.png" alt="Customer Journey Map"
                                             class="responsive">
                                     </p>
                                 </div>
@@ -1081,11 +2395,14 @@
                             <h2>Ideation & Design Approach</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
-                                        Story development and narrative crafting for the MindfulMint application user
+                                        But How Do You design for reflection in a flow that's meant to be fast and
+                                        impulsive? <br> <br>
+                                        Story development and narrative crafting for the MindfulMint application
+                                        customer
                                         experience.
                                     </p>
                                 </div>
@@ -1097,7 +2414,8 @@
                                 <div class="section-card-content">
                                     <p>
                                         [Content placeholder - Add your story crafting details here. This section will
-                                        contain information about how the narrative and user story were developed for
+                                        contain information about how the narrative and customer story were developed
+                                        for
                                         the MindfulMint application.]
                                     </p>
                                 </div>
@@ -1111,11 +2429,11 @@
                             <h2>Crafting & Prototyping</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
-                                        Implementation phase including user flow development, wireframing, and
+                                        Implementation phase including customer flow development, wireframing, and
                                         prototyping of the MindfulMint application.
                                     </p>
                                 </div>
@@ -1157,12 +2475,12 @@
                             <h2>Final Solutions & Features</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
                                         Final design deliverables including high-fidelity prototypes, visual designs,
-                                        and user interface components for the MindfulMint application.
+                                        and customer interface components for the MindfulMint application.
                                     </p>
                                 </div>
                             </div>
@@ -1174,7 +2492,8 @@
                                     <div id="designcard1">
                                         <p>
                                             <b> Landing Page: </b><br>
-                                            Allows user to learn about the platform, offeres to explore further either
+                                            Allows customer to learn about the platform, offeres to explore further
+                                            either
                                             via signing up, loggin in or simply as guest.
                                             <br>
                                             <br>
@@ -1205,7 +2524,7 @@
                                             <b> Add to Review Basket Page: </b><br>
                                             Page exhibits the process from searching an item to adding it to a review
                                             basket serving as a space between selecting, reflecting and adding one thing
-                                            at a time in against allowing user to run ultiple searches, adding to a
+                                            at a time in against allowing customer to run ultiple searches, adding to a
                                             space (
                                             "Review Basket") to be able to review when convinient and allowing adding
                                             group of items to one list or each item sepeartely.
@@ -1218,7 +2537,7 @@
                                     <div id="designcard5">
                                         <p>
                                             <b> Product Overview Page: </b><br>
-                                            Allows user to reflect and make purchase if necessary.
+                                            Allows customer to reflect and make purchase if necessary.
                                             <br>
                                             <br>
                                             <img src="MM LM_ Item Details_ Product Overview page frame 1.png"
@@ -1236,7 +2555,7 @@
                             <h2>Challenges & Key Learnings</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
@@ -1253,8 +2572,19 @@
                                     <p>
                                     </p>
                                     <ul>
+                                        <li>
+                                            While documenting this case study, I revisited some of the initial feature
+                                            discussions that didnt fully carry forward into the final prototype. In
+                                            hindsight, a few of these ideas might have required more validation or were
+                                            deprioritized due to time/resource constraints. <br><br>
+                                            This reflection has helped me recognise where process improvements (like
+                                            clearer decision documentation) could've helped the handoff between stages
+                                            and reevaluation of the features in case of need, this something I now
+                                            intentionally apply in newer projects.
+                                        </li>
                                         <li> The biggest challeneg was to deciding on the approach for designing the
-                                            app. Due to limited time the initial user interviews were not conducted and
+                                            app. Due to limited time the initial customer interviews were not conducted
+                                            and
                                             that's when I learnt to intiating parallel processes rather than applying
                                             linear method of ideating and design. </li>
                                         <li> Another challenge that I faced was about trying to achieve too many things
@@ -1262,10 +2592,11 @@
                                             wireframes. And that is when I learnt the importance if priotizing and
                                             deprioritizing tasks. Which lead me to evaluate all the tasks, streamline
                                             the MVP as per goals of this project and focus on three main task.</li>
-                                        <li> The other challenge was about figuring out the balance amongst user input,
+                                        <li> The other challenge was about figuring out the balance amongst customer
+                                            input,
                                             information visibility and the frequency of notifications,nudges and pop
                                             ups. This whole exercise brought awarness as how mindful mint as a platform
-                                            could contribute in helping the user channelise their instant shopping
+                                            could contribute in helping the customer channelise their instant shopping
                                             urges.</li>
                                     </ul>
                                     <p></p>
@@ -1280,7 +2611,7 @@
                             <h2>Impact & Future Scope</h2>
                             <div class="section-card">
                                 <div class="section-card-header">
-                                    <h4>Brief</h4>
+                                    <h4>Essence</h4>
                                 </div>
                                 <div class="section-card-content">
                                     <p>
@@ -1300,7 +2631,7 @@
                                         <li> Conduct usability tests with the hi-fi prototype </li>
                                         <li> Diary study of built project to evaluate efficacy in reducing impulse
                                             purchase </li>
-                                        <li> Explore the feasibility of expanding the scope to include outlier user
+                                        <li> Explore the feasibility of expanding the scope to include outlier customer
                                             groups</li>
                                     </ul>
                                     <p></p>
@@ -1309,6 +2640,8 @@
                             <!-- Temporary height div for scroll detection -->
                             <div class="temp-height" style="height: 40vh; min-height: 300px;"></div>
                         </div>
+
+
 
                     </article>
 
@@ -1374,12 +2707,418 @@
             document.getElementById('viewport-size').textContent = width + '×' + height;
         }
 
+        // Magnifying Glass Functionality
+        function initMagnifier() {
+            const magnifierOuter = document.getElementById('magnifier-outer');
+            const magnifierImage = document.getElementById('magnifier-image');
+            const magnifierLens = document.getElementById('magnifier-lens');
+            const magnifierView = document.getElementById('magnifier-view');
+            const zoomSlider = document.getElementById('zoom-slider');
+            const zoomValue = document.getElementById('zoom-value');
+            const dropIndicator = document.getElementById('drop-indicator');
+
+            if (!magnifierOuter || !magnifierImage || !magnifierLens || !magnifierView) {
+                return; // Exit if elements don't exist
+            }
+
+            // Load the image and set up magnifier
+            const img = new Image();
+            img.onload = function () {
+                // Image loaded successfully, set up magnifier
+                magnifierImage.style.backgroundImage = `url(${img.src})`;
+                magnifierView.style.backgroundImage = `url(${img.src})`;
+                updateZoom();
+            };
+            img.onerror = function () {
+                // Image failed to load, show placeholder
+                magnifierLens.style.display = 'none';
+                if (zoomSlider) zoomSlider.style.display = 'none';
+                if (dropIndicator) dropIndicator.textContent = 'Image not loaded - please add flows.png to the project directory';
+                const placeholder = magnifierOuter.querySelector('.magnifier-placeholder');
+                if (placeholder) placeholder.style.display = 'flex';
+            };
+            img.src = 'flows.png';
+
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+            let zoomLevel = 200;
+
+            // Set initial zoom
+            updateZoom();
+
+            // Mouse events for dragging
+            magnifierOuter.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+
+            // Mouse wheel for zooming
+            magnifierOuter.addEventListener('wheel', handleWheelZoom);
+
+            // Touch events for mobile
+            magnifierOuter.addEventListener('touchstart', startDragTouch);
+            document.addEventListener('touchmove', dragTouch);
+            document.addEventListener('touchend', stopDrag);
+
+            // Zoom slider
+            if (zoomSlider) {
+                zoomSlider.addEventListener('input', function () {
+                    zoomLevel = parseInt(this.value);
+                    if (zoomValue) zoomValue.textContent = zoomLevel + '%';
+                    updateZoom();
+                });
+            }
+
+            function startDrag(e) {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                magnifierOuter.style.cursor = 'grabbing';
+                if (dropIndicator) dropIndicator.textContent = 'Dragging...';
+            }
+
+            function startDragTouch(e) {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+                if (dropIndicator) dropIndicator.textContent = 'Dragging...';
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateImagePosition();
+            }
+
+            function dragTouch(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                translateX = e.touches[0].clientX - startX;
+                translateY = e.touches[0].clientY - startY;
+                updateImagePosition();
+            }
+
+            function stopDrag() {
+                if (isDragging) {
+                    isDragging = false;
+                    magnifierOuter.style.cursor = 'grab';
+                    if (dropIndicator) {
+                        dropIndicator.textContent = 'Dropped! Use slider to zoom • Drag to move';
+                        setTimeout(() => {
+                            dropIndicator.textContent = 'Scroll to zoom • Drag to move';
+                        }, 1000);
+                    }
+                }
+            }
+
+            function updateImagePosition() {
+                // Update background position for dragging with intuitive direction
+                // Invert the direction so drag direction matches image movement
+                const bgX = 50 - (translateX / magnifierOuter.offsetWidth) * 100;
+                const bgY = 50 - (translateY / magnifierOuter.offsetHeight) * 100;
+                magnifierImage.style.backgroundPosition = `${bgX}% ${bgY}%`;
+                updateMagnifierView();
+            }
+
+            function handleWheelZoom(e) {
+                e.preventDefault(); // Prevent page scrolling
+
+                const zoomStep = 25; // Zoom increment per scroll
+                const delta = e.deltaY > 0 ? -zoomStep : zoomStep; // Invert for natural feel
+
+                // Calculate new zoom level
+                const newZoom = Math.max(50, Math.min(500, zoomLevel + delta));
+
+                if (newZoom !== zoomLevel) {
+                    zoomLevel = newZoom;
+                    updateZoom();
+
+                    // Update slider if it exists
+                    if (zoomSlider) {
+                        zoomSlider.value = zoomLevel;
+                    }
+
+                    // Show zoom feedback
+                    if (dropIndicator) {
+                        dropIndicator.textContent = `Zoom: ${zoomLevel}%`;
+                        setTimeout(() => {
+                            dropIndicator.textContent = 'Use slider to zoom • Drag to move';
+                        }, 1000);
+                    }
+                }
+            }
+
+            function updateZoom() {
+                // Ensure zoom level stays within bounds
+                zoomLevel = Math.max(50, Math.min(500, zoomLevel));
+                updateMagnifierView();
+                if (zoomValue) zoomValue.textContent = `${zoomLevel}%`;
+            }
+
+            function updateMagnifierView() {
+                // Apply zoom to the outer rectangle (main magnifier)
+                magnifierImage.style.backgroundSize = `${zoomLevel}%`;
+
+                // Keep the current background position (for dragging)
+                const currentBgPos = magnifierImage.style.backgroundPosition || '50% 50%';
+                magnifierImage.style.backgroundPosition = currentBgPos;
+
+                // Update the inner rectangle to show static, non-magnified view
+                magnifierView.style.backgroundSize = '100%';
+                magnifierView.style.backgroundPosition = 'center';
+
+                // Update zoom indicator position
+                updateZoomIndicator();
+            }
+
+            function updateZoomIndicator() {
+                const zoomIndicator = document.getElementById('zoom-indicator');
+                if (!zoomIndicator) return;
+
+                // Get the current background position of the magnified image
+                const bgPos = magnifierImage.style.backgroundPosition || '50% 50%';
+                const [bgX, bgY] = bgPos.split(' ').map(val => parseFloat(val));
+
+                // Calculate the position of the zoom indicator in the reference view
+                let indicatorX = (bgX / 100) * 100; // Convert percentage to position
+                let indicatorY = (bgY / 100) * 100;
+
+                // Constrain the indicator position within the inner rectangle bounds
+                // The inner rectangle is 120px wide and 90px tall
+                const maxX = 100 - 3; // Leave 3px margin from edges (dot is 6px wide)
+                const maxY = 100 - 3; // Leave 3px margin from edges (dot is 6px tall)
+                const minX = 3;
+                const minY = 3;
+
+                // Constrain X position
+                indicatorX = Math.max(minX, Math.min(maxX, indicatorX));
+                // Constrain Y position
+                indicatorY = Math.max(minY, Math.min(maxY, indicatorY));
+
+                // Position the indicator
+                zoomIndicator.style.left = `${indicatorX}%`;
+                zoomIndicator.style.top = `${indicatorY}%`;
+                zoomIndicator.style.transform = 'translate(-50%, -50%)'; // Center the dot
+            }
+
+            // Update magnifier view on mouse move over the outer container
+            magnifierOuter.addEventListener('mousemove', updateMagnifierView);
+            magnifierOuter.addEventListener('touchmove', updateMagnifierView);
+        }
+
+        // Initialize Breakdown Magnifier
+        function initBreakdownMagnifier() {
+            const magnifierOuter = document.getElementById('breakdown-magnifier-outer');
+            const magnifierImage = document.getElementById('breakdown-magnifier-image');
+            const magnifierView = document.getElementById('breakdown-magnifier-view');
+            const zoomSlider = document.getElementById('breakdown-zoom-slider');
+            const zoomValue = document.getElementById('breakdown-zoom-value');
+
+            if (!magnifierOuter || !magnifierImage || !magnifierView) {
+                return; // Exit if elements don't exist
+            }
+
+            // Load the image and set up magnifier
+            const img = new Image();
+            img.onload = function () {
+                // Image loaded successfully, set up magnifier
+                magnifierImage.style.backgroundImage = `url(${img.src})`;
+                magnifierView.style.backgroundImage = `url(${img.src})`;
+
+                // Hide the placeholder
+                const placeholder = magnifierOuter.querySelector('.magnifier-placeholder');
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+
+                updateBreakdownZoom();
+            };
+            img.onerror = function () {
+                // Image failed to load, show placeholder
+                if (zoomSlider) zoomSlider.style.display = 'none';
+                const placeholder = magnifierOuter.querySelector('.magnifier-placeholder');
+                if (placeholder) {
+                    placeholder.textContent = 'Image not loaded - please add features_goals.png to the project directory';
+                    placeholder.style.display = 'flex';
+                }
+            };
+            img.src = 'features_goals.png';
+
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+            let zoomLevel = 200;
+
+            // Set initial zoom
+            updateBreakdownZoom();
+
+            // Mouse events for dragging
+            magnifierOuter.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+
+            // Mouse wheel for zooming
+            magnifierOuter.addEventListener('wheel', handleWheelZoom);
+
+            // Touch events for mobile
+            magnifierOuter.addEventListener('touchstart', startDragTouch);
+            document.addEventListener('touchmove', dragTouch);
+            document.addEventListener('touchend', stopDrag);
+
+            // Zoom slider
+            if (zoomSlider) {
+                zoomSlider.addEventListener('input', function () {
+                    zoomLevel = parseInt(this.value);
+                    if (zoomValue) zoomValue.textContent = zoomLevel + '%';
+                    updateBreakdownZoom();
+                });
+            }
+
+            function startDrag(e) {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                magnifierOuter.style.cursor = 'grabbing';
+                if (dropIndicator) dropIndicator.textContent = 'Dragging...';
+            }
+
+            function startDragTouch(e) {
+                e.preventDefault();
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+                if (dropIndicator) dropIndicator.textContent = 'Dragging...';
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateImagePosition();
+            }
+
+            function dragTouch(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                translateX = e.touches[0].clientX - startX;
+                translateY = e.touches[0].clientY - startY;
+                updateImagePosition();
+            }
+
+            function stopDrag() {
+                if (isDragging) {
+                    isDragging = false;
+                    magnifierOuter.style.cursor = 'grab';
+                    if (dropIndicator) {
+                        dropIndicator.textContent = 'Dropped! Use slider to zoom • Drag to move';
+                        setTimeout(() => {
+                            dropIndicator.textContent = 'Scroll to zoom • Drag to move';
+                        }, 1000);
+                    }
+                }
+            }
+
+            function updateImagePosition() {
+                // Update background position for dragging with intuitive direction
+                const bgX = 50 - (translateX / magnifierOuter.offsetWidth) * 100;
+                const bgY = 50 - (translateY / magnifierOuter.offsetHeight) * 100;
+                magnifierImage.style.backgroundPosition = `${bgX}% ${bgY}%`;
+                updateBreakdownMagnifierView();
+            }
+
+            function handleWheelZoom(e) {
+                e.preventDefault();
+
+                const zoomStep = 25;
+                const delta = e.deltaY > 0 ? -zoomStep : zoomStep;
+
+                const newZoom = Math.max(50, Math.min(500, zoomLevel + delta));
+
+                if (newZoom !== zoomLevel) {
+                    zoomLevel = newZoom;
+                    updateBreakdownZoom();
+
+                    if (zoomSlider) {
+                        zoomSlider.value = zoomLevel;
+                    }
+
+                    if (dropIndicator) {
+                        dropIndicator.textContent = `Zoom: ${zoomLevel}%`;
+                        setTimeout(() => {
+                            dropIndicator.textContent = 'Use slider to zoom • Drag to move';
+                        }, 1000);
+                    }
+                }
+            }
+
+            function updateBreakdownZoom() {
+                zoomLevel = Math.max(50, Math.min(500, zoomLevel));
+                updateBreakdownMagnifierView();
+                if (zoomValue) zoomValue.textContent = `${zoomLevel}%`;
+            }
+
+            function updateBreakdownMagnifierView() {
+                // Apply zoom to the outer rectangle (main magnifier)
+                magnifierImage.style.backgroundSize = `${zoomLevel}%`;
+
+                // Keep the current background position (for dragging)
+                const currentBgPos = magnifierImage.style.backgroundPosition || '50% 50%';
+                magnifierImage.style.backgroundPosition = currentBgPos;
+
+                // Update the inner rectangle to show static, non-magnified view
+                magnifierView.style.backgroundSize = '100%';
+                magnifierView.style.backgroundPosition = 'center';
+
+                // Update zoom indicator position
+                updateBreakdownZoomIndicator();
+            }
+
+            function updateBreakdownZoomIndicator() {
+                const zoomIndicator = document.getElementById('breakdown-zoom-indicator');
+                if (!zoomIndicator) return;
+
+                const bgPos = magnifierImage.style.backgroundPosition || '50% 50%';
+                const [bgX, bgY] = bgPos.split(' ').map(val => parseFloat(val));
+
+                // Constrain the indicator position within the inner rectangle bounds
+                // The inner rectangle is 120px wide and 90px tall
+                const maxX = 100 - 3; // Leave 3px margin from edges (dot is 6px wide)
+                const maxY = 100 - 3; // Leave 3px margin from edges (dot is 6px tall)
+                const minX = 3;
+                const minY = 3;
+
+                let indicatorX = (bgX / 100) * 100;
+                let indicatorY = (bgY / 100) * 100;
+
+                // Constrain X position
+                indicatorX = Math.max(minX, Math.min(maxX, indicatorX));
+                // Constrain Y position
+                indicatorY = Math.max(minY, Math.min(maxY, indicatorY));
+
+                zoomIndicator.style.left = `${indicatorX}%`;
+                zoomIndicator.style.top = `${indicatorY}%`;
+                zoomIndicator.style.transform = 'translate(-50%, -50%)';
+            }
+
+            // Update magnifier view on mouse move over the outer container
+            magnifierOuter.addEventListener('mousemove', updateBreakdownMagnifierView);
+            magnifierOuter.addEventListener('touchmove', updateBreakdownMagnifierView);
+        }
+
         // Update date/time and viewport size on load and resize
         window.addEventListener('load', function () {
             updateDateTime();
             updateViewportSize();
             // Update date/time every second
             setInterval(updateDateTime, 1000);
+
+            // Initialize magnifiers
+            initMagnifier();
+            initBreakdownMagnifier();
         });
 
         window.addEventListener('resize', updateViewportSize);
@@ -1403,6 +3142,194 @@
 
         // Variable to track last logged section
         let lastLoggedSection = '';
+
+        // Dropdown toggle function
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const toggle = dropdown.previousElementSibling;
+            const label = toggle.querySelector('.dropdown-label');
+
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+                toggle.classList.remove('active');
+                if (label) {
+                    label.textContent = 'Click to expand';
+                }
+            } else {
+                dropdown.classList.add('show');
+                toggle.classList.add('active');
+                if (label) {
+                    label.textContent = 'Click to close';
+                }
+            }
+        }
+
+        function toggleTable() {
+            const table = document.getElementById('comparison-table');
+            const toggle = table.previousElementSibling;
+            const label = toggle.querySelector('span:nth-child(2)');
+            const arrow = toggle.querySelector('span:nth-child(3)');
+
+            if (table.style.display === 'none') {
+                table.style.display = 'block';
+                if (label) label.textContent = 'Click to close';
+                if (arrow) arrow.textContent = '▼';
+            } else {
+                table.style.display = 'none';
+                if (label) label.textContent = 'Click to expand';
+                if (arrow) arrow.textContent = '▶';
+            }
+        }
+
+        // 3D Carousel Variables
+        let currentCardIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let startRotation = 0;
+
+        // Initialize the carousel
+        function initCarousel() {
+            updateCarousel();
+            setupEventListeners();
+        }
+
+        // Update carousel positions
+        function updateCarousel() {
+            const track = document.getElementById('carousel-track');
+            const dots = document.querySelectorAll('.dot');
+            const cardWidth = 325; // 320px card + 5px margin-right
+
+            // Simple horizontal slide
+            const translateX = -currentCardIndex * cardWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentCardIndex);
+                if (index === currentCardIndex) {
+                    dot.style.background = '#2d5a2d';
+                    dot.style.outline = '2px solid rgba(45, 90, 45, 0.2)';
+                    dot.style.outlineOffset = '2px';
+                } else {
+                    dot.style.background = 'rgba(45, 90, 45, 0.3)';
+                    dot.style.outline = '1px solid rgba(45, 90, 45, 0.1)';
+                    dot.style.outlineOffset = '1px';
+                }
+            });
+        }
+
+        // Go to specific card
+        function goToCard(index) {
+            currentCardIndex = index;
+            updateCarousel();
+        }
+
+        // Next card
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % 3;
+            updateCarousel();
+        }
+
+        // Previous card
+        function prevCard() {
+            currentCardIndex = (currentCardIndex - 1 + 3) % 3;
+            updateCarousel();
+        }
+
+        // Setup event listeners for swipe and click
+        function setupEventListeners() {
+            const carousel = document.getElementById('approach-carousel');
+            const cards = document.querySelectorAll('.carousel-card');
+
+            // Click on cards
+            cards.forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    goToCard(index);
+                });
+            });
+
+            // Touch events for swipe
+            carousel.addEventListener('touchstart', handleTouchStart);
+            carousel.addEventListener('touchmove', handleTouchMove);
+            carousel.addEventListener('touchend', handleTouchEnd);
+
+            // Mouse events for drag
+            carousel.addEventListener('mousedown', handleMouseDown);
+            carousel.addEventListener('mousemove', handleMouseMove);
+            carousel.addEventListener('mouseup', handleMouseUp);
+            carousel.addEventListener('mouseleave', handleMouseUp);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevCard();
+                } else if (e.key === 'ArrowRight') {
+                    nextCard();
+                }
+            });
+        }
+
+        // Touch event handlers
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            currentX = e.touches[0].clientX;
+        }
+
+        function handleTouchEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const diff = startX - currentX;
+            const threshold = 50;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextCard(); // Swipe left
+                } else {
+                    prevCard(); // Swipe right
+                }
+            }
+        }
+
+        // Mouse event handlers
+        function handleMouseDown(e) {
+            startX = e.clientX;
+            isDragging = true;
+            e.preventDefault();
+        }
+
+        function handleMouseMove(e) {
+            if (!isDragging) return;
+            currentX = e.clientX;
+        }
+
+        function handleMouseUp(e) {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const diff = startX - currentX;
+            const threshold = 50;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextCard(); // Drag left
+                } else {
+                    prevCard(); // Drag right
+                }
+            }
+        }
+
+        // Initialize carousel when page loads
+        window.addEventListener('load', initCarousel);
+
+
 
         // Function to update active circle based on scroll position
         function updateActiveCircle() {
@@ -1600,6 +3527,177 @@
 
         // Initialize tooltip positioning
         handleTooltipPosition();
+
+        // Wireframe Carousel Functions - Simple Card Replacement System
+        let currentWireframeIndex = 0;
+        const totalWireframes = 11;
+        let wireframeIsDragging = false;
+        let wireframeStartX = 0;
+        let wireframeCurrentX = 0;
+
+        // Wireframe data array
+        const wireframeData = [
+            { image: 'wire1.png', alt: 'Landing Page Wireframe', title: 'Landing Page - Mindful Mint Branding & Entry Point' },
+            { image: 'wire2.png', alt: 'Stats and Insights Wireframe', title: 'Stats and Insights Dashboard - Progress Tracking' },
+            { image: 'wire3.png', alt: 'Guided Reflection Wireframe', title: 'Guided Reflection Process - Multi-step Decision Making' },
+            { image: 'wire4.png', alt: 'Item Summary Wireframe', title: 'Item Summary - Detailed Decision Review' },
+            { image: 'wire5.png', alt: 'Item Management Wireframe', title: 'Item Management - List Organization & Categorization' },
+            { image: 'wire6.png', alt: 'Product Review Wireframe', title: 'Product Review - Purchase Decision Analysis' },
+            { image: 'wire7.png', alt: 'Product Review Alternative Wireframe', title: 'Product Review - Alternative Layout & Status' },
+            { image: 'wire8.png', alt: 'List Management Wireframe', title: 'List Management - Settings & Configuration' },
+            { image: 'wire9.png', alt: 'List Management Alternative Wireframe', title: 'List Management - Item Display & Actions' },
+            { image: 'wire10.png', alt: 'Reminder Setting Wireframe', title: 'Reminder Setting - Date & Time Configuration' },
+            { image: 'wire11.png', alt: 'Item Search Wireframe', title: 'Item Search - Discovery & Filtering Interface' }
+        ];
+
+        // Go to specific wireframe
+        function goToWireframe(index) {
+            currentWireframeIndex = index;
+            updateWireframeDisplay();
+        }
+
+        // Next wireframe
+        function nextWireframe() {
+            console.log('Before nextWireframe: currentWireframeIndex =', currentWireframeIndex);
+            currentWireframeIndex = (currentWireframeIndex + 1) % totalWireframes;
+            console.log('After nextWireframe: currentWireframeIndex =', currentWireframeIndex);
+            updateWireframeDisplay();
+        }
+
+        // Previous wireframe
+        function prevWireframe() {
+            console.log('Before prevWireframe: currentWireframeIndex =', currentWireframeIndex);
+            currentWireframeIndex--;
+            if (currentWireframeIndex < 0) {
+                currentWireframeIndex = totalWireframes - 1;
+            }
+            console.log('After prevWireframe: currentWireframeIndex =', currentWireframeIndex);
+            updateWireframeDisplay();
+        }
+
+        // Update wireframe display - simple card replacement
+        function updateWireframeDisplay() {
+            const cardDisplay = document.getElementById('wireframe-card-display');
+            const dots = document.querySelectorAll('.wireframe-dot');
+
+            // Get current wireframe data
+            const currentWireframe = wireframeData[currentWireframeIndex];
+
+            // Update the card content
+            cardDisplay.innerHTML = `
+                <p style="margin: 6px 0; text-align: center; font-size: 14px; color: #666;">${currentWireframe.title}</p>
+                <img src="${currentWireframe.image}" alt="${currentWireframe.alt}" class="responsive" style="width: 85%; height: auto; border-radius: 4px; margin: 6px auto; display: block; cursor: pointer;">
+            `;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentWireframeIndex) {
+                    dot.style.background = '#333';
+                    dot.style.color = '#ccc';
+                    dot.classList.add('active');
+                } else {
+                    dot.style.background = '#ccc';
+                    dot.style.color = '#333';
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Touch and Mouse Event Handlers for Wireframe Carousel
+        function handleWireframeTouchStart(e) {
+            // Don't start dragging if clicking on navigation areas
+            if (e.target.closest('.wireframe-nav-area') || e.target.id === 'wireframe-nav-left' || e.target.id === 'wireframe-nav-right') {
+                console.log('Navigation area clicked - not starting drag');
+                return;
+            }
+            console.log('Starting drag on track');
+            wireframeIsDragging = true;
+            wireframeStartX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        }
+
+        function handleWireframeTouchMove(e) {
+            if (!wireframeIsDragging) return;
+            e.preventDefault();
+            wireframeCurrentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+        }
+
+        function handleWireframeTouchEnd(e) {
+            if (!wireframeIsDragging) return;
+            wireframeIsDragging = false;
+
+            const diffX = wireframeCurrentX - wireframeStartX;
+            const threshold = 50; // Minimum distance to trigger slide
+
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Swipe right - go to previous
+                    prevWireframe();
+                } else {
+                    // Swipe left - go to next
+                    nextWireframe();
+                }
+            }
+        }
+
+        // Initialize wireframe carousel when page loads
+        window.addEventListener('load', function () {
+            updateWireframeDisplay();
+
+            // Add click event listeners to navigation areas
+            const leftNav = document.getElementById('wireframe-nav-left');
+            const rightNav = document.getElementById('wireframe-nav-right');
+            
+            if (leftNav) {
+                leftNav.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Left nav clicked - going to previous');
+                    prevWireframe();
+                });
+            }
+            
+            if (rightNav) {
+                rightNav.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Right nav clicked - going to next');
+                    nextWireframe();
+                });
+            }
+
+            // Add touch and mouse event listeners to carousel track (but not to nav areas)
+            const track = document.getElementById('wireframe-carousel-track');
+            if (track) {
+                // Mouse events
+                track.addEventListener('mousedown', handleWireframeTouchStart);
+                track.addEventListener('mousemove', handleWireframeTouchMove);
+                track.addEventListener('mouseup', handleWireframeTouchEnd);
+                track.addEventListener('mouseleave', handleWireframeTouchEnd);
+
+                // Touch events
+                track.addEventListener('touchstart', handleWireframeTouchStart);
+                track.addEventListener('touchmove', handleWireframeTouchMove);
+                track.addEventListener('touchend', handleWireframeTouchEnd);
+
+                // Prevent text selection during drag
+                track.style.userSelect = 'none';
+                track.style.webkitUserSelect = 'none';
+                track.style.mozUserSelect = 'none';
+                track.style.msUserSelect = 'none';
+            }
+
+            // Add keyboard navigation for wireframe carousel
+            document.addEventListener('keydown', function (e) {
+                // Only handle if user is not typing in an input field
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    if (e.key === 'ArrowLeft') {
+                        prevWireframe();
+                    } else if (e.key === 'ArrowRight') {
+                        nextWireframe();
+                    }
+                }
+            });
+        });
     </script>
 </body>
 

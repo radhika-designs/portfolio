@@ -637,24 +637,24 @@ div#centerNav {
 
 
 div#main {
-    display: flex;
+        display: flex;
     flex-direction: column;
-    flex-grow: 1;
+        flex-grow: 1;
     justify-content: flex-start;
-    background-color: rgb(250, 250, 242);
-    width: 100%;
-    max-width: 978px;
-    min-width: 0;
-    box-sizing: border-box;
-    height: 100%;
-    font-family: myfont;
-    font-size: 16px;
-    line-height: 22px;
-    background-size: cover;
-    margin: 0 auto;
-    padding-left: 100px;
-    padding-right: 100px;
-            padding-top: 24px;
+        background-color: rgb(250, 250, 242);
+        width: 100%;
+        max-width: 978px;
+        min-width: 0;
+        box-sizing: border-box;
+        height: 100%;
+        font-family: myfont;
+        font-size: 16px;
+        line-height: 22px;
+        background-size: cover;
+        margin: 0 auto;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 24px;
         padding-bottom: 24px;
         border-radius: 16px;
 }
@@ -783,7 +783,7 @@ a:active {
     }
     div#goweb {
         display: none !important;
-    }
+        }
 }
 
 /* ==== Desktop - 1024px and up | Max width, spacing and navigation layout ==== */
