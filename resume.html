@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
         Radhika Thacker UX Design | Resume
     </title>
-    
+
     <style>
         /* Sticky Breadcrumb Strip */
         .breadcrumb-strip {
@@ -24,7 +25,7 @@
             animation: slideIn 0.5s ease-out;
             box-sizing: border-box;
         }
-        
+
         .breadcrumb-content {
             display: inline-block;
             white-space: nowrap;
@@ -32,29 +33,37 @@
             text-overflow: ellipsis;
             max-width: 80%;
         }
-        
+
         @keyframes slideIn {
             from {
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
-        
+
         /* Body styling */
         body {
             margin: 0;
             padding: 0;
         }
-        
+
         /* Cursor improvements for breadcrumb */
         .breadcrumb-strip {
             cursor: default;
@@ -62,7 +71,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .breadcrumb-left {
             flex: 1;
             text-align: left;
@@ -72,7 +81,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .breadcrumb-center {
             flex: 2;
             text-align: center;
@@ -82,7 +91,7 @@
             cursor: default;
             margin: 0 8px;
         }
-        
+
         .breadcrumb-right {
             flex: 1;
             text-align: right;
@@ -92,11 +101,11 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .breadcrumb-content {
             cursor: default;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .breadcrumb-strip {
@@ -104,7 +113,7 @@
                 padding: 3px 12px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .breadcrumb-strip {
                 font-size: 10px;
@@ -115,10 +124,10 @@
 
     <!-- external JavaScript file for menu and post-it note -->
     <script src="JS/menu.js"></script>
-    
+
     <!-- JavaScript for sticky navigation glass effect -->
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const myTopnav = document.getElementById('myTopnav');
             if (window.scrollY > 100) {
                 myTopnav.classList.add('sticky');
@@ -136,90 +145,127 @@
 
     <!-- embedded styles to override above styles go here -->
     <style>
-
         /* div {border: .5px dotted rgb(187, 186, 186);} */
-        
-        h4 {text-align: right;
+
+        h4 {
+            text-align: right;
             border-top: .5px solid rgba(54, 57, 58, 0.4);
             color: gray;
-            font-weight: 400;}
-
-        article {
-                min-height: auto;
-                height: auto;
-                font-size: 14px;
-                color: rgb(31, 31, 31);
-                font-weight: 600;
-                margin-top: 40px;
-                margin-bottom: 40px;
+            font-weight: 400;
         }
 
-        div#skills2 {font-weight: 400;}
-        div#label {font-weight: 600;}
+        article {
+            min-height: auto;
+            height: auto;
+            font-size: 14px;
+            color: rgb(31, 31, 31);
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
 
-        div#section1 {display:inline-block;
-                        background-color:transparent;
-                        width: 100%;
-                        margin-top: 50px;}
+        div#skills2 {
+            font-weight: 400;
+        }
 
-        div#one {box-sizing: border-box;
-                float: left;
-                width: 50%;
-                background-color: transparent;
-                padding: 0px;}
+        div#label {
+            font-weight: 600;
+        }
 
-        div#two {display: inline-block;
-                box-sizing: border-box;
-                width: 50%;
-                background-color: transparent;
-                text-align: right;
-                padding: 10px;}
+        div#section1 {
+            display: inline-block;
+            background-color: transparent;
+            width: 100%;
+            margin-top: 50px;
+        }
 
-        div#education, div#experience, div#skills {border-bottom: .5px solid rgba(54, 57, 58, 0.4);
-                                        padding-top: 16px;
-                                        font-size: 18px;}
+        div#one {
+            box-sizing: border-box;
+            float: left;
+            width: 50%;
+            background-color: transparent;
+            padding: 0px;
+        }
 
-        div#section2, div#section5 {display:inline-block;
-                    background-color:transparent;
-                    width: 100%;
-                    padding-top: 16px;}
+        div#two {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 50%;
+            background-color: transparent;
+            text-align: right;
+            padding: 10px;
+        }
 
-        div#three, div#five {box-sizing: border-box;
-                            float: left;
-                            width: 60%;
-                            background-color: transparent;
-                            padding: 0px;
-                            padding-bottom: 0px;
-                            line-height:normal;}
+        div#education,
+        div#experience,
+        div#skills {
+            border-bottom: .5px solid rgba(54, 57, 58, 0.4);
+            padding-top: 16px;
+            font-size: 18px;
+        }
 
-        div#four, div#six {display: inline-block;
-                box-sizing: border-box;
-                width: 40%;
-                background-color: transparent;
-                text-align: right;
-                padding: 0px;}
+        div#section2,
+        div#section5 {
+            display: inline-block;
+            background-color: transparent;
+            width: 100%;
+            padding-top: 16px;
+        }
 
-        div#greytext {font-style: italic;
-                        color: gray;
-                        font-weight:500;
-                        letter-spacing: .3px;}
+        div#three,
+        div#five {
+            box-sizing: border-box;
+            float: left;
+            width: 60%;
+            background-color: transparent;
+            padding: 0px;
+            padding-bottom: 0px;
+            line-height: normal;
+        }
 
-        div#section3, div#section4 {display:inline-block;
-                    background-color:transparent;
-                    width: 100%;}
-        
-        div#resumePdf {display: block;
-                        position: relative;
-                        box-sizing: border-box;
-                        width: 100px;
-                        text-align: center;
-                        left: 45%;
-                        bottom: 0%;
-                        z-index: 1;}
-        ul {display: block;
-            margin: 0em;}
+        div#four,
+        div#six {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 40%;
+            background-color: transparent;
+            text-align: right;
+            padding: 0px;
+        }
 
-        div#bullets {width: 100%;}
+        div#greytext {
+            font-style: italic;
+            color: gray;
+            font-weight: 500;
+            letter-spacing: .3px;
+        }
+
+        div#section3,
+        div#section4 {
+            display: inline-block;
+            background-color: transparent;
+            width: 100%;
+        }
+
+        div#resumePdf {
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+            width: 100px;
+            text-align: center;
+            left: 45%;
+            bottom: 0%;
+            z-index: 1;
+        }
+
+        ul {
+            display: block;
+            margin: 0em;
+        }
+
+        div#bullets {
+            width: 100%;
+        }
 
         /* Glass morphic effect for myTopnav on resume page - only when sticky */
         div#myTopnav {
@@ -257,18 +303,17 @@
             padding: 20px !important;
         }
 
-                     /* Apply glass morphic effect only when sticky */
-             div#myTopnav.sticky {
-                 background: rgba(255, 255, 255, 0.2) !important;
-                 backdrop-filter: blur(20px) !important;
-                 -webkit-backdrop-filter: blur(20px) !important;
-                 border: 1px solid rgba(255, 255, 255, 0.3) !important;
-                 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
-                 transform: translateY(-2px) !important;
-                 border-radius: 16px !important;
-                 cursor: default !important;
-             }
-
+        /* Apply glass morphic effect only when sticky */
+        div#myTopnav.sticky {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-2px) !important;
+            border-radius: 16px !important;
+            cursor: default !important;
+        }
     </style>
 
 </head>
@@ -286,11 +331,13 @@
             <span id="viewport-size"></span>
         </div>
     </div>
-    <div id="goweb"> 
+    <div id="goweb">
         <p>
             <b> For the best experience, open the website on a Desktop or Tablet. </b> <br>
 
-            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of human behavior and digital products.
+            UX Researcher & Designer with a passion for user-centered design. Skilled in data collection, testing, and
+            analysis to inform product development. Driven by a relentless curiosity, I explore the intersection of
+            human behavior and digital products.
         </p>
     </div>
     <div id="onWeb">
@@ -316,167 +363,147 @@
             </aside>
         </div>
         <div id="content">
-        <header> &nbsp; </header>
 
             <div id="right">
                 <div id="centerNav">
-        <nav> 
-            <div id="myTopnav" class="topnav">
-                <div id="navPart2" class="navpart2">
+                    <nav>
+                        <div id="myTopnav" class="topnav">
+                            <div id="navPart2" class="navpart2">
                                 <a href="radhikaResume.pdf" target="_blank"> Download </a>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-            </div>
-        </div> 
-    </nav>
+                                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
                 <div id="main">
 
-        <article> 
-                <p>
-                    <div id="section1">
-                        <div id="one" class="one">
-                            <a href= "project1.html" target="_blank"> UX Design Portfolio </a> <br>
-                            <a href= "https://www.linkedin.com/in/radhikathacker/" target="_blank"> LinkedIn </a> <br>
+                    <article>
+                        I'm a UX designer focused on making digital experiences simple and accessible. I have experience
+                        with wireframing, prototyping, and usability testing. I like working with teams and learning new
+                        ways to solve design problems.
+                        <div id="section1">
+                            <div id="one" class="one">
+                                <a href="project1.html" target="_blank"> UX Design Portfolio </a> <br>
+                                <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank"> LinkedIn </a>
+                                <br>
+                            </div>
+                            <div id="two">
+                                rthacke1@depaul.edu
+                            </div>
                         </div>
-                        <div id="two">
-                            rthacke1@depaul.edu 
+                        <div id="education">
+                            Education
                         </div>
-                    </div>
-                    <div id="education">
-                        Education
-                    </div>
-                    <div id="section2">
-                        <div id="three" class="three">
-                           Jarvis College of Computing & Digital Media, <br>
-                           DePaul University, Chicago <br>
-                           <div id="greytext"> <i> Masters of Science in Human Computer Interaction </i></div><br>
+                        <div id="section2">
+                            <div id="three" class="three">
+                                Jarvis College of Computing & Digital Media, <br>
+                                DePaul University, Chicago <br>
+                                <div id="greytext"> <i> Masters of Science in Human Computer Interaction </i></div><br>
+                            </div>
+                            <div id="four">
+                                <div> September 2023- September 2025 </div>
+                            </div>
                         </div>
-                        <div id="four">
-                            <div> September 2023- September 2025 </div>
+                        <div id="section3">
+                            <div id="five" class="five">
+                                Center for Environment Planning and Technology University, <br>
+                                Ahmedabda-India <br>
+                                <div id="greytext"><i> Masters of Interior Architecture & Design </i></div><br>
+                            </div>
+                            <div id="six">
+                                <div> June 2016- June 2018 </div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="section3">
-                        <div id="five" class="five">
-                            Center for Environment Planning and Technology University, <br>
-                            Ahmedabda-India <br>
-                            <div id="greytext"><i> Masters of Interior Architecture & Design </i></div><br>
+                        <div id="section4">
+                            <div id="five" class="five">
+                                Hemchandracharya North Gujarat University, <br>
+                                Patan-India <br>
+                                <div id="greytext"><i> Bachelor of Architecture </i></div><br>
+                            </div>
+                            <div id="six">
+                                <div> June 2011- June 2016 </div>
+                            </div>
                         </div>
-                        <div id="six">
-                            <div> June 2016- June 2018 </div>
+                        <div id="experience">
+                            UX Design Experience
                         </div>
-                    </div>
-                    <div id="section4">
-                        <div id="five" class="five">
-                            Hemchandracharya North Gujarat University, <br>
-                            Patan-India <br>
-                            <div id="greytext"><i> Bachelor of Architecture </i></div><br>
+                        <div id="section5">
+                            <div id="three" class="three">
+                                Graduate Project | "Curb Impulse Buying" App <br>
+                                <div id="greytext"><i> DePaul University </i></div><br>
+                            </div>
+                            <div id="four">
+                                <div> September 2024 - November 2024 </div>
+                            </div> <br>
                         </div>
-                        <div id="six">
-                            <div> June 2011- June 2016 </div>
+                        <div id="bullets">
+                            <ul>
+                                <li>
+                                    Designed website interfaces focused on target customer-centered reflection barriers
+                                    to reduce impulsive purchasing behavior.
+                                </li>
+                                <li>
+                                    Developed wireframes, interactive prototypes, and conducted usability testing to
+                                    refine flows and feature discovery pathways.
+                                </li>
+                                <li>
+                                    Applied design thinking and iterative prototyping to create engaging digital
+                                    experiences.
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                    <div id="experience">
-                        UX Design Experience
-                    </div>
-                    <div id="section5">
-                        <div id="three" class="three">
-                            Graduate Project | "Curb Impulse Buying" App <br>
-                            <div id="greytext"><i> DePaul University </i></div><br>
-                        </div>
-                        <div id="four">
-                            <div> September 2024 - November 2024 </div> 
-                        </div> <br>
-                    </div>
-                    <div id="bullets">
-                        <ul>
-                            <li>
-                                Designed an app to help users reduce impulsive purchases by implementing user-centric barriers for reflection.
-                            </li>
-                            <li>
-                                Created wireframes, high-fidelity prototypes, and conducted usability testing to iterate and refine designs.
-                            </li>
-                            <li>
-                                Focused on mobile-first design principles with WCAG-compliant accessibility features.
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="section5">
-                        <div id="three" class="three">
-                            Group Project | Usability Testing for Redwood City Website <br>
-                            <div id="greytext"><i> DePaul University </i></div><br>
-                        </div>
-                        <div id="four">
-                            <div> June 2024 - August 2024 </div> 
-                        </div> <br>
-                    </div>
-                    <div id="bullets">
-                        <ul>
-                            <li>
-                                Conducted content audits and tested site architecture for improved navigation and task completion
-                            </li>
-                            <li>
-                                Delivered findings with actionable suggestions for enhanced user flow and accessibility.
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="skills">
-                        Skills
-                    </div>
-                    <div id="skills2">
-                        <p> 
-                            <div id="label"> Design Tools </div>
-                            Figma, Adobe Creative Suite (Illustrator, InDesign, Photoshop), Miro, Whimsical, Notion
-                        </p>
-                        <p>
-                            <div  id="label"> Technology </div>
-                                HTML, CSS, JavaScript (Basic knowledge)
-                        </p>
-                        <p> 
-                            <div  id="label"> Methods </div> 
-                            Wireframing, Prototyping, usability testing, Heuristic evaluation, Information Architecture,  User Interviews, Interface Designs, Design Thinking, Design Systems
-                        </p>
-                        <p>
-                            <div  id="label"> Business </div> 
-                            Business Model Analysis, Value Proposition Development, Competitive Product Analysis
-                        </p>
-                        <p>
-                            <div  id="label"> Soft Skills </div> 
-                            Leadership, Cross-functional collaboration, Communication
-                        </p>
-                    </div>
-                    <h4> 
-                        Resume updated in Nov 2024
-                    </h4>
-        </article>
+                        <div id="section5">
+
+                            <div id="skills">
+                                Skills
+                            </div>
+                            <div id="skills2">
+                                <p>
+                                <div id="label"> Design Tools </div>
+                                Figma, Adobe Creative Suite (Illustrator, InDesign, Photoshop), Miro, Whimsical
+                                </p>
+                                <div id="label"> Instructional & UX Design </div>
+                                Wireframing, Interactive Prototyping, Usability Testing, Heuristic Evaluation,
+                                Information
+                                Architecture, Design Systems, Instructional Content Development, Feature Discovery Flows
+                                </p>
+
+                                <p>
+                                <div id="label"> Technology </div>
+                                Basic HTML, CSS, JavaScript
+                                </p>
+                                <p>
+                                <div id="label"> User Research & Collaboration </div>
+                                User Interviews, Cross-functional Team Collaboration, Communication, Leadership
+                                </p>
+                                <p>
+                                <div id="label"> Business </div>
+                                Competitive Product Analysis, Business Model Analysis, Value Proposition Development
+                                </p>
+                                <div id="label"> Accessibility & Inclusivity </div>
+                                WCAG Compliance, Inclusive Design Principles
+                                </p>
+                            </div>
+                            <h4>
+                                Resume updated in Aug 2025
+                            </h4>
+                    </article>
 
                 </div> <!-- end of main -->
-
                 <div id="footer">
-                    <div class="banner" id="dynamic-banner">
-                        <p>Hi there! Thanks for visiting! I'm actively working on my portfolio site. <br>
-                            Keep an eye out for exciting updates! <br> <br>
-                            Last Updated: <span id="last-updated"></span></p>
-                    </div>
-                    <div>
-                        <p>
-                            I am excited to collaborate, contribute & grow.
-                            Let's device beautiful and meaningful experiences together.
-                        </p>
-                    </div>
-                    <br>
-            <p>
-                Connect:
-                <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
-                Linkedin
-                </a>
-            </p>
-            <small>
-                &copy; Designed and Coded by Radhika Thacker - 2024 <br>
-                Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
-                Jarvis College of Computing and Digital Media | DePaul University
-            </small>
+                    <p>
+                        Connect:
+                        <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
+                            Linkedin
+                        </a>
+                    </p>
+                    <small>
+                        &copy; Designed and Vibe-Coded using Cursor.ai by Radhika Thacker - 2025 <br>
+                        Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
+                        Jarvis College of Computing and Digital Media | DePaul University
+                    </small>
                 </div>
             </div> <!-- end of right -->
         </div> <!-- end of content -->
@@ -489,22 +516,44 @@
             const timeStr = now.toLocaleTimeString();
             document.getElementById('datetime').textContent = `${dateStr} | ${timeStr}`;
         }
-        
+
         function updateViewportSize() {
             const width = window.innerWidth;
             const height = window.innerHeight;
             document.getElementById('viewport-size').textContent = `${width}×${height}`;
         }
-        
+
         // Initialize on load
         updateDateTime();
         updateViewportSize();
-        
+
         // Update datetime every second
         setInterval(updateDateTime, 1000);
-        
+
         // Update viewport size on resize
         window.addEventListener('resize', updateViewportSize);
     </script>
 </body>
+
 </html>
+
+<!-- <div id="three" class="three">
+                                Group Project | Usability Testing for Redwood City Website <br>
+                                <div id="greytext"><i> DePaul University </i></div><br>
+                            </div>
+                            <div id="four">
+                                <div> June 2024 - August 2024 </div>
+                            </div> <br>
+                        </div>
+                        <div id="bullets">
+                            <ul>
+                                <li>
+                                    Conducted content audits and tested site architecture for improved navigation and
+                                    task completion
+                                </li>
+                                <li>
+                                    Delivered findings with actionable suggestions for enhanced user flow and
+                                    accessibility.
+                                </li>
+                            </ul>
+                        </div>-->

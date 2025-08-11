@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
         Radhika Thacker UX Design | Contact
     </title>
-    
+
     <style>
         /* Sticky Breadcrumb Strip */
         .breadcrumb-strip {
@@ -24,7 +25,7 @@
             animation: slideIn 0.5s ease-out;
             box-sizing: border-box;
         }
-        
+
         .breadcrumb-content {
             display: inline-block;
             white-space: nowrap;
@@ -32,29 +33,37 @@
             text-overflow: ellipsis;
             max-width: 80%;
         }
-        
+
         @keyframes slideIn {
             from {
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
-        
+
         /* Body styling */
         body {
             margin: 0;
             padding: 0;
         }
-        
+
         /* Cursor improvements for breadcrumb */
         .breadcrumb-strip {
             cursor: default;
@@ -62,7 +71,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .breadcrumb-left {
             flex: 1;
             text-align: left;
@@ -72,7 +81,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .breadcrumb-center {
             flex: 2;
             text-align: center;
@@ -82,7 +91,7 @@
             cursor: default;
             margin: 0 8px;
         }
-        
+
         .breadcrumb-right {
             flex: 1;
             text-align: right;
@@ -92,11 +101,11 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .breadcrumb-content {
             cursor: default;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .breadcrumb-strip {
@@ -104,7 +113,7 @@
                 padding: 3px 12px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .breadcrumb-strip {
                 font-size: 10px;
@@ -170,46 +179,27 @@
             </aside>
         </div>
         <div id="content">
-            <header> &nbsp; </header>
+            <header> &nbsp; <p class="designer"> Let's Connect </p>
+            </header>
 
             <div id="right">
                 <div id="main">
                     <div class="letter">
-                        <p class="designer"> Let's Connect </p>
-                        <p>
-                            I'm always excited to collaborate on new projects and opportunities. Whether you have a project in mind, want to discuss UX design, or just want to say hello, I'd love to hear from you.
-                        </p>
+
                         <p>
                             <strong>Email:</strong> rthacke1@depaul.edu<br>
-                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">linkedin.com/in/radhikathacker</a>
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/radhikathacker/"
+                                target="_blank">linkedin.com/in/radhikathacker</a>
                         </p>
                         <p>
-                            I'm currently based in Chicago and available for freelance opportunities, collaborations, and full-time positions in UX Research and Design.
+                            I'm currently based in Bay Area.
                         </p>
                     </div>
                 </div>
 
                 <div id="footer">
-                    <div class="banner" id="dynamic-banner">
-                        <p>Hi there! Thanks for visiting! I'm actively working on my portfolio site. <br>
-                            Keep an eye out for exciting updates! <br> <br>
-                            Last Updated: <span id="last-updated"></span></p>
-                    </div>
-                    <div>
-                        <p>
-                            I am excited to collaborate, contribute & grow.
-                            Let's device beautiful and meaningful experiences together.
-                        </p>
-                    </div>
-                    <br>
-                    <p>
-                        Connect:
-                        <a href="https://www.linkedin.com/in/radhikathacker/" target="_blank">
-                            Linkedin
-                        </a>
-                    </p>
                     <small>
-                        &copy; Designed and Coded by Radhika Thacker - 2024 <br>
+                        &copy; Designed and Vibe-Coded using Cursor.ai by Radhika Thacker - 2025 <br>
                         Master of Science (MS) in Human-Computer Interaction (HCI) | 2023-2025 <br>
                         Jarvis College of Computing and Digital Media | DePaul University
                     </small>
@@ -217,7 +207,7 @@
             </div> <!-- end of right -->
         </div> <!-- end of content -->
     </div> <!-- end of onWeb -->
-    
+
     <script>
         function updateDateTime() {
             const now = new Date();
@@ -225,22 +215,23 @@
             const timeStr = now.toLocaleTimeString();
             document.getElementById('datetime').textContent = `${dateStr} | ${timeStr}`;
         }
-        
+
         function updateViewportSize() {
             const width = window.innerWidth;
             const height = window.innerHeight;
             document.getElementById('viewport-size').textContent = `${width}×${height}`;
         }
-        
+
         // Initialize on load
         updateDateTime();
         updateViewportSize();
-        
+
         // Update datetime every second
         setInterval(updateDateTime, 1000);
-        
+
         // Update viewport size on resize
         window.addEventListener('resize', updateViewportSize);
     </script>
 </body>
+
 </html>
